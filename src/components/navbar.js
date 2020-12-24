@@ -3,8 +3,9 @@ import { Flex, jsx } from 'theme-ui'
 import { useState } from 'react'
 import Headroom from 'react-headroom'
 import Hamburger from 'react-hamburger-menu'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import Link from './link'
 
 const NavLink = ({ children, ...props }) => (
   <Link
@@ -20,13 +21,16 @@ const NavLink = ({ children, ...props }) => (
         top: '0.2em',
         height: 1,
         content: '""',
-        backgroundColor: 'text',
+        bg: 'text',
         transition: '.2s',
         transform: 'scaleX(0)',
         transformOrigin: 'left center',
       },
       '&.active::after, :hover::after, :focus::after': {
         transform: 'scaleX(1)',
+      },
+      '&.active::after': {
+        bg: 'primary',
       },
     }}
   >{children}</Link>
@@ -51,7 +55,8 @@ const Navbar = () => {
         position: 'fixed',
         width: '100%',
         '& > .headroom': {
-          p: '2rem',
+          py: '2rem',
+          px: ['2rem', '3rem', '4rem'],
           display: 'flex',
           justifyContent: 'space-between',
           transition: '0.2s linear',

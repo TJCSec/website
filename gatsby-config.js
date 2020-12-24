@@ -1,8 +1,17 @@
 module.exports = {
   pathPrefix: '/csc',
   plugins: [
-    "gatsby-plugin-theme-ui",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-smoothscroll',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`,
+      },
+    },
   ],
   siteMetadata: {
     title: 'TJCSC',

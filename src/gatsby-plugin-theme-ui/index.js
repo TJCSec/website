@@ -5,14 +5,26 @@ export default {
   breakpoints: [
     '40em', '56em', '64em',
   ],
+  buttons: {
+    primary: {
+      color: 'background',
+      bg: 'primary',
+      cursor: 'pointer',
+      fontFamily: 'body',
+      '&:hover': {
+        bg: 'secondary',
+      },
+    },
+  },
   colors: {
     text: '#ffffff',
     background: '#00060C',
     primary: '#CFE4FF',
-    secondary: '#CFE4FF',
+    secondary: '#AED1FE',
     accent: '#D67C78',
     highlight: '#FFDB78',
     muted: '#eeeeee',
+    altBackground: '#0B1117',
     lightBackground: '#192128',
     navbar: '#000000',
   },
@@ -33,6 +45,10 @@ export default {
     body: 1.5,
     heading: 1.125,
   },
+  sizes: {
+    navbar: '90px',
+    container: '50rem',
+  },
   styles: {
     root: {
       fontFamily: 'body',
@@ -41,10 +57,10 @@ export default {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'stretch',
+      scrollBehavior: 'smooth',
     },
-  },
-  sizes: {
-    navbar: '90px',
-    container: '50rem',
+    a: {
+      color: 'text',
+    },
   },
 }
