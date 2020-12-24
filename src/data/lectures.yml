@@ -1,0 +1,12 @@
+---
+- title: Introduction
+  date: 9/30/2020
+  body: Brief introduction of the club, including an overview of topics and Capture
+    the Flag competitions.
+  level: 1
+  presentationLink: https://docs.google.com/presentation/d/1dVgI2fHgNCztCMbeCd8bsH60u9Ac6CsUAkBMGjGYnEE/
+- title: RSA Attacks
+  date: 12/9/2020
+  body: How to break RSA.
+  level: 2
+  presentationLink: https://docs.google.com/presentation/d/1-6uLOp_8zf8APhJVNJXAEgux48jebDvdB2i5W1jq208/edit?usp=sharing

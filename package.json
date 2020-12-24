@@ -25,13 +25,15 @@
     "gatsby-plugin-sharp": "^2.11.2",
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-theme-ui": "^0.3.5",
-    "gatsby-source-filesystem": "^2.8.0",
+    "gatsby-source-filesystem": "^2.8.1",
     "gatsby-transformer-sharp": "^2.9.0",
+    "gatsby-transformer-yaml": "^2.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hamburger-menu": "^1.2.1",
     "react-headroom": "^3.1.0",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.1.0",
     "theme-ui": "^0.3.5"
   }
 }
