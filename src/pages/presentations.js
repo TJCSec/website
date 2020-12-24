@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Button, Flex, Grid, jsx } from 'theme-ui'
+import { Box, Button, Flex, Grid, jsx } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -40,7 +40,6 @@ const Presentations = () => {
     },
   } = useStaticQuery(query)
   const { node: currentFolder } = lectureFolders[0]
-  // TODO: dropdown for old presentations
   return (
     <Layout>
       <Hero title='Presentations' />
@@ -68,14 +67,58 @@ const Presentations = () => {
             >
                 Presentations ({currentFolder.label})
             </Button>
-            <Button
-              as='a'
-              href={currentFolder.link}
-              target='_blank'
-              rel='noopener noreferrer'
+            <Box
+              sx={{
+                position: 'relative',
+              }}
             >
+              <Button
+                sx={{
+                  width: '100%',
+                  '&:focus + *, & + :focus-within': {
+                    visibility: 'visible',
+                    opacity: 1,
+                  },
+                }}
+              >
                 Old Presentations
-            </Button>
+              </Button>
+              <Box
+                sx={{
+                  visibility: 'hidden',
+                  opacity: 0,
+                  position: 'absolute',
+                  top: 'calc(100% + 0.5rem)',
+                  width: '100%',
+                  bg: 'primary',
+                  borderRadius: 4,
+                  py: 2,
+                  zIndex: 999,
+                  transition: '0.2s linear',
+                }}
+              >
+                {lectureFolders.slice(1).map(({ node: folder }, i) => (
+                  <Box
+                    as='a'
+                    sx={{
+                      display: 'block',
+                      textDecoration: 'none',
+                      color: 'background',
+                      px: 3,
+                      py: 1,
+                      '&:hover, &:focus': {
+                        bg: 'secondary',
+                      }
+                    }}
+                    href={folder.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {folder.label}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
           </Flex>
           <SearchBar />
           <CardGrid lectures={lectures} />
