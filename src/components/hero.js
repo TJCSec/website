@@ -16,7 +16,7 @@ const Hero = ({ children, ...props }) => (
       sx={{
         pt: theme => `calc(2rem + ${theme.sizes.navbar})`,
         pb: '2rem',
-        px: '4rem',
+        px: ['2rem', null, '4rem'],
         backgroundColor: 'background',
         minHeight: '100vh',
         color: 'inverse',
@@ -28,7 +28,7 @@ const Hero = ({ children, ...props }) => (
           fontSize: [6, null, 7],
         },
         'h2': {
-          fontSize: [3, null, 6],
+          fontSize: [3, null, 5],
         },
         '& > *': {
           maxWidth: [null, null, '40rem'],

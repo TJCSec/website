@@ -125,7 +125,7 @@ const Navbar = () => {
             activeClassName={'active'}
             partiallyActive={true}
             sx={{
-              ml: [0, null, '1rem'],
+              ml: [0, null, '2rem'],
               p: ['0.5rem', null, 0],
             }}
           >
