@@ -1,30 +1,42 @@
 /** @jsx jsx */
 import { Box, jsx } from 'theme-ui'
 
-const Hero = ({ children, big, ...props }) => (
+import CircuitBoard from '../images/circuit-board.svg'
+
+const Hero = ({ children, ...props }) => (
   <Box
-    {...props}
     sx={{
-      p: '2rem',
-      pt: theme => `calc(3rem + ${theme.space.navbar})`,
-      backgroundColor: 'primary',
-      minHeight: (big) ? '75vh' : '20rem',
-      color: 'inverse',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      'h1': {
-        fontSize: 6,
-      },
-      '& > *': {
-        textAlign: 'center',
-        maxWidth: 'container',
-        width: '90%',
-      },
+      backgroundColor: '#0B1117',
+      backgroundImage: `url(${CircuitBoard})`,
+      pr: [0, null, '50%'],
     }}
   >
-    {children}
+    <Box
+      {...props}
+      sx={{
+        pt: theme => `calc(2rem + ${theme.sizes.navbar})`,
+        pb: '2rem',
+        px: '4rem',
+        backgroundColor: 'background',
+        minHeight: '100vh',
+        color: 'inverse',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        'h1': {
+          fontSize: [6, null, 7],
+        },
+        'h2': {
+          fontSize: [3, null, 6],
+        },
+        '& > *': {
+          maxWidth: [null, null, '40rem'],
+        },
+      }}
+    >
+      {children}
+    </Box>
   </Box>
 )
 

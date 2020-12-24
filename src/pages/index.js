@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Heading, Box, Flex, jsx } from 'theme-ui'
+import { Heading, jsx } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -15,29 +15,10 @@ const Index = () => {
   } = useStaticQuery(query)
   return (
     <Layout>
-      <Hero big>
-        <Heading as='h1' mb='2rem'>TJ Computer Security Club</Heading>
-        <Heading as='h2'>{description}</Heading>
+      <Hero>
+        <Heading as='h1' mb='2rem'>TJHSST Computer Security Club</Heading>
+        <Heading as='h2' sx={{ color: 'primary' }}>{description}</Heading>
       </Hero>
-      <Flex
-        as='section'
-        sx={{
-          p: '2rem',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          '& > *': {
-            textAlign: 'center',
-            maxWidth: 'container',
-            width: '90%',
-          },
-        }}
-      >
-        <Heading as='h1' sx={{ fontSize: 5 }}>Officers</Heading>
-        <Box>
-          pepega
-        </Box>
-      </Flex>
     </Layout>
   )
 }

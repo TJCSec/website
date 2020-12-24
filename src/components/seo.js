@@ -3,15 +3,12 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
-// TODO: make this different for every page?
-
-const SEO = () => {
+const SEO = (props) => {
   const { pathname } = useLocation()
   const {
     site: {
       siteMetadata: {
         title,
-        titleTemplate,
         description,
         url,
         image,
@@ -20,7 +17,7 @@ const SEO = () => {
   } = useStaticQuery(query)
 
   return (
-    <Helmet title={title} titleTemplate={titleTemplate}>
+    <Helmet title={title} {...props}>
       <meta name='description' content={description} />
       <meta property='og:type' content='website' />
       <meta property='og:url' content={url + pathname} />
@@ -41,7 +38,6 @@ const query = graphql`
         description
         image
         title
-        titleTemplate
         url
       }
     }
