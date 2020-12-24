@@ -29,11 +29,20 @@ const LectureCard = ({body, date, level, title, presentationLink, ...props}) => 
         >
           {title}
         </Heading>
+        <Text
+          sx={{
+            fontSize: 1,
+            marginTop: 2,
+            color: difficulty
+          }}
+        >
+          {date}
+        </Text>
         <Heading
           as='h4'
           sx={{
             fontSize: [1, 2],
-            marginTop: 1
+            marginTop: 3
           }}
         >
           {body}
