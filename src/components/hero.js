@@ -28,7 +28,7 @@ const Hero = ({ children, ...props }) => (
           fontSize: [6, null, 7],
         },
         'h2': {
-          fontSize: [3, null, 5],
+          fontSize: [3, null, 4],
         },
         '& > *': {
           maxWidth: [null, null, '40rem'],
