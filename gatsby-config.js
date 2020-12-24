@@ -8,7 +8,6 @@ module.exports = {
     title: 'TJCSC',
     description:
       'TJHSST Computer Security Club is designed to introduce students to ethical hacking',
-    image: '/csc/meta.png',
     url: 'https://activities.tjhsst.edu',
     menuLinks: [
       {
