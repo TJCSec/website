@@ -1,79 +1,94 @@
 /** @jsx jsx */
-import { Box, Heading, Progress, Text, jsx, Button, Flex } from 'theme-ui'
+import { Heading, Progress, Text, jsx, Button, Flex } from 'theme-ui'
 
-const LectureCard = ({body, date, level, title, presentationLink, ...props}) => {
-  const seekBarColor = level === 3 ? "accent" : level === 2 ? "highlight" : "secondary"
-  const difficulty = level === 3 ? "Hard" : level === 2 ? "Medium" : "Easy"
+const difficulty = {
+  1: {
+    color: '#AED1FE',
+    display: 'Easy',
+  },
+  2: {
+    color: '#FFDB78',
+    display: 'Medium',
+  },
+  3: {
+    color: '#D67C78',
+    display: 'Hard',
+  },
+}
+
+const LectureCard = ({ body, date, level, title, link, ...props }) => {
+  const { color, display } = difficulty[level]
 
   return (
     <Flex
       {...props}
       sx={{
-        bg: "lightBackground",
+        bg: 'lightBackground',
         borderRadius: 4,
         padding: 4,
-        width: "100%",
-        alignItems: "center"
+        alignItems: 'flex-start',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        '& > *': {
+          flex: '0 1 auto',
+        }
       }}
     >
-      <Box
+      <Heading
+        as='h1'
         sx={{
-          width: "100%"
+          fontSize: [3, 4, 5],
         }}
       >
-        <Heading
-          as='h1'
-          sx={{
-            fontSize: [3, 4, null, 5],
-          }}
-        >
-          {title}
-        </Heading>
-        <Text
-          sx={{
-            fontSize: 1,
-            marginTop: 2,
-            color: difficulty
-          }}
-        >
-          {date}
-        </Text>
-        <Heading
-          as='h4'
-          sx={{
-            fontSize: [1, 2],
-            marginTop: 3
-          }}
-        >
-          {body}
-        </Heading>
-        <Progress 
-          max={3} 
-          value={level} 
-          color={seekBarColor}
-          sx={{
-            marginTop: 3,
-            height: 5,
-          }}
-        />
-        <Text
-          sx={{
-            fontSize: 1,
-            marginTop: 2,
-            color: difficulty
-          }}
-        >
-          {difficulty}
-        </Text>
-        <Button
-          sx={{
-            marginTop: 3
-          }}
-          onClick={() => {window.location.href = presentationLink}}
-        >
-          Presentation
-        </Button>
-      </Box>
+        {title}
+      </Heading>
+      <Text
+        sx={{
+          fontSize: 1,
+          marginTop: 2,
+          color: color,
+        }}
+      >
+        {date}
+      </Text>
+      <Text
+        sx={{
+          fontSize: [1, 2],
+          mt: 3,
+          flex: '1 0 auto',
+        }}
+      >
+        {body}
+      </Text>
+      <Progress
+        max={3}
+        value={level}
+        color={color}
+        sx={{
+          mt: 3,
+          height: 5,
+        }}
+      />
+      <Text
+        sx={{
+          fontSize: 1,
+          marginTop: 2,
+          color: color,
+        }}
+      >
+        {display}
+      </Text>
+      <Button
+        sx={{
+          mt: 3,
+        }}
+        as='a'
+        href={link}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        Presentation
+      </Button>
     </Flex>
   )
 }

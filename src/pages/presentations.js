@@ -1,32 +1,29 @@
 /** @jsx jsx */
 import { Button, Flex, Grid, jsx } from 'theme-ui'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
 import SearchBar from '../components/searchbar'
-import { useStaticQuery, graphql } from 'gatsby'
 import LectureCard from '../components/lecturecard'
 
-const CardGrid = () => {
-  const lectures = useStaticQuery(query).allLecturesYaml.edges
-  console.log(lectures)
+const CardGrid = ({ lectures }) => {
   return (
     <Grid
-      columns={[ 1, 2, null, 4 ]}
       sx={{
-        width: "100%",
-        justifyItems: "start"
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
       }}
     >
-      {lectures.map((obj, _) => (
-        <LectureCard 
-          title={obj.node.title} 
-          body={obj.node.body} 
-          level={obj.node.level}
-          presentationLink={obj.node.presentationLink}
-          date={obj.node.date}
-        /> 
+      {lectures.map(({ node: lecture }, i) => (
+        <LectureCard
+          key={i}
+          title={lecture.title}
+          body={lecture.body}
+          level={lecture.level}
+          link={lecture.link}
+          date={lecture.date}
+        />
       ))}
 
     </Grid>
@@ -34,6 +31,16 @@ const CardGrid = () => {
 }
 
 const Presentations = () => {
+  const {
+    allLecturesYaml: {
+      edges: lectures,
+    },
+    allLectureFoldersYaml: {
+      edges: lectureFolders,
+    },
+  } = useStaticQuery(query)
+  const { node: currentFolder } = lectureFolders[0]
+  // TODO: dropdown for old presentations
   return (
     <Layout>
       <Hero title='Presentations' />
@@ -41,34 +48,37 @@ const Presentations = () => {
         <Grid
           gap={4}
           sx={{
-            justifyItems: "start"
+            justifyItems: 'stretch',
           }}
         >
           <Flex
             sx={{
-              flexDirection: ["column", "row"],
-              marginTop: -3
+              flexDirection: ['column', null, 'row'],
             }}
           >
-            <Button 
+            <Button
               sx={{
-                marginRight: [null, 3],
+                mr: [0, null, 3],
+                mb: [3, null, 0],
               }}
-              onClick={() => {}}
+              as='a'
+              href={currentFolder.link}
+              target='_blank'
+              rel='noopener noreferrer'
             >
-                Presentations (Google Drive)
+                Presentations ({currentFolder.label})
             </Button>
-            <Button 
-              sx={{
-                marginTop: [3, 0, null],
-              }}
-              onClick={() => {}}
+            <Button
+              as='a'
+              href={currentFolder.link}
+              target='_blank'
+              rel='noopener noreferrer'
             >
-                Old Presentations (Google Drive)
+                Old Presentations
             </Button>
           </Flex>
           <SearchBar />
-          <CardGrid />
+          <CardGrid lectures={lectures} />
         </Grid>
       </Container>
     </Layout>
@@ -86,7 +96,15 @@ const query = graphql`
           level
           date
           body
-          presentationLink
+          link
+        }
+      }
+    }
+    allLectureFoldersYaml {
+      edges {
+        node {
+          link
+          label
         }
       }
     }
