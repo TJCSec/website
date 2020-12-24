@@ -24,7 +24,7 @@ const LectureCard = ({body, date, level, title, presentationLink, ...props}) => 
         <Heading
           as='h1'
           sx={{
-            fontSize: [3, 4, 5],
+            fontSize: [3, 4, null, 5],
           }}
         >
           {title}

@@ -13,7 +13,7 @@ const CardGrid = () => {
   console.log(lectures)
   return (
     <Grid
-      columns={[ 1, 2, 4 ]}
+      columns={[ 1, 2, null, 4 ]}
       sx={{
         width: "100%",
         justifyItems: "start"
