@@ -14,7 +14,11 @@ const CardGrid = ({ lectures }) => {
   return (
     <Grid
       sx={{
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+        gridTemplateColumns: [
+          'repeat(auto-fill, minmax(200px, 1fr))',  // better way to do this?
+          null,
+          'repeat(auto-fill, minmax(300px, 1fr))',
+        ],
       }}
     >
       {lectures.map(({ node: lecture }, i) => (
@@ -44,18 +48,18 @@ const Presentations = () => {
 
   const { node: currentFolder } = lectureFolders[0]
 
-  const [pattern, setPattern] = useState("")
-  const [displayedLectures, setDisplayedLectures] = useState(lectures);
+  const [pattern, setPattern] = useState('')
+  const [displayedLectures, setDisplayedLectures] = useState(lectures)
 
   const fuseOptions = {
-    keys: [{name: "node.title", weight: 2}, "node.body"]
+    keys: [{name: 'node.title', weight: 2}, 'node.body']
   }
   const fuse = new Fuse(lectures, fuseOptions)
 
   const onSearchAction = (e) => {
     setPattern(e.target.value);
 
-    if(e.target.value === "")
+    if(e.target.value === '')
       setDisplayedLectures(lectures)
     else {
       let res = fuse.search(e.target.value).map((val, _) => val.item)
@@ -130,7 +134,7 @@ const Presentations = () => {
                       textDecoration: 'none',
                       color: 'background',
                       px: 3,
-                      py: 1,
+                      py: 2,
                       '&:hover, &:focus': {
                         bg: 'secondary',
                       }
