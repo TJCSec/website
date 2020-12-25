@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Heading, Text, jsx, Button, Flex } from 'theme-ui'
+import { Box, Heading, Text, jsx, Button, Flex } from 'theme-ui'
 
 const CTFCard = ({ name, link, startDate, endDate, ...props }) => {
   return (
@@ -17,51 +17,46 @@ const CTFCard = ({ name, link, startDate, endDate, ...props }) => {
         }
       }}
     >
-      <Heading
-        as='h1'
-        sx={{
-          fontSize: [3, 4, 5],
-        }}
-      >
-        {name}
-      </Heading>
-      <Text
-        sx={{
-          fontSize: 1,
-          marginTop: 2,
-        }}
-      >
-        {`${startDate} - ${endDate}`}
-      </Text>
-      <Text
-        sx={{
-          fontSize: [1, 2],
-          mt: 3,
-          flex: '1 0 auto',
-        }}
-      >
-        {/* {body} */}
-      </Text>
-      <Text
-        sx={{
-          fontSize: 1,
-          marginTop: 2,
-          // color: color,
-        }}
-      >
-        {/* {display} */}
-      </Text>
-      <Button
+      <Box>
+        <Heading
+          as='h1'
+          sx={{
+            fontSize: [3, 4, 5],
+          }}
+        >
+          {name}
+        </Heading>
+        <Text
+          sx={{
+            fontSize: 1,
+            marginTop: 2,
+            color: 'primary',
+          }}
+        >
+          {`${startDate} - ${endDate}`}
+        </Text>
+      </Box>
+      <Box
         sx={{
           mt: 3,
         }}
-        as='a'
-        href={link}
-        target='_blank'
-        rel='noopener noreferrer'
       >
-        Go
-      </Button>
+        <Button
+          sx={{
+            mr: 2,
+          }}
+          as='a'
+          href={link}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Go
+        </Button>
+        <Button> 
+          {/* Need a way of showing the scores of the people, maybe a pop-up/overlay */}
+          TJ Participants
+        </Button>
+      </Box>
     </Flex>
   )
 }
