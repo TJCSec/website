@@ -6,23 +6,9 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 
 import Layout from '../components/layout'
 import Container from '../components/container'
+import OfficerCard from '../components/officercard'
 
 import CircuitBoard from '../images/circuit-board.svg'
-
-const aboutBlocks = [
-  {
-    title: 'What',
-    text: 'we teach how to do many hacc!!!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel laoreet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id aliquam lectus. Nulla facilisi. Nulla vehicula sapien ante, a semper nisi posuere non. Nunc facilisis vehicula arcu, ut placerat erat convallis eget. Praesent eu lacus ut nisi sollicitudin bibendum sit amet vel quam. Nullam id pharetra lacus, ac blandit dui. Nullam nisi nulla, congue id nibh sit amet, viverra auctor odio. Ut fringilla finibus nisi, quis mattis mi pellentesque sed. Nullam maximus sodales est, nec rhoncus nisi. Vestibulum varius viverra nisi in suscipit. Integer ut risus eleifend, porttitor lorem at, sollicitudin nulla.',
-  },
-  {
-    title: 'Why',
-    text: 'hacker bad tjcsc good!!!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel laoreet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id aliquam lectus. Nulla facilisi. Nulla vehicula sapien ante, a semper nisi posuere non. Nunc facilisis vehicula arcu, ut placerat erat convallis eget. Praesent eu lacus ut nisi sollicitudin bibendum sit amet vel quam. Nullam id pharetra lacus, ac blandit dui. Nullam nisi nulla, congue id nibh sit amet, viverra auctor odio. Ut fringilla finibus nisi, quis mattis mi pellentesque sed. Nullam maximus sodales est, nec rhoncus nisi. Vestibulum varius viverra nisi in suscipit. Integer ut risus eleifend, porttitor lorem at, sollicitudin nulla.',
-  },
-  {
-    title: 'How',
-    text: 'ez lecture even monke could understand!!!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel laoreet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id aliquam lectus. Nulla facilisi. Nulla vehicula sapien ante, a semper nisi posuere non. Nunc facilisis vehicula arcu, ut placerat erat convallis eget. Praesent eu lacus ut nisi sollicitudin bibendum sit amet vel quam. Nullam id pharetra lacus, ac blandit dui. Nullam nisi nulla, congue id nibh sit amet, viverra auctor odio. Ut fringilla finibus nisi, quis mattis mi pellentesque sed. Nullam maximus sodales est, nec rhoncus nisi. Vestibulum varius viverra nisi in suscipit. Integer ut risus eleifend, porttitor lorem at, sollicitudin nulla.',
-  },
-]
 
 const Index = ({ data }) => {
   const {
@@ -40,6 +26,12 @@ const Index = ({ data }) => {
       childImageSharp: {
         fluid: club,
       },
+    },
+    allAboutYaml: {
+      edges: about,
+    },
+    allOfficersYaml: {
+      edges: officers,
     },
   } = data
   return (
@@ -141,7 +133,6 @@ const Index = ({ data }) => {
         <Img fluid={{ ...club, aspectRatio: 1.778 }} alt='TJ Computer Security Club Meeting, October 2016'
           sx={{
             display: ['none', null, 'block'],
-            mb: 1,
           }}
         />
       </Flex>
@@ -152,19 +143,31 @@ const Index = ({ data }) => {
           '& > *': {
             flex: '1 1 0',
             justifyContent: 'space-between',
-            p: [4, 5, 6],
+            p: [4, null, 5],
           },
         }}
       >
-        {aboutBlocks.map(({ title, text }, i) => (
-          <Box>
+        {about.map(({ node: { title, text } }, i) => (
+          <Box key={i}>
             <Heading as='h2' mb={2}>{title}</Heading>
             <Text>{text}</Text>
           </Box>
         ))}
       </Flex>
       <Container mt={4}>
-        <Heading as='h1'>Officers</Heading>
+        <Heading as='h1' mb={4}>Officers</Heading>
+        <Grid
+          sx={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          }}
+        >
+          {officers.map(({ node }, i) => (
+            <OfficerCard
+              key={i}
+              data={node}
+            />
+          ))}
+        </Grid>
       </Container>
     </Layout>
   )
@@ -190,6 +193,21 @@ export const query = graphql`
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allAboutYaml {
+      edges {
+        node {
+          title
+          text
+        }
+      }
+    }
+    allOfficersYaml {
+      edges {
+        node {
+          ...OfficerInfo
         }
       }
     }
