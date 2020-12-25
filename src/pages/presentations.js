@@ -1,12 +1,14 @@
 /** @jsx jsx */
 import { Box, Button, Flex, Grid, jsx } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
+import Fuse from 'fuse.js';
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
 import SearchBar from '../components/searchbar'
 import LectureCard from '../components/lecturecard'
+import { useState } from 'react'
 
 const CardGrid = ({ lectures }) => {
   return (
@@ -39,7 +41,28 @@ const Presentations = () => {
       edges: lectureFolders,
     },
   } = useStaticQuery(query)
+
   const { node: currentFolder } = lectureFolders[0]
+
+  const [pattern, setPattern] = useState("")
+  const [displayedLectures, setDisplayedLectures] = useState(lectures);
+
+  const fuseOptions = {
+    keys: ["node.title", "node.body"]
+  }
+  const fuse = new Fuse(lectures, fuseOptions)
+
+  const onSearchAction = (e) => {
+    setPattern(e.target.value);
+
+    if(e.target.value === "")
+      setDisplayedLectures(lectures)
+    else {
+      let res = fuse.search(e.target.value).map((val, _) => val.item)
+      setDisplayedLectures(res)
+    }
+  }
+
   return (
     <Layout>
       <Hero title='Presentations' />
@@ -48,6 +71,7 @@ const Presentations = () => {
           gap={4}
           sx={{
             justifyItems: 'stretch',
+            marginBottom: 4
           }}
         >
           <Flex
@@ -99,6 +123,7 @@ const Presentations = () => {
               >
                 {lectureFolders.slice(1).map(({ node: folder }, i) => (
                   <Box
+                    key={i}
                     as='a'
                     sx={{
                       display: 'block',
@@ -120,8 +145,8 @@ const Presentations = () => {
               </Box>
             </Box>
           </Flex>
-          <SearchBar />
-          <CardGrid lectures={lectures} />
+          <SearchBar onChange={onSearchAction} value={pattern} />
+          <CardGrid lectures={displayedLectures} />
         </Grid>
       </Container>
     </Layout>
