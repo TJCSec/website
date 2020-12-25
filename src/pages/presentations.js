@@ -65,7 +65,8 @@ const Presentations = ({ data }) => {
   const [displayedLectures, setDisplayedLectures] = useState(lectures)
 
   const fuseOptions = {
-    keys: [{name: 'node.title', weight: 2}, 'node.body']
+    keys: [{name: 'node.title', weight: 2}, 'node.body'],
+    threshold: 0.4,
   }
   const fuse = new Fuse(lectures, fuseOptions)
 
