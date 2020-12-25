@@ -1,22 +1,12 @@
 - title: What
-  text: Computer Security is the field that concerns the attack and
-    defense of information systems. The goal of computer security
-    specialists is to defend against these attacks and mitigate their
-    effects when they do occur. The first step to achieving this goal
-    is to understand how these attacks work by becoming a hacker yourself.
-    TJCSC serves as an introduction to various aspects of hacking,
+  text: TJCSC serves as an introduction to various aspects of hacking,
     like reverse engineering, cryptography, and website exploitation.
+    You'll learn how attacks work and how to prevent them.
 - title: Why
-  text: As the world becomes more technology-dependent, it is critical
-    that our infrastructure is safe, reliable, and secure. Failure to
-    maintain these properties renders any new innovations useless.
-    Information security is a deep and diverse field, and it is never
-    too early to get started! Technology is everywhere, and security can
-    lead into many research programs, internships, and job opportunities.
+  text: Information security is a becoming increasingly important and
+    can also lead into many research programs, internships, and job
+    opportunities; it's never too early to get started!
 - title: How
   text: Our lectures are designed to be easy to understand, even for
-    total beginners with no experience! We also run a jeopardy-style
-    Capture-the-Flag (CTF) competition all year long to let you practice
-    the skills you've learned in a challenging but fun competitive
-    environment. Join us on Wednesdays during A or B block in the
-    Syslab (200)!
+    total beginners with no experience! Join us on Wednesdays during
+    A or B block in the Syslab (200)!
