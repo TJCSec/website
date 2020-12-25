@@ -80,6 +80,7 @@ const CTFs = ({ data }) => {
                 link={ctf.link}
                 startDate={ctf.startDate}
                 endDate={ctf.endDate}
+                participants={ctf.tjParticipants}
               />
             ))}
           </CardGrid>
@@ -99,6 +100,11 @@ export const query = graphql`
         startDate
         link
         endDate
+        tjParticipants {
+          team
+          rank
+          score
+        }
       }
     }
   }

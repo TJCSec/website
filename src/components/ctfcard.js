@@ -1,7 +1,12 @@
 /** @jsx jsx */
+import { useState } from 'react'
 import { Box, Heading, Text, jsx, Button, Flex } from 'theme-ui'
+import ScoreBoard from './scoreboard';
 
-const CTFCard = ({ name, link, startDate, endDate, ...props }) => {
+
+const CTFCard = ({ name, link, startDate, endDate, participants, ...props }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <Flex
       {...props}
@@ -36,13 +41,10 @@ const CTFCard = ({ name, link, startDate, endDate, ...props }) => {
           {`${startDate} - ${endDate}`}
         </Text>
       </Box>
-      <Box
-        sx={{
-          mt: 3,
-        }}
-      >
+      <Box>
         <Button
           sx={{
+            mt: 3,
             mr: 2,
           }}
           as='a'
@@ -52,11 +54,17 @@ const CTFCard = ({ name, link, startDate, endDate, ...props }) => {
         >
           Go
         </Button>
-        <Button> 
+        {participants && <Button 
+          onClick={() => {setModalOpen(true)}}
+          sx={{
+            mt: 3,
+          }}
+        > 
           {/* Need a way of showing the scores of the people, maybe a pop-up/overlay */}
           TJ Participants
-        </Button>
+        </Button>}
       </Box>
+      <ScoreBoard isOpen={modalOpen} scores={participants} onClose={() => {setModalOpen(false)}}/>
     </Flex>
   )
 }

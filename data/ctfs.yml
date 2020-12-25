@@ -2,6 +2,22 @@
   link: https://tjctf.org/
   startDate: 5/22/2020 11:00
   endDate: 5/26/2020 11:00
+  tjParticipants:
+  - rank: 3
+    team: TEAM1
+    score: 10000
+  - rank: 27
+    team: TEAM2
+    score: 10000
+  - rank: 28
+    team: TEAM3
+    score: 10000
+  - rank: 29
+    team: TEAM4
+    score: 10000
+  - rank: 1001
+    team: TEAM5
+    score: 10000
 - name: ångstromCTF 2020
   link: https://2020.angstromctf.com/
   startDate: 3/14/2020 00:00
