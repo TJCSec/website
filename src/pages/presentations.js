@@ -8,7 +8,7 @@ import Hero from '../components/hero'
 import Container from '../components/container'
 import SearchBar from '../components/searchbar'
 import LectureCard from '../components/lecturecard'
-import { useCallback, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import debounce from '../utils/debounce'
 
 const CardGrid = ({ lectures }) => {
@@ -67,10 +67,10 @@ const Presentations = ({ data }) => {
     setDisplayedLectures(res)
   }, 100)).current
 
-  const onSearchAction = useCallback((e) => {
+  const onSearchAction = useRef((e) => {
     setPattern(e.target.value)
     search(e.target.value)
-  }, [search])
+  }).current
 
   return (
     <Layout>
