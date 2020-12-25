@@ -9,19 +9,7 @@ import Container from '../components/container'
 import SearchBar from '../components/searchbar'
 import { useCallback, useState } from 'react'
 import CTFCard from '../components/ctfcard';
-
-const debounce = (func, wait) => {
-  let timeout
-
-  return (...args) => {
-    const later = () => {
-      clearTimeout(timeout)
-      func(...args)
-    }
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
-  }
-}
+import debounce from '../utils/debounce';
 
 const CardGrid = ({ ctfs }) => {
   return (
