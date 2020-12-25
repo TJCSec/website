@@ -14,7 +14,7 @@ const CardGrid = ({ lectures }) => {
   return (
     <Grid
       sx={{
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
       }}
     >
       {lectures.map(({ node: lecture }, i) => (
