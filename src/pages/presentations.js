@@ -8,7 +8,20 @@ import Hero from '../components/hero'
 import Container from '../components/container'
 import SearchBar from '../components/searchbar'
 import LectureCard from '../components/lecturecard'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+
+const debounce = (func, wait) => {
+  let timeout
+
+  return (...args) => {
+    const later = () => {
+      clearTimeout(timeout)
+      func(...args)
+    }
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+  }
+}
 
 const CardGrid = ({ lectures }) => {
   return (
@@ -56,15 +69,16 @@ const Presentations = ({ data }) => {
   }
   const fuse = new Fuse(lectures, fuseOptions)
 
-  const onSearchAction = (e) => {
-    setPattern(e.target.value);
+  const search = useCallback(debounce((value) => {
+    const res = (value === '')
+      ? lectures
+      : fuse.search(value).map(val => val.item)
+    setDisplayedLectures(res)
+  }, 100), [])
 
-    if(e.target.value === '')
-      setDisplayedLectures(lectures)
-    else {
-      let res = fuse.search(e.target.value).map((val, _) => val.item)
-      setDisplayedLectures(res)
-    }
+  const onSearchAction = (e) => {
+    setPattern(e.target.value)
+    search(e.target.value)
   }
 
   return (
