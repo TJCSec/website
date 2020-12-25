@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Box, Button, Flex, Grid, jsx } from 'theme-ui'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Fuse from 'fuse.js';
 
 import Layout from '../components/layout'
@@ -36,7 +36,7 @@ const CardGrid = ({ lectures }) => {
   )
 }
 
-const Presentations = () => {
+const Presentations = ({ data }) => {
   const {
     allLecturesYaml: {
       edges: lectures,
@@ -44,7 +44,7 @@ const Presentations = () => {
     allLectureFoldersYaml: {
       edges: lectureFolders,
     },
-  } = useStaticQuery(query)
+  } = data
 
   const { node: currentFolder } = lectureFolders[0]
 
@@ -95,11 +95,7 @@ const Presentations = () => {
             >
                 Presentations ({currentFolder.label})
             </Button>
-            <Box
-              sx={{
-                position: 'relative',
-              }}
-            >
+            <Box sx={{ position: 'relative' }}>
               <Button
                 sx={{
                   width: '100%',
@@ -159,7 +155,7 @@ const Presentations = () => {
 
 export default Presentations
 
-const query = graphql`
+export const query = graphql`
   query Lectures {
     allLecturesYaml {
       edges {
