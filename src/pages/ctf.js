@@ -7,34 +7,10 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
 import SearchBar from '../components/searchbar'
-import { useCallback, useState } from 'react'
+import { useRef, useState } from 'react'
 import CTFCard from '../components/ctfcard';
 import debounce from '../utils/debounce';
-
-const CardGrid = ({ ctfs }) => {
-  return (
-    <Grid
-      sx={{
-        gridTemplateColumns: [
-          'repeat(auto-fill, minmax(200px, 1fr))',  // better way to do this?
-          null,
-          'repeat(auto-fill, minmax(300px, 1fr))',
-        ],
-      }}
-    >
-      {ctfs.map((ctf, i) => (
-        <CTFCard
-          key={i}
-          name={ctf.name}
-          link={ctf.link}
-          startDate={ctf.startDate}
-          endDate={ctf.endDate}
-        />
-      ))}
-
-    </Grid>
-  )
-}
+import CardGrid from '../components/cardgrid';
 
 const CTFs = ({ data }) => {
   const {
@@ -50,19 +26,21 @@ const CTFs = ({ data }) => {
     keys: ['name'],
     threshold: 0.4,
   }
-  const fuse = new Fuse(ctfs, fuseOptions)
+  const fuse = useRef(new Fuse(ctfs, fuseOptions)).current
 
-  const search = useCallback(debounce((value) => {
+  const search = useRef(debounce((value) => {
     const res = (value === '')
       ? ctfs
       : fuse.search(value).map(val => val.item)
+      // potential performance gain from using refIndex instead
+      // and just showing/hiding cards
     setDisplayedCTFs(res)
-  }, 100), [])
+  }, 100)).current
 
-  const onSearchAction = (e) => {
+  const onSearchAction = useRef((e) => {
     setPattern(e.target.value)
     search(e.target.value)
-  }
+  }).current
 
   return (
     <Layout>
@@ -94,7 +72,17 @@ const CTFs = ({ data }) => {
             </Button>
           </Flex>
           <SearchBar onChange={onSearchAction} value={pattern} />
-          <CardGrid ctfs={displayedCTFs} />
+          <CardGrid>
+            {displayedCTFs.map((ctf, i) => (
+              <CTFCard
+                key={i}
+                name={ctf.name}
+                link={ctf.link}
+                startDate={ctf.startDate}
+                endDate={ctf.endDate}
+              />
+            ))}
+          </CardGrid>
         </Grid>
       </Container>
     </Layout>

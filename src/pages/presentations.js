@@ -10,32 +10,7 @@ import SearchBar from '../components/searchbar'
 import LectureCard from '../components/lecturecard'
 import { useRef, useState } from 'react'
 import debounce from '../utils/debounce'
-
-const CardGrid = ({ lectures }) => {
-  return (
-    <Grid
-      sx={{
-        gridTemplateColumns: [
-          'repeat(auto-fill, minmax(200px, 1fr))',  // better way to do this?
-          null,
-          'repeat(auto-fill, minmax(300px, 1fr))',
-        ],
-      }}
-    >
-      {lectures.map((lecture) => (
-        <LectureCard
-          key={lecture.title} // still rerenders on hide->show
-          title={lecture.title}
-          body={lecture.body}
-          level={lecture.level}
-          link={lecture.link}
-          date={lecture.date}
-        />
-      ))}
-
-    </Grid>
-  )
-}
+import CardGrid from '../components/cardgrid';
 
 const Presentations = ({ data }) => {
   const {
@@ -151,7 +126,18 @@ const Presentations = ({ data }) => {
             </Box>
           </Flex>
           <SearchBar onChange={onSearchAction} value={pattern} />
-          <CardGrid lectures={displayedLectures} />
+          <CardGrid>
+            {displayedLectures.map((lecture) => (
+              <LectureCard
+                key={lecture.title} // still rerenders on hide->show
+                title={lecture.title}
+                body={lecture.body}
+                level={lecture.level}
+                link={lecture.link}
+                date={lecture.date}
+              />
+            ))}
+          </CardGrid>
         </Grid>
       </Container>
     </Layout>
