@@ -22,7 +22,7 @@ const CardGrid = ({ lectures }) => {
         ],
       }}
     >
-      {lectures.map(({ node: lecture }, i) => (
+      {lectures.map((lecture, i) => (
         <LectureCard
           key={i}
           title={lecture.title}
@@ -40,20 +40,20 @@ const CardGrid = ({ lectures }) => {
 const Presentations = ({ data }) => {
   const {
     allLecturesYaml: {
-      edges: lectures,
+      nodes: lectures,
     },
     allLectureFoldersYaml: {
-      edges: lectureFolders,
+      nodes: lectureFolders,
     },
   } = data
 
-  const { node: currentFolder } = lectureFolders[0]
+  const currentFolder = lectureFolders[0]
 
   const [pattern, setPattern] = useState('')
   const [displayedLectures, setDisplayedLectures] = useState(lectures)
 
   const fuseOptions = {
-    keys: [{name: 'node.title', weight: 2}, 'node.body'],
+    keys: [{name: 'title', weight: 2}, 'body'],
     threshold: 0.4,
   }
   const fuse = new Fuse(lectures, fuseOptions)
@@ -124,7 +124,7 @@ const Presentations = ({ data }) => {
                   transition: '0.2s linear',
                 }}
               >
-                {lectureFolders.slice(1).map(({ node: folder }, i) => (
+                {lectureFolders.slice(1).map((folder, i) => (
                   <Box
                     key={i}
                     as='a'
@@ -161,22 +161,18 @@ export default Presentations
 export const query = graphql`
   query Lectures {
     allLecturesYaml {
-      edges {
-        node {
-          title
-          level
-          date
-          body
-          link
-        }
+      nodes {
+        title
+        level
+        date
+        body
+        link
       }
     }
     allLectureFoldersYaml {
-      edges {
-        node {
-          link
-          label
-        }
+      nodes {
+        link
+        label
       }
     }
   }
