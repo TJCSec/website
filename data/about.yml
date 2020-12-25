@@ -1,24 +1,22 @@
 - title: What
-  text: we teach how to do many hacc!!!! Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Praesent vel laoreet neque. Lorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-    id aliquam lectus. Nulla facilisi. Nulla vehicula sapien ante,
-    a semper nisi posuere non. Nunc facilisis vehicula arcu, ut placerat
-    erat convallis eget. Praesent eu lacus ut nisi sollicitudin bibendum
-    sit amet vel quam.
+  text: Computer Security is the field that concerns the attack and
+    defense of information systems. The goal of computer security
+    specialists is to defend against these attacks and mitigate their
+    effects when they do occur. The first step to achieving this goal
+    is to understand how these attacks work by becoming a hacker yourself.
+    TJCSC serves as an introduction to various aspects of hacking,
+    like reverse engineering, cryptography, and website exploitation.
 - title: Why
-  text: hacker bad tjcsc good!!!! Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Praesent vel laoreet neque. Lorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-    id aliquam lectus. Nulla facilisi. Nulla vehicula sapien ante,
-    a semper nisi posuere non. Nunc facilisis vehicula arcu, ut placerat
-    erat convallis eget. Praesent eu lacus ut nisi sollicitudin bibendum
-    sit amet vel quam.
+  text: As the world becomes more technology-dependent, it is critical
+    that our infrastructure is safe, reliable, and secure. Failure to
+    maintain these properties renders any new innovations useless.
+    Information security is a deep and diverse field, and it is never
+    too early to get started! Technology is everywhere, and security can
+    lead into many research programs, internships, and job opportunities.
 - title: How
-  text: ez lecture even monke could understand!!!! Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Praesent vel laoreet neque. Lorem
-    ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-    id aliquam lectus. Nulla facilisi. Nulla vehicula sapien ante,
-    a semper nisi posuere non. Nunc facilisis vehicula arcu, ut placerat
-    erat convallis eget. Praesent eu lacus ut nisi sollicitudin bibendum
-    sit amet vel quam.
+  text: Our lectures are designed to be easy to understand, even for
+    total beginners with no experience! We also run a jeopardy-style
+    Capture-the-Flag (CTF) competition all year long to let you practice
+    the skills you've learned in a challenging but fun competitive
+    environment. Join us on Wednesdays during A or B block in the
+    Syslab (200)!

@@ -136,15 +136,12 @@ const Index = ({ data }) => {
           }}
         />
       </Flex>
-      <Flex
+      <Grid
+        columns={[1, null, 3]}
+        gap={5}
         sx={{
           bg: 'lightBackground',
-          flexDirection: ['column', null, 'row'],
-          '& > *': {
-            flex: '1 1 0',
-            justifyContent: 'space-between',
-            p: [4, null, 5],
-          },
+          p: [4, null, 5],
         }}
       >
         {about.map(({ node: { title, text } }, i) => (
@@ -153,7 +150,7 @@ const Index = ({ data }) => {
             <Text>{text}</Text>
           </Box>
         ))}
-      </Flex>
+      </Grid>
       <Container mt={4}>
         <Heading as='h1' mb={4}>Officers</Heading>
         <Grid
