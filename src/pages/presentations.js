@@ -8,7 +8,7 @@ import Hero from '../components/hero'
 import Container from '../components/container'
 import SearchBar from '../components/searchbar'
 import LectureCard from '../components/lecturecard'
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import debounce from '../utils/debounce'
 
 const CardGrid = ({ lectures }) => {
@@ -22,9 +22,9 @@ const CardGrid = ({ lectures }) => {
         ],
       }}
     >
-      {lectures.map((lecture, i) => (
+      {lectures.map((lecture) => (
         <LectureCard
-          key={i}
+          key={lecture.title} // still rerenders on hide->show
           title={lecture.title}
           body={lecture.body}
           level={lecture.level}
@@ -56,19 +56,21 @@ const Presentations = ({ data }) => {
     keys: [{name: 'title', weight: 2}, 'body'],
     threshold: 0.4,
   }
-  const fuse = new Fuse(lectures, fuseOptions)
+  const fuse = useRef(new Fuse(lectures, fuseOptions)).current
 
-  const search = useCallback(debounce((value) => {
+  const search = useRef(debounce((value) => {
     const res = (value === '')
       ? lectures
       : fuse.search(value).map(val => val.item)
+      // potential performance gain from using refIndex instead
+      // and just showing/hiding cards
     setDisplayedLectures(res)
-  }, 100), [])
+  }, 100)).current
 
-  const onSearchAction = (e) => {
+  const onSearchAction = useCallback((e) => {
     setPattern(e.target.value)
     search(e.target.value)
-  }
+  }, [search])
 
   return (
     <Layout>
