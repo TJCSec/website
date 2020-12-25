@@ -48,7 +48,7 @@ const Presentations = () => {
   const [displayedLectures, setDisplayedLectures] = useState(lectures);
 
   const fuseOptions = {
-    keys: ["node.title", "node.body"]
+    keys: [{name: "node.title", weight: 2}, "node.body"]
   }
   const fuse = new Fuse(lectures, fuseOptions)
 
