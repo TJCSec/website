@@ -8,6 +8,11 @@ import Container from '../components/container'
 import LectureCard from '../components/lecturecard'
 import CardGrid from '../components/cardgrid';
 
+const fuseOptions = {
+  keys: [{name: 'title', weight: 2}, 'body'],
+  threshold: 0.4,
+}
+
 const Presentations = ({ data }) => {
   const {
     allLecturesYaml: {
@@ -18,14 +23,6 @@ const Presentations = ({ data }) => {
     },
   } = data
 
-  const currentFolder = lectureFolders[0]
-
-  const fuseOptions = {
-    keys: [{name: 'title', weight: 2}, 'body'],
-    threshold: 0.4,
-  }
-
-
   return (
     <Layout>
       <Hero title='Presentations' />
@@ -34,7 +31,7 @@ const Presentations = ({ data }) => {
           gap={4}
           sx={{
             justifyItems: 'stretch',
-            marginBottom: 4
+            mb: 4
           }}
         >
           <Flex
@@ -48,11 +45,11 @@ const Presentations = ({ data }) => {
                 mb: [3, null, 0],
               }}
               as='a'
-              href={currentFolder.link}
+              href={lectureFolders[0].link}
               target='_blank'
               rel='noopener noreferrer'
             >
-                Presentations ({currentFolder.label})
+                Presentations ({lectureFolders[0].label})
             </Button>
             <Box sx={{ position: 'relative' }}>
               <Button

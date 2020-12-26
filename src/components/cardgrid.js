@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Grid, jsx } from 'theme-ui'
-import React, { useRef, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import Fuse from 'fuse.js'
 
 import SearchBar from './searchbar'
@@ -9,7 +9,6 @@ import debounce from '../utils/debounce'
 const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
   const [pattern, setPattern] = useState('')
   const [displayedItems, setDisplayedItems] = useState(items)
-  
 
   const fuse = useRef(new Fuse(items, fuseOptions)).current
 
@@ -27,16 +26,14 @@ const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
     search(e.target.value)
   }).current
 
-  console.log(Card)
-
   return (
-    <React.Fragment>
+    <Fragment>
       <SearchBar onChange={onSearchAction} value={pattern} />
       <Grid
         {...props}
         sx={{
           gridTemplateColumns: [
-            'repeat(auto-fill, minmax(200px, 1fr))',  // better way to do this?
+            'repeat(auto-fill, minmax(250px, 1fr))',  // better way to do this?
             null,
             'repeat(auto-fill, minmax(300px, 1fr))',
           ],
@@ -44,7 +41,7 @@ const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
       >
         {displayedItems.map((obj, i) => <Card key={i} {...obj}></Card>)}
       </Grid>
-    </React.Fragment>
+    </Fragment>
   )
 }
 

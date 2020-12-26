@@ -14,7 +14,7 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
         bg: 'lightBackground',
         borderRadius: 4,
         padding: 4,
-        alignItems: 'flex-start',
+        alignItems: 'stretch',
         flexDirection: 'column',
         justifyContent: 'space-between',
         '& > *': {
@@ -41,12 +41,13 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
           {`${startDate} - ${endDate}`}
         </Text>
       </Box>
-      <Box>
+      <Flex
+        sx={{
+          flexDirection: ['column', null, 'row'],
+          mt: 3,
+        }}
+      >
         <Button
-          sx={{
-            mt: 3,
-            mr: 2,
-          }}
           as='a'
           href={link}
           target='_blank'
@@ -54,16 +55,16 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
         >
           Go
         </Button>
-        {tjParticipants && <Button 
+        {tjParticipants && <Button
           onClick={() => {setModalOpen(true)}}
           sx={{
-            mt: 3,
+            mt: [2, null, 0],
+            ml: [0, null, 2],
           }}
-        > 
-          {/* Need a way of showing the scores of the people, maybe a pop-up/overlay */}
+        >
           TJ Participants
         </Button>}
-      </Box>
+      </Flex>
       <ScoreBoard isOpen={modalOpen} scores={tjParticipants} onClose={() => {setModalOpen(false)}}/>
     </Flex>
   )

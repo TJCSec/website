@@ -8,6 +8,11 @@ import Container from '../components/container'
 import CTFCard from '../components/ctfcard';
 import CardGrid from '../components/cardgrid';
 
+const fuseOptions = {
+  keys: ['name'],
+  threshold: 0.4,
+}
+
 const CTFs = ({ data }) => {
   const {
     allCtfsYaml: {
@@ -15,20 +20,18 @@ const CTFs = ({ data }) => {
     }
   } = data
 
-  const fuseOptions = {
-    keys: ['name'],
-    threshold: 0.4,
-  }
-
   return (
     <Layout>
-      <Hero title='CTFs' />
+      <Hero
+        title='CTFs'
+        subtitle='Capture the Flag (CTF) competitions are fun, online computer security contests that include problems ranging widely in category and difficulty.'
+      />
       <Container>
         <Grid
           gap={4}
           sx={{
             justifyItems: 'stretch',
-            marginBottom: 4
+            mb: 4,
           }}
         >
           <Flex
@@ -37,16 +40,12 @@ const CTFs = ({ data }) => {
             }}
           >
             <Button
-              sx={{
-                mr: [0, null, 3],
-                mb: [3, null, 0],
-              }}
               as='a'
-              href="https://ctf.tjcsec.club/" // Should probably extract to access via graphql?
+              href='https://ctf.tjcsec.club/' // Should probably extract to access via graphql?
               target='_blank'
               rel='noopener noreferrer'
             >
-                Practice
+              TJCSC Practice CTF
             </Button>
           </Flex>
           <CardGrid items={ctfs} Card={CTFCard} fuseOptions={fuseOptions}/>
