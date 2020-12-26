@@ -1,15 +1,11 @@
 /** @jsx jsx */
 import {  Button, Flex, Grid, jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Fuse from 'fuse.js';
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
-import SearchBar from '../components/searchbar'
-import { useRef, useState } from 'react'
 import CTFCard from '../components/ctfcard';
-import debounce from '../utils/debounce';
 import CardGrid from '../components/cardgrid';
 
 const CTFs = ({ data }) => {
@@ -19,28 +15,10 @@ const CTFs = ({ data }) => {
     }
   } = data
 
-  const [pattern, setPattern] = useState('')
-  const [displayedCTFs, setDisplayedCTFs] = useState(ctfs)
-
   const fuseOptions = {
     keys: ['name'],
     threshold: 0.4,
   }
-  const fuse = useRef(new Fuse(ctfs, fuseOptions)).current
-
-  const search = useRef(debounce((value) => {
-    const res = (value === '')
-      ? ctfs
-      : fuse.search(value).map(val => val.item)
-      // potential performance gain from using refIndex instead
-      // and just showing/hiding cards
-    setDisplayedCTFs(res)
-  }, 100)).current
-
-  const onSearchAction = useRef((e) => {
-    setPattern(e.target.value)
-    search(e.target.value)
-  }).current
 
   return (
     <Layout>
@@ -71,19 +49,7 @@ const CTFs = ({ data }) => {
                 Practice
             </Button>
           </Flex>
-          <SearchBar onChange={onSearchAction} value={pattern} />
-          <CardGrid>
-            {displayedCTFs.map((ctf, i) => (
-              <CTFCard
-                key={i}
-                name={ctf.name}
-                link={ctf.link}
-                startDate={ctf.startDate}
-                endDate={ctf.endDate}
-                participants={ctf.tjParticipants}
-              />
-            ))}
-          </CardGrid>
+          <CardGrid items={ctfs} Card={CTFCard} fuseOptions={fuseOptions}/>
         </Grid>
       </Container>
     </Layout>

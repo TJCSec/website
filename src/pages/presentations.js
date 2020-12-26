@@ -1,15 +1,11 @@
 /** @jsx jsx */
 import { Box, Button, Flex, Grid, jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Fuse from 'fuse.js';
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
-import SearchBar from '../components/searchbar'
 import LectureCard from '../components/lecturecard'
-import { useRef, useState } from 'react'
-import debounce from '../utils/debounce'
 import CardGrid from '../components/cardgrid';
 
 const Presentations = ({ data }) => {
@@ -24,28 +20,11 @@ const Presentations = ({ data }) => {
 
   const currentFolder = lectureFolders[0]
 
-  const [pattern, setPattern] = useState('')
-  const [displayedLectures, setDisplayedLectures] = useState(lectures)
-
   const fuseOptions = {
     keys: [{name: 'title', weight: 2}, 'body'],
     threshold: 0.4,
   }
-  const fuse = useRef(new Fuse(lectures, fuseOptions)).current
 
-  const search = useRef(debounce((value) => {
-    const res = (value === '')
-      ? lectures
-      : fuse.search(value).map(val => val.item)
-      // potential performance gain from using refIndex instead
-      // and just showing/hiding cards
-    setDisplayedLectures(res)
-  }, 100)).current
-
-  const onSearchAction = useRef((e) => {
-    setPattern(e.target.value)
-    search(e.target.value)
-  }).current
 
   return (
     <Layout>
@@ -125,19 +104,7 @@ const Presentations = ({ data }) => {
               </Box>
             </Box>
           </Flex>
-          <SearchBar onChange={onSearchAction} value={pattern} />
-          <CardGrid>
-            {displayedLectures.map((lecture) => (
-              <LectureCard
-                key={lecture.title} // still rerenders on hide->show
-                title={lecture.title}
-                body={lecture.body}
-                level={lecture.level}
-                link={lecture.link}
-                date={lecture.date}
-              />
-            ))}
-          </CardGrid>
+          <CardGrid items={lectures} Card={LectureCard} fuseOptions={fuseOptions}/>
         </Grid>
       </Container>
     </Layout>

@@ -4,7 +4,7 @@ import { Box, Heading, Text, jsx, Button, Flex } from 'theme-ui'
 import ScoreBoard from './scoreboard';
 
 
-const CTFCard = ({ name, link, startDate, endDate, participants, ...props }) => {
+const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -54,7 +54,7 @@ const CTFCard = ({ name, link, startDate, endDate, participants, ...props }) => 
         >
           Go
         </Button>
-        {participants && <Button 
+        {tjParticipants && <Button 
           onClick={() => {setModalOpen(true)}}
           sx={{
             mt: 3,
@@ -64,7 +64,7 @@ const CTFCard = ({ name, link, startDate, endDate, participants, ...props }) => 
           TJ Participants
         </Button>}
       </Box>
-      <ScoreBoard isOpen={modalOpen} scores={participants} onClose={() => {setModalOpen(false)}}/>
+      <ScoreBoard isOpen={modalOpen} scores={tjParticipants} onClose={() => {setModalOpen(false)}}/>
     </Flex>
   )
 }
