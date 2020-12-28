@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
         sx={{
           flexDirection: 'column',
           justifyContent: 'stretch',
-          minHeight: 'calc(100vh - 72px)'
+          minHeight: theme => `calc(100vh - ${theme.sizes.footer})`
         }}
       >
         {children}
