@@ -10,7 +10,7 @@ import CardGrid from '../components/cardgrid';
 
 const fuseOptions = {
   keys: ['name'],
-  threshold: 0.4,
+  threshold: 0.3,
 }
 
 const CTFs = ({ data }) => {
