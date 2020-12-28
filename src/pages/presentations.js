@@ -25,7 +25,9 @@ const Presentations = ({ data }) => {
 
   return (
     <Layout>
-      <Hero title='Presentations' />
+      <Hero title='Presentations'
+        subtitle='We give weekly presentations on a variety of interesting topics.'
+      />
       <Container>
         <Grid
           gap={4}
