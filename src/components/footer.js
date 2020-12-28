@@ -4,6 +4,7 @@ import { Box, Grid, IconButton, jsx } from 'theme-ui'
 
 const FooterIcon = ({Icon, href, ...props}) => (
   <IconButton 
+    {...props}
     as='a'
     href={href}
     target='_blank'
