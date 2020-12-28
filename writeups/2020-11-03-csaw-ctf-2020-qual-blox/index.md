@@ -8,12 +8,12 @@ This was a two-part series from the 2020 CSAW CTF Qualifier involving a small Te
 
 Solving this challenge was a big team effort. Shoutout to Tux, dns, and ItzSomebody for the first part, and pepsipu and infuzion for the second.
 
-## Description
+# Description
 > We found an old arcade machine lying around, manufactured by the RET2 Corporation. Their devs are notorious for hiding backdoors and easter eggs in their games, care to take a peek?
 >
 > https://wargames.ret2.systems/962c162fa1d2ea626d36/csaw_2020
 
-## Part 1: Reversing
+# Part 1: Reversing
 The goal for the first part is to "turn on cheats." A casual glance through the source code leads us here:
 
 ```c
@@ -89,7 +89,7 @@ Using the keylogger and their python interface, I wrote code to get to this poin
 p.send("\n                 \n\n                 \n\n                 \n\nx x xd xdd xdd a xdd \n\naaa cxaaaaa xaaaaaa aaa aaaaaa caaaaaa ddddd aaa xdd cdddd d xa cdddd                  \n")
 ```
 
-## Part 2: Binary Exploitation
+# Part 2: Binary Exploitation
 The goal for the second part is to "invalidate the warranty.". From the first part, we know that this simply means calling the special syscall with number 0x41414141.
 
 Somewhere along the way, infuzion dumped the whole binary out of the debugger and renamed all the symbols in Ghidra, which was super helpful (until the organizers decided to release the binary towards the end of the CTF, after we had already solved the challenge 😠)
@@ -282,7 +282,7 @@ p.send("\nIaaaaaa Oaaaaaa O O O O O O O O O O \n")
 p.interactive()
 ```
 
-## Optimizing for a Keyboard-Only Solution
+# Optimizing for a Keyboard-Only Solution
 Of course, this solution presents some issues for a potential keyboard-only solve. The most obvious is that the shellcode contains non-printable characters. Also, the location we selected for our shellcode is not optimal, because it is far away from what we can create with just the tetromino clipping.
 
 The TAZ and P patches are too specific to move elsewhere, so they'll have to stay put.
@@ -328,5 +328,5 @@ Since the organizers decided to release the binary later, I wrote a custom wrapp
 
 Yes, that's right - <a href="./2020-09-20_23-39-47.mp4" external="true">speedrunning blox is now a thing</a>. Certainly some areas for improvement, but an excellent start for sure.
 
-## Final Thoughts
+# Final Thoughts
 Overall, this was not a terribly difficult challenge, but it was certainly very interesting. I had a lot of fun solving it (and playing way too much of it after the CTF).

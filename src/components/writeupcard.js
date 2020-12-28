@@ -20,14 +20,23 @@ const WriteupCard = ({ frontmatter, excerpt, timeToRead, ...props }) => {
         }
       }}
     >
-      <Heading
-        as='h1'
+      <Link to={frontmatter.slug}
         sx={{
-          fontSize: [3, 4, 5],
+          textDecoration: 'none',
+          '&:hover': {
+            textDecoration: 'underline',
+          },
         }}
       >
-        {frontmatter.title}
-      </Heading>
+        <Heading
+          as='h1'
+          sx={{
+            fontSize: [3, 4, 5],
+          }}
+        >
+          {frontmatter.title}
+        </Heading>
+      </Link>
       <Text
         sx={{
           fontSize: 1,

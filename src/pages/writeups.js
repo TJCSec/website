@@ -10,7 +10,6 @@ import CardGrid from '../components/cardgrid'
 
 const fuseOptions = {
   keys: ['frontmatter.title', 'excerpt'],
-  threshold: 0.4,
 }
 
 const Writeups = ({ data }) => {
