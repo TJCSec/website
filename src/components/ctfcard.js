@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { useState } from 'react'
 import { Box, Heading, Text, jsx, Button, Flex } from 'theme-ui'
-import ScoreBoard from './scoreboard';
+import ScoreBoard from './scoreboard'
 
 
 const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <Flex
@@ -51,7 +51,7 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
           as='a'
           href={link}
           target='_blank'
-          rel='noopener noreferrer'
+          rel='nofollow noopener noreferrer'
         >
           Go
         </Button>

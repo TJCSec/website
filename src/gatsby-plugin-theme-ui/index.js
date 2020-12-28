@@ -66,7 +66,6 @@ export default {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'stretch',
-      scrollBehavior: 'smooth',
     },
     a: {
       color: 'text',

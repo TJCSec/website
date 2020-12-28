@@ -4,10 +4,10 @@ import { Flex, Styled, jsx } from 'theme-ui'
 import Navbar from './navbar'
 import SEO from './seo'
 
-const Layout = ({ children }) => {
+const Layout = ({ seo, children }) => {
   return (
     <Styled.root>
-      <SEO />
+      <SEO {...seo} />
       <Navbar />
       <Flex
         as='main'

@@ -3,25 +3,74 @@ module.exports = {
   plugins: [
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-smoothscroll',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
-    `gatsby-transformer-yaml`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        excerpt_separator: '<!-- end -->',
+        plugins: [
+          'gatsby-remark-smartypants',
+          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              aliases: {
+                sh: 'bash',
+                asm: 'nasm',
+              },
+              noInlineHighlight: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `./data/`,
+        name: 'data',
+        path: './data/',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'writeups',
+        path: './writeups/',
       },
     },
   ],
   siteMetadata: {
     title: 'TJCSC',
+    titleTemplate: '%s | TJCSC',
     description:
       'TJHSST Computer Security Club is designed to introduce students to ethical hacking',
     url: 'https://activities.tjhsst.edu',

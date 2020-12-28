@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
 import LectureCard from '../components/lecturecard'
-import CardGrid from '../components/cardgrid';
+import CardGrid from '../components/cardgrid'
 
 const fuseOptions = {
   keys: [{name: 'title', weight: 2}, 'body'],
@@ -24,7 +24,7 @@ const Presentations = ({ data }) => {
   } = data
 
   return (
-    <Layout>
+    <Layout seo={{ title: 'Presentations' }}>
       <Hero title='Presentations'
         subtitle='We give weekly presentations on a variety of interesting topics.'
       />
@@ -49,7 +49,7 @@ const Presentations = ({ data }) => {
               as='a'
               href={lectureFolders[0].link}
               target='_blank'
-              rel='noopener noreferrer'
+              rel='nofollow noopener noreferrer'
             >
                 Presentations ({lectureFolders[0].label})
             </Button>
@@ -95,7 +95,7 @@ const Presentations = ({ data }) => {
                     }}
                     href={folder.link}
                     target='_blank'
-                    rel='noopener noreferrer'
+                    rel='nofollow noopener noreferrer'
                   >
                     {folder.label}
                   </Box>

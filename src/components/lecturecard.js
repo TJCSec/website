@@ -88,7 +88,7 @@ const LectureCard = ({ body, date, level, title, link, ...props }) => {
           as='a'
           href={link}
           target='_blank'
-          rel='noopener noreferrer'
+          rel='nofollow noopener noreferrer'
         >
           Presentation
         </Button>

@@ -2,7 +2,8 @@
 import { Box, Button, Flex, Grid, Heading, Text, jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import scrollTo from 'gatsby-plugin-smoothscroll'
+import { useCallback } from 'react'
+import { scroller } from 'react-scroll'
 
 import Layout from '../components/layout'
 import Container from '../components/container'
@@ -34,6 +35,14 @@ const Index = ({ data }) => {
       edges: officers,
     },
   } = data
+
+  const scrollAbout = useCallback(() => {
+    scroller.scrollTo('about', {
+      duration: 400,
+      smooth: 'easeInOut',
+    })
+  }, [])
+
   return (
     <Layout>
       <Flex
@@ -82,7 +91,7 @@ const Index = ({ data }) => {
             >
               {description}
             </Heading>
-            <Button onClick={() => scrollTo('#about')}>Learn More</Button>
+            <Button onClick={scrollAbout}>Learn More</Button>
           </Grid>
         </Flex>
         <Flex
