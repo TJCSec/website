@@ -508,7 +508,7 @@ A nice, intermediate two-step problem. Not too hard, not too easy.
 
 We are greeted by a site with a bunch of links that just redirect to open-source software websites.
 
-![home page](./opensource/home.png).
+![home page](./opensource/home.png)
 
 
 If we click on the "User Console" button, we get redirected to a login form. On this login form, we can login with any username & password combo, as long as the username is not ``admin``.
