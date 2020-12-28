@@ -605,8 +605,8 @@ flag{U_g07_5h311!_wh4t_A_h4xor!}
 > Welcome Level 1 wizard! Write your own spellcode to pwn your way to the wizards' lab. (Attribution: the "spellcode" idea is not original, see [sourcery.pwnadventure.com](http://sourcery.pwnadventure.com/) (not part of the challenge.) For shellcoding references and examples, see "Hacking: the Art of Exploitation" by Jon Erickson or reference [shell-storm.org/shellcode](http://shell-storm.org/shellcode). For more Level 1 spells (not required to solve), see the D&D Player's Handbook, 5th edition. `nc pwn.red.csaw.io 5000`
 
 ## Files
-- level_1_spellcode
-- level_1_spellcode.c
+- level\_1\_spellcode
+- level\_1\_spellcode.c
 
 ## Solution
 ```
@@ -659,7 +659,7 @@ flag{w3lc0m3_t0_sh3llc0d1ng!!!}
 > `nc pwn.red.csaw.io 5007`
 
 ## Files
-- actually_not_guessy
+- actually\_not\_guessy
 
 ## Solution
 ```
@@ -937,7 +937,7 @@ flag{H0w_d1d_U_g37_pA5t_mY_B1rD???}
 > Level up your spellcoding! No source code this time. `nc pwn.red.csaw.io 5009`
 
 ## Files
-- level_2_spellcode
+- level\_2\_spellcode
 
 ## Solution
 ```
@@ -1112,7 +1112,7 @@ flag{3v3ry_CTF_t34m_15_4_p4r7y}
 > Pit your shellcoding skills against an admin! May the best spellcoder win. `nc pwn.red.csaw.io 5011` (NOTE: if you experience issues writing to offset `0` in the shellcode array, try writing to offsets `1` and later. The challenge is solvable without needing that first byte. Edit posted Wednesday morning.)
 
 ## Files
-- level_3_spellcode
+- level\_3\_spellcode
 
 ## Solution
 ```
