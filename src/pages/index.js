@@ -75,8 +75,6 @@ const Index = ({ data }) => {
             gap={[2, 3, 4]}
             sx={{
               justifyItems: 'start',
-              maxWidth: theme => `calc(${theme.sizes.container}px / 2)`,
-              px: ['2rem', '3rem', '4rem'],
             }}
           >
             <Heading
