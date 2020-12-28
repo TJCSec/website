@@ -11,6 +11,8 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
 
+import prism from '../css/prism.js'
+
 const processor = unified()
   .use(rehypeSlug)
   .use(rehypeReact)
@@ -27,6 +29,7 @@ const Writeup = ({ data }) => {
           'span.gatsby-resp-image-wrapper': {
             margin: '0 !important',
           },
+          ...prism(theme),
         })}
       />
       <Hero title={post.frontmatter.title} subtitle={'Published on ' + post.frontmatter.date} />
