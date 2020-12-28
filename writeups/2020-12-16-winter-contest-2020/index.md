@@ -259,15 +259,21 @@ We could try different techniques to bypass the filters, but it seems like the a
 
 Let's look at some other aspects of the site to see if we find anything. Looking at the network requests, nothing seems odd—just the POST request to the server. If we look at the cookies, however, there's something interesting: a cookie called `encoding`. This is its value:
 
-`YldRMUlHSjFkQ0J0WVd0bElITjFjbVVnZEc4Z1pHVnNaWFJsSUhSb2FYTWdiR0YwWlhJaElTRT0=`
+```
+YldRMUlHSjFkQ0J0WVd0bElITjFjbVVnZEc4Z1pHVnNaWFJsSUhSb2FYTWdiR0YwWlhJaElTRT0=
+```
 
 Looks like base64! Let's decode it:
 
-`bWQ1IGJ1dCBtYWtlIHN1cmUgdG8gZGVsZXRlIHRoaXMgbGF0ZXIhISE=`
+```
+bWQ1IGJ1dCBtYWtlIHN1cmUgdG8gZGVsZXRlIHRoaXMgbGF0ZXIhISE=
+```
 
 Looks like base64! Let's decode it again!
 
-`md5 but make sure to delete this later!!!`
+```
+md5 but make sure to delete this later!!!
+```
 
 Clearly, the admins forgot to clean up.
 
@@ -285,9 +291,17 @@ This might be interesting to you, if you've never used union-based SQL injection
 
 Substituting `&&` for `AND` gives the same result. Our last try: maybe we can try to change the capitalization of the words `UNION`, `ALL`, and `SELECT` to see if anything changes. Additionally, since the keyword `AND` is filtered, let's just remove the condition `AND 1=0` to try things out:
 
-`username` = `admin' uNION aLL sELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055'`
+Username:
 
-`password` = `1234`
+```
+admin' uNION aLL sELECT 'admin', '81dc9bdb52d04dc20036dbd8313ed055'
+```
+
+Password:
+
+```
+1234
+```
 
 ![an error instead of filter block](./admin/error.jpg)
 
@@ -298,10 +312,14 @@ In the first SELECT query, we know we will have either two values or all values 
 A common table name is `users`, so let's use that. Finally, checking the error messages, we can figure out that there are two columns in the table. So, our final exploit is the following. The second query simply returns no results, so that we can limit the results to the first query `SELECT username, password FROM users WHERE username = 'admin'`.
 
 Username:
-`admin' uNION aLL sELECT 'fdsa', 'fdsafdsa' fROM 'users' wHERE 'fdsa' = '`
+```
+admin' uNION aLL sELECT 'fdsa', 'fdsafdsa' fROM 'users' wHERE 'fdsa' = '
+```
 
 Password:
-`anystring`
+```
+anystring
+```
 
 **Note**: The `fdsa' = '` is to satisfy the delimiter quote character at the end of the query, and to satisfy syntax for the rest of the query: `AND 'password' = md5(pass)` which is implied from the fact that the password is encrypted.
 
