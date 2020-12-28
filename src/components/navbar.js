@@ -54,8 +54,10 @@ const Navbar = () => {
       sx={{
         position: 'fixed',
         width: '100%',
+        height: '0px !important',
         zIndex: 999,
         '& > .headroom': {
+          height: 'navbar',
           py: '2rem',
           px: ['2rem', '3rem', '4rem'],
           display: 'flex',
