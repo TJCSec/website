@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Box, Heading, Text, jsx, Button } from 'theme-ui'
+import { Box, Heading, Text, jsx, Button, useThemeUI } from 'theme-ui'
 import { Global } from '@emotion/core'
 import Modal from 'react-modal'
 
@@ -82,15 +82,18 @@ const Table = ({ columns, data, ...props }) => {
 Modal.setAppElement('#___gatsby')
 
 const ScoreBoard = ({scores, onClose, ...props}) => {
+  const {theme} = useThemeUI()
+
   return (
     <Modal
       {...props}
       className='modal-content'
       overlayClassName='modal-overlay'
       onRequestClose={onClose}
+      closeTimeoutMS={theme.transitionTimes.fadeTime}
     >
       <Global
-        styles={theme => ({
+        styles={{
           '.modal-overlay': {
             zIndex: 1000,
             backgroundColor: 'rgba(0, 0, 0, 0.58)',
@@ -101,7 +104,6 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
             inset: 0,
             width: '100vw',
             height: '100vh',
-            transition: 'all 500ms ease-in-out'
           },
           '.modal-content': {
             minWidth: 260,
@@ -118,7 +120,7 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
           },
           '.ReactModal__Overlay': {
             opacity: 0,
-            transition: 'all 125ms ease-in-out',
+            transition: `all ${theme.transitionTimes.fadeTime}ms ease-in-out`,
           },
           '.ReactModal__Overlay--after-open': {
             opacity: 1,
@@ -126,7 +128,7 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
           '.ReactModal__Overlay--before-close': {
             opacity: 0,
           }
-        })}
+        }}
       />
       <Heading
         as='h1'
@@ -149,7 +151,6 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
         />
       </Box>
       <Button
-
         sx={{
           mt: 3
         }}

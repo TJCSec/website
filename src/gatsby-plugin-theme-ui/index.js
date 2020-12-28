@@ -72,4 +72,7 @@ export default {
       color: 'text',
     },
   },
+  transitionTimes: {
+    fadeTime: 125
+  }
 }
