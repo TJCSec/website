@@ -1,60 +1,37 @@
 /** @jsx jsx */
 import { Box, Heading, Text, jsx, Button } from 'theme-ui'
-import theme from '../gatsby-plugin-theme-ui/index' 
+import { Global } from '@emotion/core'
 import Modal from 'react-modal'
-
-const modalStyles = {
-  overlay: {
-    zIndex: 1000,
-    backgroundColor: "rgba(0, 0, 0, 0.58)",
-    display: "flex",
-    alignItems: "center"
-  },
-  content: {
-    minWidth: "260px",
-    maxWidth: "500px",
-    maxHeight: "800px",
-    margin: "auto",
-    padding: "2rem",
-    borderRadius: 2,
-    border: "none",
-    backgroundColor: theme.colors.lightBackground,
-    blockSize: "fit-content",
-    position: "relative",
-    inset: 0,
-    display: "block"
-  }
-}
 
 const columns = [
   {
-    header: "Rank",
-    accessor: "rank",
+    header: 'Rank',
+    accessor: 'rank',
   },
   {
-    header: "Team",
-    accessor: "team",
+    header: 'Team',
+    accessor: 'team',
   },
   {
-    header: "Score",
-    accessor: "score",
+    header: 'Score',
+    accessor: 'score',
   }
 ]
 
-const Table = ({columns, data, ...props}) => {
+const Table = ({ columns, data, ...props }) => {
   return (
     <table
       sx={{
-        borderSpacing: "0 1em",
-        borderCollapse: "collapse",
-        width: "100%",
+        borderSpacing: '0 1em',
+        borderCollapse: 'collapse',
+        width: '100%',
       }}
       {...props}
     >
       <tbody>
         <tr
           sx={{
-            borderBottom: "3px solid #ffffff20"
+            borderBottom: '3px solid #ffffff20'
           }}
         >
           {columns.map((column, i) => (
@@ -76,7 +53,11 @@ const Table = ({columns, data, ...props}) => {
           <tr
             key={i}
             sx={{
-              borderBottom: i !== data.length-1 ? "3px solid #ffffff15" : "0px"
+              border: 'solid #ffffff15',
+              borderWidth: '3px 0',
+              '&:last-child': {
+                borderBottom: 'none',
+              },
             }}
           >
             {columns.map((columnItem, j) => (
@@ -98,15 +79,44 @@ const Table = ({columns, data, ...props}) => {
   )
 }
 
-Modal.setAppElement('body')
+Modal.setAppElement('#___gatsby')
 
 const ScoreBoard = ({scores, onClose, ...props}) => {
   return (
-    <Modal 
+    <Modal
       {...props}
-      style={modalStyles}
+      className='modal-content'
+      overlayClassName='modal-overlay'
       onRequestClose={onClose}
     >
+      <Global
+        styles={theme => ({
+          '.modal-overlay': {
+            zIndex: 1000,
+            backgroundColor: 'rgba(0, 0, 0, 0.58)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'absolute',
+            inset: 0,
+            width: '100vw',
+            height: '100vh',
+          },
+          '.modal-content': {
+            minWidth: 260,
+            maxWidth: 500,
+            maxHeight: 800,
+            padding: '2rem',
+            borderRadius: 2,
+            backgroundColor: theme.colors.lightBackground,
+            position: 'relative',
+            display: 'block',
+            '&:focus': {
+              outline: 'none',
+            },
+          }
+        })}
+      />
       <Heading
         as='h1'
         sx={{
@@ -118,8 +128,8 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
       <Box
         sx={{
           mt: 3,
-          maxHeight: "400px",
-          overflow: "auto",
+          maxHeight: 400,
+          overflow: 'auto',
         }}
       >
         <Table
@@ -128,11 +138,11 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
         />
       </Box>
       <Button
-        
+
         sx={{
           mt: 3
         }}
-        onClick={() => {onClose()}}
+        onClick={onClose}
       >
         Close
       </Button>

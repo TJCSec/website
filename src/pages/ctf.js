@@ -41,7 +41,7 @@ const CTFs = ({ data }) => {
           >
             <Button
               as='a'
-              href='https://ctf.tjcsec.club/' // Should probably extract to access via graphql?
+              href='https://ctf.tjcsec.club/'
               target='_blank'
               rel='noopener noreferrer'
             >
