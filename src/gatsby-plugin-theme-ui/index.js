@@ -55,8 +55,9 @@ export default {
     heading: 1.125,
   },
   sizes: {
-    navbar: '90px',
-    container: '50rem',
+    navbar: 90,
+    container: 2000,
+    writeup: 1000,
   },
   styles: {
     root: {

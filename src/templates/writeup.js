@@ -32,8 +32,14 @@ const Writeup = ({ data }) => {
           ...prism(theme),
         })}
       />
-      <Hero title={post.frontmatter.title} subtitle={'Published on ' + post.frontmatter.date} />
-      <Container>
+      <Hero title={post.frontmatter.title} subtitle={'Published on ' + post.frontmatter.date}
+        sx={{ maxWidth: 'writeup' }}
+      />
+      <Container
+        sx={{
+          maxWidth: 'writeup',
+        }}
+      >
         {processor.stringify(processor.runSync(post.htmlAst))}
       </Container>
     </Layout>

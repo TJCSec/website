@@ -55,7 +55,10 @@ const Index = ({ data }) => {
             flex: '1',
             pt: theme => theme.sizes.navbar,
             pb: '0.5rem',
-            px: ['2rem', '3rem', '4rem'],
+            '& > *': {
+              maxWidth: theme => `calc(${theme.sizes.container}px / 2)`,
+              px: ['2rem', '3rem', '4rem'],
+            }
           },
         }}
       >
@@ -65,13 +68,15 @@ const Index = ({ data }) => {
             backgroundImage: [`url(${CircuitBoard})`, null, 'none'],
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'flex-start',
+            alignItems: 'flex-end',
           }}
         >
           <Grid
             gap={[2, 3, 4]}
             sx={{
               justifyItems: 'start',
+              maxWidth: theme => `calc(${theme.sizes.container}px / 2)`,
+              px: ['2rem', '3rem', '4rem'],
             }}
           >
             <Heading
@@ -105,13 +110,15 @@ const Index = ({ data }) => {
             alignItems: 'stretch',
           }}
         >
-          <Img fluid={hero} alt='TJCSC at Lockheed Martin CYBERQUEST 2019'
-            sx={{
-              borderRadius: 4,
-              mb: 1,
-            }}
-          />
-          TJCSC at Lockheed Martin CYBERQUEST 2019
+          <Box>
+            <Img fluid={hero} alt='TJCSC at Lockheed Martin CYBERQUEST 2019'
+              sx={{
+                borderRadius: 4,
+                mb: 1,
+              }}
+            />
+            TJCSC at Lockheed Martin CYBERQUEST 2019
+          </Box>
         </Flex>
       </Flex>
       <Flex id='about'
@@ -145,21 +152,26 @@ const Index = ({ data }) => {
           }}
         />
       </Flex>
-      <Grid
-        columns={[1, null, 3]}
-        gap={5}
+      <Box
         sx={{
           bg: 'lightBackground',
           p: [4, null, 5],
         }}
       >
-        {about.map(({ node: { title, text } }, i) => (
-          <Box key={i}>
-            <Heading as='h2' mb={2}>{title}</Heading>
-            <Text>{text}</Text>
-          </Box>
-        ))}
-      </Grid>
+        <Container>
+          <Grid
+            columns={[1, null, 3]}
+            gap={5}
+          >
+            {about.map(({ node: { title, text } }, i) => (
+              <Box key={i}>
+                <Heading as='h2' mb={2}>{title}</Heading>
+                <Text>{text}</Text>
+              </Box>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
       <Container mt={4}>
         <Heading as='h1' mb={4}>Officers</Heading>
         <Grid

