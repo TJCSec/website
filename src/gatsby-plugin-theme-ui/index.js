@@ -71,8 +71,5 @@ export default {
     a: {
       color: 'text',
     },
-  },
-  transitionTimes: {
-    fadeTime: 125
   }
 }

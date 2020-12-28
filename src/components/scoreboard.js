@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Box, Heading, Text, jsx, Button, useThemeUI } from 'theme-ui'
+import { Box, Heading, Text, Button, jsx } from 'theme-ui'
 import { Global } from '@emotion/core'
 import Modal from 'react-modal'
 
@@ -66,6 +66,7 @@ const Table = ({ columns, data, ...props }) => {
                   sx={{
                     mt: 2,
                     mb: 2,
+                    mr: 3
                   }}
                 >
                   {obj[columnItem.accessor]}
@@ -81,85 +82,81 @@ const Table = ({ columns, data, ...props }) => {
 
 Modal.setAppElement('#___gatsby')
 
-const ScoreBoard = ({scores, onClose, ...props}) => {
-  const {theme} = useThemeUI()
-
-  return (
-    <Modal
-      {...props}
-      className='modal-content'
-      overlayClassName='modal-overlay'
-      onRequestClose={onClose}
-      closeTimeoutMS={theme.transitionTimes.fadeTime}
+const ScoreBoard = ({scores, onClose, ...props}) => (
+  <Modal
+    {...props}
+    className='modal-content'
+    overlayClassName='modal-overlay'
+    onRequestClose={onClose}
+    closeTimeoutMS={125}
+  >
+    <Global
+      styles={theme => ({
+        '.modal-overlay': {
+          zIndex: 1000,
+          backgroundColor: 'rgba(0, 0, 0, 0.58)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
+        },
+        '.modal-content': {
+          minWidth: 260,
+          maxWidth: 600,
+          maxHeight: 800,
+          padding: '2rem',
+          borderRadius: 2,
+          backgroundColor: theme.colors.lightBackground,
+          position: 'relative',
+          display: 'block',
+          '&:focus': {
+            outline: 'none',
+          },
+        },
+        '.ReactModal__Overlay': {
+          opacity: 0,
+          transition: `all 125ms ease-in-out`,
+        },
+        '.ReactModal__Overlay--after-open': {
+          opacity: 1,
+        }, 
+        '.ReactModal__Overlay--before-close': {
+          opacity: 0,
+        }
+      })}
+    />
+    <Heading
+      as='h1'
+      sx={{
+        fontSize: [3, 4, 5],
+      }}
     >
-      <Global
-        styles={{
-          '.modal-overlay': {
-            zIndex: 1000,
-            backgroundColor: 'rgba(0, 0, 0, 0.58)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'fixed',
-            inset: 0,
-            width: '100vw',
-            height: '100vh',
-          },
-          '.modal-content': {
-            minWidth: 260,
-            maxWidth: 500,
-            maxHeight: 800,
-            padding: '2rem',
-            borderRadius: 2,
-            backgroundColor: theme.colors.lightBackground,
-            position: 'relative',
-            display: 'block',
-            '&:focus': {
-              outline: 'none',
-            },
-          },
-          '.ReactModal__Overlay': {
-            opacity: 0,
-            transition: `all ${theme.transitionTimes.fadeTime}ms ease-in-out`,
-          },
-          '.ReactModal__Overlay--after-open': {
-            opacity: 1,
-          }, 
-          '.ReactModal__Overlay--before-close': {
-            opacity: 0,
-          }
-        }}
+      TJ Participants
+    </Heading>
+    <Box
+      sx={{
+        mt: 3,
+        maxHeight: 400,
+        overflow: 'auto',
+      }}
+    >
+      <Table
+        columns={columns}
+        data={scores}
       />
-      <Heading
-        as='h1'
-        sx={{
-          fontSize: [3, 4, 5],
-        }}
-      >
-        TJ Participants
-      </Heading>
-      <Box
-        sx={{
-          mt: 3,
-          maxHeight: 400,
-          overflow: 'auto',
-        }}
-      >
-        <Table
-          columns={columns}
-          data={scores}
-        />
-      </Box>
-      <Button
-        sx={{
-          mt: 3
-        }}
-        onClick={onClose}
-      >
-        Close
-      </Button>
-    </Modal>
-  )
-}
+    </Box>
+    <Button
+      sx={{
+        mt: 3
+      }}
+      onClick={onClose}
+    >
+      Close
+    </Button>
+  </Modal>
+)
 
 export default ScoreBoard
