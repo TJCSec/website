@@ -26,9 +26,6 @@ const Writeup = ({ data }) => {
           'a.anchor': {
             fill: theme.colors.text,
           },
-          'span.gatsby-resp-image-wrapper': {
-            margin: '0 !important',
-          },
           ...prism(theme),
         })}
       />
