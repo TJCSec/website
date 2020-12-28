@@ -101,6 +101,7 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
             inset: 0,
             width: '100vw',
             height: '100vh',
+            transition: 'all 500ms ease-in-out'
           },
           '.modal-content': {
             minWidth: 260,
@@ -114,6 +115,16 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
             '&:focus': {
               outline: 'none',
             },
+          },
+          '.ReactModal__Overlay': {
+            opacity: 0,
+            transition: 'all 125ms ease-in-out',
+          },
+          '.ReactModal__Overlay--after-open': {
+            opacity: 1,
+          }, 
+          '.ReactModal__Overlay--before-close': {
+            opacity: 0,
           }
         })}
       />
