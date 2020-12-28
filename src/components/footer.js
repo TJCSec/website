@@ -21,7 +21,7 @@ const Footer = (props) => (
       height: '72px',
       display: 'flex',
       alignItems: 'center',
-      px: "4rem",
+      px: ['2rem', '3rem', '4rem'],
     }}
   >
     <Grid
