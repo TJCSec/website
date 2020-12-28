@@ -1,19 +1,16 @@
 /** @jsx jsx */
 import { IoFlagSharp, IoLogoDiscord, IoLogoFacebook } from 'react-icons/io5'
-import { Box, Grid, jsx } from 'theme-ui'
+import { Box, Grid, IconButton, jsx } from 'theme-ui'
 
 const FooterIcon = ({Icon, href, ...props}) => (
-  <a 
+  <IconButton 
+    as='a'
     href={href}
     target='_blank'
     rel="noreferrer"
-    sx={{
-      color: 'text',
-      textDecoration: 'none'
-    }}
   >
     <Icon />
-  </a>
+  </IconButton>
 )
 
 const Footer = (props) => (
@@ -29,7 +26,7 @@ const Footer = (props) => (
   >
     <Grid
       columns={3}
-      gap={4}
+      gap={[3, null, 4]}
       sx={{
         ml: 'auto',
       }}
