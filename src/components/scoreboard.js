@@ -97,7 +97,7 @@ const ScoreBoard = ({scores, onClose, ...props}) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            position: 'absolute',
+            position: 'fixed',
             inset: 0,
             width: '100vw',
             height: '100vh',
