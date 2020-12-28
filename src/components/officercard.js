@@ -45,7 +45,7 @@ export const query = graphql`
     position
     avatar {
       childImageSharp {
-        fluid(maxHeight: 400, maxWidth: 400, traceSVG: { color: "" }) {
+        fluid(maxHeight: 400, maxWidth: 400, traceSVG: { color: "#00060c" }) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
