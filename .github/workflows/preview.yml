@@ -26,7 +26,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_PREVIEW_SITE_ID }}
         with:
-          args: deploy --dir=public --alias=deploy-preview-${{ github.event.pull_request.number }}--
+          args: deploy --dir=public --prod --alias=deploy-preview-${{ github.event.pull_request.number }}--
 
       - name: Netlify URL
         uses: ouzi-dev/commit-status-updater@master
