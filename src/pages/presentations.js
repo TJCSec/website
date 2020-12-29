@@ -11,6 +11,7 @@ import CardGrid from '../components/cardgrid'
 const fuseOptions = {
   keys: [{name: 'title', weight: 2}, 'body'],
   threshold: 0.4,
+  minMatchCharLength: 3,
 }
 
 const Presentations = ({ data }) => {

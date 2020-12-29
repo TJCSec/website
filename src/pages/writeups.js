@@ -9,7 +9,17 @@ import WriteupCard from '../components/writeupcard'
 import CardGrid from '../components/cardgrid'
 
 const fuseOptions = {
-  keys: ['frontmatter.title', 'excerpt'],
+  keys: [
+    {
+      name: 'frontmatter.title',
+      weight: 2
+    },
+    'excerpt',
+    'rawMarkdownBody'
+  ],
+  minMatchCharLength: 3,
+  ignoreLocation: true,
+  threshold: 0.4,
 }
 
 const Writeups = ({ data }) => {
@@ -18,6 +28,7 @@ const Writeups = ({ data }) => {
       nodes: writeups,
     },
   } = data
+
   return (
     <Layout seo={{ title: 'Writeups' }}>
       <Hero title='Writeups'
@@ -50,6 +61,7 @@ export const query = graphql`
           title
         }
         excerpt(pruneLength: 250)
+        rawMarkdownBody
         timeToRead
       }
     }
