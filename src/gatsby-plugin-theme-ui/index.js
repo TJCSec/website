@@ -72,5 +72,5 @@ export default {
     a: {
       color: 'text',
     },
-  },
+  }
 }
