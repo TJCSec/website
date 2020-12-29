@@ -1,22 +1,22 @@
 /** @jsx jsx */
-import { Link as ExternalLink, jsx } from 'theme-ui'
-import { withPrefix } from 'gatsby'
+import { Link, jsx } from 'theme-ui'
 import { createElement } from 'react'
 import rehypeReact from 'rehype-react'
 
 import { Link as AnchorLink } from 'react-scroll'
-import InternalLink from '../components/link'
 
 const MdLink = ({ href, children, external, ...props }) => {
-  const prefix = withPrefix('/').slice(0, -1) // stupid hack, pls change?
-  if (!external && href.startsWith(prefix)) {
-    return <InternalLink to={href.replace(prefix, '')} {...props}>{children}</InternalLink>
-  }
   return (
     href[0] === '#' ? (
-      <AnchorLink href={href} to={href.substring(1)} {...props} smooth={true} duration={400} hashSpy={true}>{children}</AnchorLink>
+      <AnchorLink href={href} to={href.substring(1)} {...props} smooth={true} duration={400}>{children}</AnchorLink>
     ) : (
-      <ExternalLink href={href} target='_blank' rel='nofollow noopener noreferrer' {...props}>{children}</ExternalLink>
+      <Link
+        href={href}
+        target='_blank' rel='nofollow noopener noreferrer'
+        {...props}
+      >
+        {children}
+      </Link>
     )
   )
 }

@@ -5,7 +5,6 @@ import { Global } from '@emotion/core'
 
 import unified from 'unified'
 import rehypeReact from '../utils/renderer'
-import rehypeSlug from 'rehype-slug'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -14,7 +13,6 @@ import Container from '../components/container'
 import prism from '../css/prism.js'
 
 const processor = unified()
-  .use(rehypeSlug)
   .use(rehypeReact)
 
 const Writeup = ({ data }) => {
