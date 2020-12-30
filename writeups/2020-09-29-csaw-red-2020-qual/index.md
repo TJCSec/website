@@ -22,7 +22,7 @@ flag{U_R_Awake_a89fn3la}
 
 # misc - Header Start
 > This challenge should give you a good picture of a warm up challenge...if only we could view it
->
+
 ## Files
 - myImageFile
 
