@@ -12,10 +12,10 @@ const Layout = ({ seo, children, ...props }) => {
         styles={theme => ({
           'body': {
             '&, *': {
-              scrollbarColor: `${theme.colors.primary} ${theme.colors.background}`,
+              scrollbarColor: `${theme.colors.primary} ${theme.colors.navbar}`,
               scrollbarWidth: 'thin',
               '::-webkit-scrollbar': {
-                background: theme.colors.background,
+                background: theme.colors.navbar,
                 width: 5,
                 height: 5,
               },
