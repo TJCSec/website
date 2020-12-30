@@ -21,7 +21,7 @@ const Writeup = ({ data: { mdx: post } }) => {
           },
           img: {
             maxWidth: '100%',
-            width: '100%'
+            width: 'auto'
           }
         })}
       />
