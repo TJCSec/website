@@ -1,10 +1,12 @@
 /** @jsx jsx */
 import { Grid, jsx } from 'theme-ui'
-import { Fragment, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Fuse from 'fuse.js'
 
 import SearchBar from './searchbar'
 import debounce from '../utils/debounce'
+import {motion} from 'framer-motion'
+import { fadeInUp, stagger } from '../animations/animations'
 
 const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
   const [pattern, setPattern] = useState('')
@@ -28,21 +30,23 @@ const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
   }).current
 
   return (
-    <Fragment>
-      <SearchBar onChange={onSearchAction} value={pattern} />
-      <Grid
-        {...props}
-        sx={{
-          gridTemplateColumns: [
-            'repeat(auto-fill, minmax(250px, 1fr))',  // better way to do this?
-            null,
-            'repeat(auto-fill, minmax(300px, 1fr))',
-          ],
-        }}
-      >
-        {displayedItems.map((obj, i) => <Card key={i} {...obj}></Card>)}
-      </Grid>
-    </Fragment>
+    <motion.div initial='initial' animate='animate'>
+      <SearchBar sx={{mb: '1.5rem'}} onChange={onSearchAction} value={pattern} />
+      <motion.div variants={fadeInUp({y: 50})}>
+        <Grid
+          {...props}
+          sx={{
+            gridTemplateColumns: [
+              'repeat(auto-fill, minmax(250px, 1fr))',  // better way to do this?
+              null,
+              'repeat(auto-fill, minmax(300px, 1fr))',
+            ],
+          }}
+        >
+          {displayedItems.map((obj, i) => <Card key={i} {...obj}></Card>)}
+        </Grid>
+      </motion.div>
+    </motion.div>
   )
 }
 

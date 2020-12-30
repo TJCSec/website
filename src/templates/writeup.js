@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { Global } from '@emotion/core'
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
