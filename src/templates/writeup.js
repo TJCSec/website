@@ -8,9 +8,6 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
 
-import prism from '../css/prism'
-
-
 const Writeup = ({ data: { mdx: post } }) => {
   const {title, date} = post.frontmatter
   const {excerpt, body} = post
@@ -22,7 +19,10 @@ const Writeup = ({ data: { mdx: post } }) => {
           'a.anchor': {
             fill: theme.colors.text,
           },
-          ...prism,
+          img: {
+            maxWidth: '100%',
+            width: '100%'
+          }
         })}
       />
       <Hero title={title} subtitle={'Published on ' + date}
