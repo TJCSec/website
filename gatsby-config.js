@@ -17,15 +17,16 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              withWebp: true
+              withWebp: true,
+              linkImagesToOriginal: true,
             }
           },
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: 'gatsby-remark-copy-linked-files',
             options: {
-              excerpt_separator: `<!-- end -->`
-            }
-          }
+              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
+            },
+          },
         ]
       },
     },
