@@ -6,7 +6,7 @@ import Fuse from 'fuse.js'
 import SearchBar from './searchbar'
 import debounce from '../utils/debounce'
 import {motion} from 'framer-motion'
-import { fadeInUp, stagger } from '../animations/animations'
+import { fadeInUp } from '../animations/animations'
 
 const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
   const [pattern, setPattern] = useState('')

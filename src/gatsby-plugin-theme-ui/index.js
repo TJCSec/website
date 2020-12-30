@@ -71,6 +71,10 @@ export default {
     },
     a: {
       color: 'text',
+      wordBreak: 'break-word',
+      '&:hover': {
+        filter: 'brightness(0.9)',
+      },
     },
     code: {
       ...prismTheme
