@@ -36,7 +36,8 @@ const Blockquote = ({ children, ...props }) => (
       m: 0,
       p: '0.5rem 1.5rem',
       bg: 'lightBackground',
-      borderLeft: '3px solid #ffffff15',
+      borderLeft: '3px solid',
+      borderLeftColor: 'primary',
     }}
   >
     {children}

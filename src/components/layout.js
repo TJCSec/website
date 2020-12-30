@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { Flex, Styled, jsx } from 'theme-ui'
+import { Global } from '@emotion/core'
 import Navbar from './navbar'
 import SEO from './seo'
 import { motion } from 'framer-motion'
@@ -7,6 +8,24 @@ import { motion } from 'framer-motion'
 const Layout = ({ seo, children, ...props }) => {
   return (
     <Styled.root {...props}>
+      <Global
+        styles={theme => ({
+          'body': {
+            '&, *': {
+              scrollbarColor: `${theme.colors.primary} ${theme.colors.background}`,
+              scrollbarWidth: 'thin',
+              '::-webkit-scrollbar': {
+                background: theme.colors.background,
+                width: 5,
+                height: 5,
+              },
+              '::-webkit-scrollbar-thumb': {
+                background: theme.colors.primary,
+              },
+            }
+          },
+        })}
+      />
       <SEO {...seo} />
       <Navbar />
       <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
