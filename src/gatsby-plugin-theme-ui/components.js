@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { Link, jsx } from 'theme-ui'
-import { createElement } from 'react'
-import rehypeReact from 'rehype-react'
+import Prism from '@theme-ui/prism'
 
 import { Link as AnchorLink } from 'react-scroll'
 
@@ -35,15 +34,10 @@ const Blockquote = ({ children, ...props }) => (
   </blockquote>
 )
 
-function render(options) {
-  rehypeReact.call(this, {
-    createElement,
-    components: {
-      a: MdLink,
-      blockquote: Blockquote,
-    },
-    ...options
-  })
-}
 
-export default render
+export default {
+  pre: props => props.children,
+  code: Prism,
+  a: MdLink,
+  blockquote: Blockquote
+}

@@ -1,5 +1,6 @@
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/700.css'
+import prismTheme from '../css/prism'
 
 export default {
   breakpoints: [
@@ -71,5 +72,8 @@ export default {
     a: {
       color: 'text',
     },
+    code: {
+      ...prismTheme
+    }
   }
 }

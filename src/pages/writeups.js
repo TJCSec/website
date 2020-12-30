@@ -15,7 +15,7 @@ const fuseOptions = {
       weight: 2
     },
     'excerpt',
-    'rawMarkdownBody'
+    'rawBody'
   ],
   minMatchCharLength: 3,
   ignoreLocation: true,
@@ -24,7 +24,7 @@ const fuseOptions = {
 
 const Writeups = ({ data }) => {
   const {
-    allMarkdownRemark: {
+    allMdx: {
       nodes: writeups,
     },
   } = data
@@ -53,7 +53,7 @@ export default Writeups
 
 export const query = graphql`
   query Writeups {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
         frontmatter {
           date(formatString: "YYYY-MM-DD")
@@ -61,7 +61,7 @@ export const query = graphql`
           title
         }
         excerpt(pruneLength: 250)
-        rawMarkdownBody
+        rawBody
         timeToRead
       }
     }

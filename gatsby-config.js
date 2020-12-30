@@ -7,42 +7,26 @@ module.exports = {
     'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        excerpt_separator: '<!-- end -->',
-        plugins: [
-          'gatsby-remark-smartypants',
-          'gatsby-remark-autolink-headers',
+        defaultLayouts: {
+          default: require.resolve('./src/templates/writeup.js'),
+        },
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
-            },
+              withWebp: true
+            }
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `gatsby-transformer-remark`,
             options: {
-              aliases: {
-                sh: 'bash',
-                asm: 'nasm',
-              },
-              noInlineHighlight: true,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-              rel: 'nofollow noopener noreferrer',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
-            },
-          },
-        ],
+              excerpt_separator: `<!-- end -->`
+            }
+          }
+        ]
       },
     },
     {

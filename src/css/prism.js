@@ -1,60 +1,39 @@
-export default theme => ({
-  'code[class*="language-"], pre[class*="language-"]': {
-    color: '#ccc',
-    background: 'none',
-    textAlign: 'left',
-    whiteSpace: 'pre',
-    wordSpacing: 'normal',
-    wordBreak: 'normal',
-    wordWrap: 'normal',
-    lineHeight: 1.5,
-    tabSize: 4,
-    hyphens: 'none',
-  },
-  'pre[class*="language-"]': {
-    padding: '1em',
-    margin: '.5em 0',
-    overflow: 'auto',
-  },
-  ':not(pre) > code[class*="language-"], pre[class*="language-"]': {
-    background: theme.colors.lightBackground,
-  },
-  ':not(pre) > code[class*="language-"]': {
-    padding: '.1em',
-    borderRadius: '.3em',
-    whiteSpace: 'normal',
-  },
-  '.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata': {
+export default {
+  color: '#ccc',
+  backgroundColor: 'lightBackground',
+  overflow: 'auto',
+  padding: '1rem',
+  '.comment, .block-comment, .prolog, .doctype, .cdata': {
     color: '#999',
   },
-  '.token.punctuation': { color: '#ccc' },
-  '.token.tag, .token.attr-name, .token.namespace, .token.deleted': {
+  '.punctuation': { color: '#ccc' },
+  '.tag, .attr-name, .namespace, .deleted': {
     color: '#e2777a',
   },
-  '.token.function-name': { color: '#6196cc' },
-  '.token.boolean, .token.number, .token.function': { color: '#f08d49' },
-  '.token.property, .token.class-name, .token.constant, .token.symbol': {
+  '.function-name': { color: '#6196cc' },
+  '.boolean, .number, .function': { color: '#f08d49' },
+  '.property, .class-name, .constant, .symbol': {
     color: '#f8c555',
   },
-  '.token.selector, .token.important, .token.atrule, .token.keyword, .token.builtin': {
+  '.selector, .important, .atrule, .keyword, .builtin': {
     color: '#cc99cd',
   },
-  '.token.string, .token.char, .token.attr-value, .token.regex, .token.variable': {
+  '.string, .char, .attr-value, .regex, .variable': {
     color: '#7ec699',
   },
-  '.token.operator, .token.entity, .token.url': {
+  '.operator, .entity, .url': {
     color: '#67cdcc',
   },
-  '.token.important, .token.bold': {
+  '.important, .bold': {
     fontWeight: 'bold',
   },
-  '.token.italic': {
+  '.italic': {
     fontStyle: 'italic',
   },
-  '.token.entity': {
+  '.entity': {
     cursor: 'help',
   },
-  '.token.inserted': {
+  '.inserted': {
     color: 'green',
   }
-})
+}

@@ -2,6 +2,7 @@
 title: CSAW RED 2020 Qualifier
 date: 2020-09-29
 slug: /writeups/csaw-red-2020-qual
+excerpt: Solutions for all challenges from the CSAW RED 2020 Qualification Round.
 ---
 
 Solutions for all challenges from the CSAW RED 2020 Qualification Round. <!-- end -->Overall very good entry-level challenges with a couple harder ones mixed in.

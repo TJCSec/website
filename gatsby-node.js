@@ -6,7 +6,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const writeups = await graphql(`
     query Writeups {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         nodes {
@@ -23,7 +23,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  writeups.data.allMarkdownRemark.nodes.forEach(({ frontmatter }) => {
+  writeups.data.allMdx.nodes.forEach(({ frontmatter }) => {
     createPage({
       path: frontmatter.slug,
       component: writeupTemplate,
