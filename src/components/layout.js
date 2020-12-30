@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { Flex, Styled, jsx } from 'theme-ui'
-
 import Navbar from './navbar'
 import SEO from './seo'
 import { motion } from 'framer-motion'
 
-const Layout = ({ seo, children }) => {
+const Layout = ({ seo, children, ...props }) => {
   return (
-    <Styled.root>
+    <Styled.root {...props}>
       <SEO {...seo} />
       <Navbar />
       <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>

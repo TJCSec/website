@@ -1,6 +1,8 @@
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/700.css'
-import prismTheme from '../css/prism'
+
+import prism from '@theme-ui/prism/presets/theme-ui'
+import customPrism from './prism'
 
 export default {
   breakpoints: [
@@ -33,7 +35,7 @@ export default {
     secondary: '#AED1FE',
     accent: '#D67C78',
     highlight: '#FFDB78',
-    muted: '#eeeeee',
+    gray: '#CCCCCC',
     altBackground: '#0B1117',
     lightBackground: '#192128',
     navbar: '#000000',
@@ -77,7 +79,8 @@ export default {
       },
     },
     code: {
-      ...prismTheme
-    }
+      ...customPrism,
+      ...prism,
+    },
   }
 }

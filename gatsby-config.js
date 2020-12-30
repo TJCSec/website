@@ -14,6 +14,13 @@ module.exports = {
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              isIconAfterHeader: true,
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -27,7 +34,10 @@ module.exports = {
               ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
             },
           },
-        ]
+        ],
+        plugins: [
+          'gatsby-remark-autolink-headers', // stupid hack https://github.com/gatsbyjs/gatsby/issues/15486
+        ],
       },
     },
     {

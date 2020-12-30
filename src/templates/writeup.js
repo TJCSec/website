@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import { Global } from '@emotion/core'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/layout'
@@ -13,24 +12,16 @@ const Writeup = ({ data: { mdx: post } }) => {
   const {excerpt, body} = post
 
   return (
-    <Layout seo={{ title: title, description: excerpt, titleTemplate: '%s | TJCSC' }}>
-      <Global
-        styles={theme => ({
-          'a.anchor': {
-            fill: theme.colors.text,
-          },
-          img: {
-            maxWidth: '100%',
-            width: 'auto'
-          }
-        })}
-      />
+    <Layout seo={{ title: title, description: excerpt }} >
       <Hero title={title} subtitle={'Published on ' + date}
         sx={{ maxWidth: 'writeup' }}
       />
       <Container
         sx={{
           maxWidth: 'writeup',
+          '& a.anchor': {
+            fill: theme => theme.colors.text,
+          },
         }}
       >
         <MDXRenderer>{body}</MDXRenderer>

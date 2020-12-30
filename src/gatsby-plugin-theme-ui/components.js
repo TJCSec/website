@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Link, jsx } from 'theme-ui'
+import { Link, Image, jsx } from 'theme-ui'
 import Prism from '@theme-ui/prism'
 
 import { Link as AnchorLink } from 'react-scroll'
@@ -7,7 +7,16 @@ import { Link as AnchorLink } from 'react-scroll'
 const MdLink = ({ href, children, external, ...props }) => {
   return (
     href[0] === '#' ? (
-      <AnchorLink href={href} to={href.substring(1)} {...props} smooth={true} duration={400}>{children}</AnchorLink>
+      <AnchorLink
+        href={href}
+        to={href.substring(1)}
+        smooth={true}
+        duration={400}
+        hashSpy={true}
+        {...props}
+      >
+        {children}
+      </AnchorLink>
     ) : (
       <Link
         href={href}
@@ -39,5 +48,6 @@ export default {
   pre: props => props.children,
   code: Prism,
   a: MdLink,
-  blockquote: Blockquote
+  blockquote: Blockquote,
+  img: Image,
 }

@@ -1,8 +1,8 @@
 export default {
-  color: '#ccc',
-  backgroundColor: 'lightBackground',
+  color: '#e8e8e8',
+  bg: 'lightBackground',
   overflow: 'auto',
-  padding: '1rem',
+  p: '1rem',
   '.comment, .block-comment, .prolog, .doctype, .cdata': {
     color: '#999',
   },
