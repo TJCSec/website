@@ -65,7 +65,7 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
           onMouseEnter={() => {setisHoveringOverButtons(true)}}
           onMouseLeave={() => {setisHoveringOverButtons(false)}}
           sx={{
-            mt: 2,
+            mt: 4,
           }}
         >
           TJ Participants
