@@ -540,14 +540,14 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIiwiaWF0IjoxNjA
 ```
 
 **Header**
-```
+```json
 {
   "alg": "HS256",
   "typ": "JWT"
 }
 ```
 **Payload**
-```
+```json
 {
   "username": "username",
   "iat": 1608090454,
