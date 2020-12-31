@@ -33,7 +33,7 @@ const MdLink = ({ href, children, external, ...props }) => {
 }
 
 // Copypasta of theme-ui source, but with no lang
-const EmptyCodeBlock = ({ children, className: outerClassName, ...props }) => {
+const NoHighlightCodeBlock = ({ children, className: outerClassName, ...props }) => {
   return (
     <Highlight
       {...defaultProps}
@@ -70,7 +70,7 @@ const CodeBlock = (props) => {
 
   return (
     <div ref={ref}>
-      {!inView && <EmptyCodeBlock {...props} />}
+      {!inView && <NoHighlightCodeBlock {...props} />}
       {inView && <Prism {...props} Prism={PrismCore} />},
     </div>
   )
