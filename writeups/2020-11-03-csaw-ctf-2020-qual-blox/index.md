@@ -327,7 +327,7 @@ The final shellcode (without the quotes, note the space):
 
 Since the organizers decided to release the binary later, I wrote a custom wrapper (mostly implemented with `ptrace`) to patch the output strings to proper ANSI, provide the custom syscalls, and trigger LiveSplit on some checkpoints.
 
-Yes, that's right - <a href="./2020-09-20_23-39-47.mp4" external="true">speedrunning blox is now a thing</a>. Certainly some areas for improvement, but an excellent start for sure.
+Yes, that's right - <a href="./2020-09-20_23-39-47.mp4">speedrunning blox is now a thing</a>. Certainly some areas for improvement, but an excellent start for sure.
 
 # Final Thoughts
 Overall, this was not a terribly difficult challenge, but it was certainly very interesting. I had a lot of fun solving it (and playing way too much of it after the CTF).

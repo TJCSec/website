@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { Link, Image, jsx } from 'theme-ui'
 import Prism from '@theme-ui/prism'
+import PrismCore from './languages'
 
 import { Link as AnchorLink } from 'react-scroll'
 
@@ -47,7 +48,7 @@ const Blockquote = ({ children, ...props }) => (
 
 export default {
   pre: props => props.children,
-  code: Prism,
+  code: props => <Prism {...props} Prism={PrismCore} />,
   a: MdLink,
   blockquote: Blockquote,
   img: Image,
