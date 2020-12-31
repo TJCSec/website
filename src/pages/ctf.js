@@ -60,12 +60,12 @@ export default CTFs
 
 export const query = graphql`
   query CTFs {
-    allCtfsYaml {
+    allCtfsYaml(sort: {fields: startDate, order: DESC}) {
       nodes {
         name
-        startDate
+        startDate(formatString: "YYYY-MM-DD HH:mm [GMT]")
         link
-        endDate
+        endDate(formatString: "YYYY-MM-DD HH:mm [GMT]")
         tjParticipants {
           team
           rank

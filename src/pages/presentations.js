@@ -115,16 +115,16 @@ export default Presentations
 
 export const query = graphql`
   query Lectures {
-    allLecturesYaml {
+    allLecturesYaml(sort: {fields: date, order: ASC}) {
       nodes {
         title
         level
-        date
+        date(formatString: "YYYY-MM-DD")
         body
         link
       }
     }
-    allLectureFoldersYaml {
+    allLectureFoldersYaml(sort: {fields: label, order: DESC}) {
       nodes {
         link
         label
