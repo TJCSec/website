@@ -71,7 +71,7 @@ const CodeBlock = (props) => {
   return (
     <div ref={ref}>
       {!inView && <NoHighlightCodeBlock {...props} />}
-      {inView && <Prism {...props} Prism={PrismCore} />},
+      {inView && <Prism {...props} Prism={PrismCore} />}
     </div>
   )
 }
