@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Heading, Progress, Text, jsx, Button, Flex } from 'theme-ui'
+import { Flex, Heading, Link, Progress, Text, jsx } from 'theme-ui'
 
 const difficulty = {
   1: {
@@ -34,14 +34,23 @@ const LectureCard = ({ body, date, level, title, link, ...props }) => {
         }
       }}
     >
-      <Heading
-        as='h1'
+      <Link href={link}
         sx={{
-          fontSize: [3, 4, 5],
+          textDecoration: 'none',
+          '&:hover': {
+            textDecoration: 'underline',
+          },
         }}
       >
-        {title}
-      </Heading>
+        <Heading
+          as='h1'
+          sx={{
+            fontSize: [3, 4, 5],
+          }}
+        >
+          {title}
+        </Heading>
+      </Link>
       <Text
         sx={{
           fontSize: 1,
@@ -78,21 +87,6 @@ const LectureCard = ({ body, date, level, title, link, ...props }) => {
       >
         {display}
       </Text>
-      <Flex
-        sx={{
-          flexDirection: ['column', null, 'row'],
-          mt: 3,
-        }}
-      >
-        <Button
-          as='a'
-          href={link}
-          target='_blank'
-          rel='nofollow noopener noreferrer'
-        >
-          Presentation
-        </Button>
-      </Flex>
     </Flex>
   )
 }

@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { useState } from 'react'
-import { Box, Heading, Text, jsx, Button, Flex } from 'theme-ui'
-import ScoreBoard from './scoreboard'
+import { Box, Heading, Link, Text, jsx, Button, Flex } from 'theme-ui'
 
+import ScoreBoard from './scoreboard'
 
 const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) => {
   const [modalOpen, setModalOpen] = useState(false)
@@ -17,20 +17,26 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
         alignItems: 'stretch',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        '& > *': {
-          flex: '0 1 auto',
-        }
       }}
     >
       <Box>
-        <Heading
-          as='h1'
+        <Link href={link}
           sx={{
-            fontSize: [3, 4, 5],
+            textDecoration: 'none',
+            '&:hover': {
+              textDecoration: 'underline',
+            },
           }}
         >
-          {name}
-        </Heading>
+          <Heading
+            as='h1'
+            sx={{
+              fontSize: [3, 4, 5],
+            }}
+          >
+            {name}
+          </Heading>
+        </Link>
         <Text
           sx={{
             fontSize: 1,
@@ -41,30 +47,14 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
           {`${startDate} - ${endDate}`}
         </Text>
       </Box>
-      <Flex
+      {tjParticipants && <Button
+        onClick={() => {setModalOpen(true)}}
         sx={{
-          flexDirection: ['column', null, 'row'],
-          mt: 3,
+          mt: 2,
         }}
       >
-        <Button
-          as='a'
-          href={link}
-          target='_blank'
-          rel='nofollow noopener noreferrer'
-        >
-          Go
-        </Button>
-        {tjParticipants && <Button
-          onClick={() => {setModalOpen(true)}}
-          sx={{
-            mt: [2, null, 0],
-            ml: [0, null, 2],
-          }}
-        >
-          TJ Participants
-        </Button>}
-      </Flex>
+        TJ Participants
+      </Button>}
       <ScoreBoard isOpen={modalOpen} scores={tjParticipants} onClose={() => {setModalOpen(false)}}/>
     </Flex>
   )

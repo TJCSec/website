@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Heading, Text, jsx, Button, Flex } from 'theme-ui'
+import { Heading, Text, jsx, Flex } from 'theme-ui'
 
 import Link from './link'
 
@@ -54,16 +54,6 @@ const WriteupCard = ({ frontmatter, excerpt, timeToRead, ...props }) => {
       >
         {excerpt}
       </Text>
-      <Flex
-        sx={{
-          flexDirection: ['column', null, 'row'],
-          mt: 3,
-        }}
-      >
-        <Button as={Link} to={frontmatter.slug}>
-          Read
-        </Button>
-      </Flex>
     </Flex>
   )
 }
