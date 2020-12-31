@@ -31,8 +31,8 @@ const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
 
   return (
     <motion.div initial='initial' animate='animate'>
-      <SearchBar sx={{mb: '1.5rem'}} onChange={onSearchAction} value={pattern} />
-      <motion.div variants={fadeInUp({y: 50})}>
+      <SearchBar mb={3} onChange={onSearchAction} value={pattern} />
+      <motion.div variants={fadeInUp({ y: 50 })}>
         <Grid
           {...props}
           sx={{

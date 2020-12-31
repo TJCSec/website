@@ -1,11 +1,14 @@
 /** @jsx jsx */
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Box, Heading, Link, Text, jsx, Button, Flex } from 'theme-ui'
 
 import ScoreBoard from './scoreboard'
 
 const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) => {
   const [modalOpen, setModalOpen] = useState(false)
+
+  const open = useCallback(() => {setModalOpen(true)}, [])
+  const close = useCallback(() => {setModalOpen(false)}, [])
 
   return (
     <Flex
@@ -48,14 +51,14 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
         </Text>
       </Box>
       {tjParticipants && <Button
-        onClick={() => {setModalOpen(true)}}
+        onClick={open}
         sx={{
           mt: 2,
         }}
       >
         TJ Participants
       </Button>}
-      <ScoreBoard isOpen={modalOpen} scores={tjParticipants} onClose={() => {setModalOpen(false)}}/>
+      <ScoreBoard isOpen={modalOpen} scores={tjParticipants} onClose={close}/>
     </Flex>
   )
 }
