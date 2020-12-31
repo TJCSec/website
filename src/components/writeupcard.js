@@ -1,42 +1,38 @@
 /** @jsx jsx */
-import { Heading, Text, jsx, Flex } from 'theme-ui'
+import { Heading, Text, jsx } from 'theme-ui'
+import { motion } from 'framer-motion'
+import { navigate } from 'gatsby'
 
-import Link from './link'
+import { cardAnimateProps } from '../animations/animations'
 
 const WriteupCard = ({ frontmatter, excerpt, timeToRead, ...props }) => {
-
   return (
-    <Flex
+    <motion.div
+      {...cardAnimateProps()}
+      onClick={() => {navigate(frontmatter.slug)}}
       {...props}
       sx={{
+        display: 'flex',
         bg: 'lightBackground',
         borderRadius: 4,
         padding: 4,
         alignItems: 'stretch',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        cursor: 'pointer',
         '& > *': {
           flex: '0 1 auto',
         }
       }}
     >
-      <Link to={frontmatter.slug}
+      <Heading
+        as='h1'
         sx={{
-          textDecoration: 'none',
-          '&:hover': {
-            textDecoration: 'underline',
-          },
+          fontSize: [3, 4, 5],
         }}
       >
-        <Heading
-          as='h1'
-          sx={{
-            fontSize: [3, 4, 5],
-          }}
-        >
-          {frontmatter.title}
-        </Heading>
-      </Link>
+        {frontmatter.title}
+      </Heading>
       <Text
         sx={{
           fontSize: 1,
@@ -55,7 +51,7 @@ const WriteupCard = ({ frontmatter, excerpt, timeToRead, ...props }) => {
       >
         {excerpt}
       </Text>
-    </Flex>
+    </motion.div>
   )
 }
 

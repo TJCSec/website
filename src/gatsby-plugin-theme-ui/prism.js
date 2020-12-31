@@ -6,23 +6,23 @@ export default {
   '.comment, .block-comment, .prolog, .doctype, .cdata': {
     color: '#999',
   },
-  '.punctuation': { color: '#ccc' },
+  '.punctuation': { color: '#999' },
   '.tag, .attr-name, .namespace, .deleted': {
     color: '#e2777a',
   },
-  '.function-name': { color: '#6196cc' },
-  '.boolean, .number, .function': { color: '#f08d49' },
+  '.function-name, .function': { color: 'accent' },
+  '.boolean, .number': { color: '#EF9CDA' },
   '.property, .class-name, .constant, .symbol': {
-    color: '#f8c555',
+    color: '#A1E8CC',
   },
   '.selector, .important, .atrule, .keyword, .builtin': {
-    color: '#cc99cd',
+    color: 'primary',
   },
   '.string, .char, .attr-value, .regex, .variable': {
-    color: '#7ec699',
+    color: '#FFDB78',
   },
   '.operator, .entity, .url': {
-    color: '#67cdcc',
+    color: '#8489AE',
   },
   '.important, .bold': {
     fontWeight: 'bold',

@@ -1,46 +1,43 @@
 /** @jsx jsx */
+import { Box, Heading, Text, Button, jsx } from 'theme-ui'
 import { useCallback, useState } from 'react'
-import { Box, Heading, Link, Text, jsx, Button, Flex } from 'theme-ui'
+import { motion } from 'framer-motion'
 
 import ScoreBoard from './scoreboard'
+import {cardAnimateProps} from '../animations/animations'
 
 const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) => {
   const [modalOpen, setModalOpen] = useState(false)
+  const [isHoveringOverButtons, setisHoveringOverButtons] = useState(false)
 
   const open = useCallback(() => {setModalOpen(true)}, [])
   const close = useCallback(() => {setModalOpen(false)}, [])
 
   return (
-    <Flex
+    <motion.div
+      {...cardAnimateProps(isHoveringOverButtons)}
+      onClick={() => {!isHoveringOverButtons && !modalOpen && window.open(link, '_blank', 'nofollow,noopener,noreferrer')}}
       {...props}
       sx={{
+        display: 'flex',
         bg: 'lightBackground',
         borderRadius: 4,
         padding: 4,
         alignItems: 'stretch',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        cursor: 'pointer',
       }}
     >
       <Box>
-        <Link href={link}
-          target='_blank' rel='nofollow noopener noreferrer'
+        <Heading
+          as='h1'
           sx={{
-            textDecoration: 'none',
-            '&:hover': {
-              textDecoration: 'underline',
-            },
+            fontSize: [3, 4, 5],
           }}
         >
-          <Heading
-            as='h1'
-            sx={{
-              fontSize: [3, 4, 5],
-            }}
-          >
-            {name}
-          </Heading>
-        </Link>
+          {name}
+        </Heading>
         <Text
           sx={{
             fontSize: 1,
@@ -53,6 +50,8 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
       </Box>
       {tjParticipants && <Button
         onClick={open}
+        onMouseEnter={() => {setisHoveringOverButtons(true)}}
+        onMouseLeave={() => {setisHoveringOverButtons(false)}}
         sx={{
           mt: 2,
         }}
@@ -60,7 +59,7 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
         TJ Participants
       </Button>}
       <ScoreBoard isOpen={modalOpen} scores={tjParticipants} onClose={close}/>
-    </Flex>
+    </motion.div>
   )
 }
 

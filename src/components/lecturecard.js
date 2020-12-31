@@ -1,5 +1,9 @@
 /** @jsx jsx */
-import { Flex, Heading, Link, Progress, Text, jsx } from 'theme-ui'
+import { Heading, Progress, Text, jsx } from 'theme-ui'
+import { motion } from 'framer-motion'
+
+import { cardAnimateProps } from '../animations/animations'
+
 
 const difficulty = {
   1: {
@@ -20,38 +24,32 @@ const LectureCard = ({ body, date, level, title, link, ...props }) => {
   const { color, display } = difficulty[level]
 
   return (
-    <Flex
+    <motion.div
+      {...cardAnimateProps()}
+      onClick={() => {window.open(link, '_blank', 'nofollow,noopener,noreferrer')}} // idt navigator has support for opening in new windows
       {...props}
       sx={{
+        display: 'flex',
         bg: 'lightBackground',
         borderRadius: 4,
         padding: 4,
         alignItems: 'stretch',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        cursor: 'pointer',
         '& > *': {
           flex: '0 1 auto',
         }
       }}
     >
-      <Link href={link}
-        target='_blank' rel='nofollow noopener noreferrer'
+      <Heading
+        as='h1'
         sx={{
-          textDecoration: 'none',
-          '&:hover': {
-            textDecoration: 'underline',
-          },
+          fontSize: [3, 4, 5],
         }}
       >
-        <Heading
-          as='h1'
-          sx={{
-            fontSize: [3, 4, 5],
-          }}
-        >
-          {title}
-        </Heading>
-      </Link>
+        {title}
+      </Heading>
       <Text
         sx={{
           fontSize: 1,
@@ -88,7 +86,7 @@ const LectureCard = ({ body, date, level, title, link, ...props }) => {
       >
         {display}
       </Text>
-    </Flex>
+    </motion.div>
   )
 }
 

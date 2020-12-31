@@ -16,15 +16,21 @@ const fadeInUp = ({duration, y} = {}) => ({
   }
 })
 
-const stagger = {
+const stagger  = ({duration} = {}) => ({
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: duration ?? 0.1
     }
   }
-}
+})
+
+const cardAnimateProps = (isHoveringOverButtons = false) => ({
+  whileHover: { scale: !isHoveringOverButtons ? 1.02 : 1 },
+  whileTap: { scale: !isHoveringOverButtons ? 0.95 : 1 }
+})
 
 export {
   fadeInUp,
-  stagger
+  stagger,
+  cardAnimateProps
 }

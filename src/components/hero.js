@@ -13,7 +13,7 @@ const Hero = ({ title, subtitle, ...props }) => (
     }}
   >
     <motion.div
-      variants={stagger}
+      variants={stagger()}
       animate='animate'
       initial='initial'
     >
@@ -24,7 +24,7 @@ const Hero = ({ title, subtitle, ...props }) => (
       </motion.div>
       {subtitle &&
         <motion.div
-          variants={fadeInUp()}
+          variants={fadeInUp({duration: .22})}
         >
           <Heading
             as='h2'
