@@ -41,6 +41,7 @@ const WriteupCard = ({ frontmatter, excerpt, timeToRead, ...props }) => {
         sx={{
           fontSize: 1,
           marginTop: 2,
+          color: 'primary',
         }}
       >
         {frontmatter.date} — {timeToRead} minute read
