@@ -35,6 +35,7 @@ const LectureCard = ({ body, date, level, title, link, ...props }) => {
       }}
     >
       <Link href={link}
+        target='_blank' rel='nofollow noopener noreferrer'
         sx={{
           textDecoration: 'none',
           '&:hover': {

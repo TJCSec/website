@@ -24,6 +24,7 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
     >
       <Box>
         <Link href={link}
+          target='_blank' rel='nofollow noopener noreferrer'
           sx={{
             textDecoration: 'none',
             '&:hover': {
