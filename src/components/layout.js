@@ -33,6 +33,8 @@ const Layout = ({ seo, children, ...props }) => {
         <Flex
           as='main'
           sx={{
+            margin: 'auto',
+            maxWidth: '2000px',
             flexDirection: 'column',
             justifyContent: 'stretch',
             minHeight: theme => `calc(100vh - ${theme.sizes.footer}px)`

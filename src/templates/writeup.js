@@ -53,13 +53,12 @@ const Writeup = ({ data: { mdx: post } }) => {
             sx={{
               bg: 'altBackground',
               width: [250, null, 300],
-              p: 4,
-              ml: 4,
+              height: ['100%', 'auto'],
+              ml: '4rem',
               position: 'sticky',
               top: theme => `calc(${theme.sizes.navbar}px + 1rem)`,
               // lmfao
               maxHeight: theme => `calc(100vh - 2 * ${theme.sizes.navbar}px - 2rem)`,
-              overflow: 'auto',
               '& ul': {
                 m: 0,
                 listStyle: 'none',
@@ -86,23 +85,48 @@ const Writeup = ({ data: { mdx: post } }) => {
               },
             }}
           >
-            <Close
-              onClick={useCallback(() => {setTocOpen(false)}, [])}
+            <Box
               sx={{
-                cursor: 'pointer',
-                display: ['inline-flex', null, 'none'],
-              }}
-            />
-            <Heading as='h1'
-              sx={{
-                fontSize: 4,
-                mt: [3, null, 0],
-                mb: 3,
+                p: 4,
+                height: [166, null, 116],
+                bg: 'primary',
+                color: 'lightBackground',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyItems: 'flex-start',
+                alignItems: 'center'
               }}
             >
-              Table of Contents
-            </Heading>
-            <TableOfContents items={toc} sx={{ pl: '0 !important' }} />
+              <Close
+                onClick={useCallback(() => {setTocOpen(false)}, [])}
+                sx={{
+                  cursor: 'pointer',
+                  mr: 'auto',
+                  mb: 3,
+                  display: ['inline-flex', null, 'none'],
+                }}
+              />
+              <Heading as='h1'
+                sx={{
+                  fontSize: 4,
+                  my: 'auto',
+                  mr: 'auto'
+                }}
+              >
+                Table of Contents
+              </Heading>
+            </Box>
+            <Box
+              sx={{
+                px: 4,
+                pt: 3,
+                pb: 4,
+                overflow: 'auto',
+                height: ['calc(100% - 166px)', 'calc(100% - 116px)']
+              }}
+            >
+              <TableOfContents items={toc} sx={{ pl: '0 !important' }} />
+            </Box>
           </Box>
           <Box m='auto'>
             <Hero title={title} subtitle={'Published on ' + date}
@@ -116,7 +140,6 @@ const Writeup = ({ data: { mdx: post } }) => {
                 },
               }}
             >
-
               <MDXRenderer>{body}</MDXRenderer>
             </Container>
           </Box>
