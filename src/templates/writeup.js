@@ -2,10 +2,12 @@
 import { jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { Global } from '@emotion/core' 
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Container from '../components/container'
+import { prismArrangement } from '../gatsby-plugin-theme-ui/prism'
 
 const Writeup = ({ data: { mdx: post } }) => {
   const {title, date} = post.frontmatter
@@ -15,6 +17,9 @@ const Writeup = ({ data: { mdx: post } }) => {
     <Layout seo={{ title: title, description: excerpt }} >
       <Hero title={title} subtitle={'Published on ' + date}
         sx={{ maxWidth: 'writeup' }}
+      />
+      <Global
+        styles={theme => (prismArrangement(theme))}
       />
       <Container
         sx={{

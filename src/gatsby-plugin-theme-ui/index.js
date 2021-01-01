@@ -1,7 +1,7 @@
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/700.css'
 
-import customPrism from './prism'
+import { prismColors } from './prism'
 
 export default {
   breakpoints: [
@@ -78,7 +78,7 @@ export default {
       },
     },
     code: {
-      ...customPrism,
+      ...prismColors
     },
   }
 }

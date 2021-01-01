@@ -1,11 +1,7 @@
 /** @jsx jsx */
-import { Link, Image, Styled, jsx } from 'theme-ui'
-import Prism from '@theme-ui/prism'
-import PrismCore from './languages'
+import { Link, Image, jsx } from 'theme-ui'
 
-import { useInView } from 'react-intersection-observer'
 import { Link as AnchorLink } from 'react-scroll'
-import Highlight, { defaultProps } from "prism-react-renderer"
 
 const MdLink = ({ href, children, external, ...props }) => {
   return (
@@ -32,50 +28,6 @@ const MdLink = ({ href, children, external, ...props }) => {
   )
 }
 
-// Copypasta of theme-ui source, but with no lang
-const NoHighlightCodeBlock = ({ children, className: outerClassName, ...props }) => {
-  return (
-    <Highlight
-      {...defaultProps}
-      {...props}
-      code={children.trim()}
-      language=""
-      theme={undefined}
-    >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Styled.pre 
-          className={`${outerClassName} ${className}`} 
-          style={style}
-        >
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span
-                  key={key}
-                  {...getTokenProps({ token, key })}
-                  sx={token.empty ? { display: `inline-block` } : undefined}
-                />
-              ))}
-            </div>
-          ))}
-        </Styled.pre>
-      )}
-    </Highlight>
-  );
-};
-
-
-const CodeBlock = (props) => {
-  const {ref, inView} = useInView()
-
-  return (
-    <div ref={ref}>
-      {!inView && <NoHighlightCodeBlock {...props} />}
-      {inView && <Prism {...props} Prism={PrismCore} />}
-    </div>
-  )
-}
-
 const Blockquote = ({ children, ...props }) => (
   <blockquote
     {...props}
@@ -94,7 +46,6 @@ const Blockquote = ({ children, ...props }) => (
 
 export default {
   pre: props => props.children,
-  code: CodeBlock,
   a: MdLink,
   blockquote: Blockquote,
   img: Image,

@@ -34,6 +34,14 @@ module.exports = {
               ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+            },
+          },
         ],
         plugins: [
           'gatsby-remark-autolink-headers', // stupid hack https://github.com/gatsbyjs/gatsby/issues/15486

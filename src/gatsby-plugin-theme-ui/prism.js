@@ -1,8 +1,4 @@
-export default {
-  color: '#e8e8e8',
-  bg: 'lightBackground',
-  overflow: 'auto',
-  p: '1rem',
+const prismColors = {
   '.comment, .block-comment, .prolog, .doctype, .cdata': {
     color: '#999',
   },
@@ -36,4 +32,47 @@ export default {
   '.inserted': {
     color: 'green',
   }
+}
+
+const prismArrangement = theme => ({
+  'code[class*="language-"], pre[class*="language-"]': {
+    color: '#e8e8e8',
+    fontSize: '1em',
+    textAlign: 'left',
+    whiteSpace: 'pre',
+    wordSpacing: 'normal',
+    wordBreak: 'normal',
+    wordWrap: 'normal',
+    lineHeight: 1.5,
+    tabSize: 4,
+    hyphens: 'none',
+  },
+  'pre[class*="language-"]': {
+    padding: '1em',
+    margin: '.5em 0',
+    overflow: 'auto',
+  },
+  ':not(pre) > code[class*="language-"], pre[class*="language-"]': {
+	  backgroundColor: theme.colors.lightBackground
+  },
+  ':not(pre) > code[class*="language-"]': {
+    padding: '.1em',
+    borderRadius: '.3em',
+  },
+  '.gatsby-highlight': {
+    backgroundColor: theme.colors.lightBackground,
+    padding: '1rem',
+    borderRadius: '0.2rem'
+  },
+  'pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection, code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection': {
+	  backgroundColor: theme.colors.lightBackground
+  },
+  'pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[class*="language-"]::selection, code[class*="language-"] ::selection': {
+	  backgroundColor: theme.colors.lightBackground
+  },
+})
+
+export {
+  prismColors,
+  prismArrangement
 }

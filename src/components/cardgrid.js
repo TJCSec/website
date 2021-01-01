@@ -15,7 +15,6 @@ const CardGrid = ({ items, Card, fuseOptions, ...props }) => {
   const fuse = useRef(new Fuse(items, fuseOptions)).current
 
   const search = useRef(debounce((value) => {
-    console.log(fuse.search(value))
     const res = (value === '')
       ? items
       : fuse.search(value).map(val => val.item)

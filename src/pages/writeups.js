@@ -22,8 +22,6 @@ const fuseOptions = {
   threshold: 0.4,
 }
 
-
-
 const Writeups = ({ data }) => {
   const {
     allMdx: {
