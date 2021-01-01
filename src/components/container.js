@@ -9,7 +9,7 @@ const Container = ({ children, ...props }) => (
       px: ['2rem', '3rem', '4rem'],
       width: '100%',
       maxWidth: 'container',
-      m: 'auto',
+      mx: 'auto',
     }}
   >
     {children}

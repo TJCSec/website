@@ -2,6 +2,7 @@
 import { Flex, Styled, jsx } from 'theme-ui'
 import { Global } from '@emotion/core'
 import Navbar from './navbar'
+import Footer from './footer'
 import SEO from './seo'
 import { motion } from 'framer-motion'
 
@@ -34,10 +35,12 @@ const Layout = ({ seo, children, ...props }) => {
           sx={{
             flexDirection: 'column',
             justifyContent: 'stretch',
+            minHeight: theme => `calc(100vh - ${theme.sizes.footer})`
           }}
         >
           {children}
         </Flex>
+        <Footer />
       </motion.div>
     </Styled.root>
   )
