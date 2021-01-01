@@ -60,6 +60,7 @@ const prismArrangement = theme => ({
     borderRadius: '.3em',
   },
   '.gatsby-highlight': {
+    overflow: 'auto',
     backgroundColor: theme.colors.lightBackground,
     padding: '1rem',
     borderRadius: '0.2rem'
