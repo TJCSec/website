@@ -35,7 +35,7 @@ const Layout = ({ seo, children, ...props }) => {
           sx={{
             flexDirection: 'column',
             justifyContent: 'stretch',
-            minHeight: theme => `calc(100vh - ${theme.sizes.footer})`
+            minHeight: theme => `calc(100vh - ${theme.sizes.footer}px)`
           }}
         >
           {children}
