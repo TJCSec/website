@@ -28,7 +28,7 @@ const Writeup = ({ data: { mdx: post } }) => {
   const [tocOpen, setTocOpen] = useState(false)
 
   return (
-    <Layout seo={{ title: title, description: excerpt }} >
+    <Layout seo={{ title, description: excerpt }} >
       <Global
         styles={theme => (prismArrangement(theme))}
       />
@@ -133,10 +133,9 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $path } }) {
       frontmatter {
         date(formatString: "YYYY-MM-DD")
-        slug
         title
-        excerpt
       }
+      excerpt
       body
       tableOfContents(maxDepth: 6)
     }
