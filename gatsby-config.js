@@ -40,6 +40,7 @@ module.exports = {
               classPrefix: 'language-',
               inlineCodeMarker: null,
               aliases: {},
+              noInlineHighlight: true,
             },
           },
         ],
