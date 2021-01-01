@@ -8,7 +8,7 @@ const FooterIcon = ({Icon, href, ...props}) => (
     as='a'
     href={href}
     target='_blank'
-    rel='noreferrer'
+    rel='nofollow noopener noreferrer'
   >
     <Icon />
   </IconButton>
