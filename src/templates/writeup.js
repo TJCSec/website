@@ -28,7 +28,7 @@ const Writeup = ({ data: { mdx: post } }) => {
   const [tocOpen, setTocOpen] = useState(false)
 
   return (
-    <Layout useNavbarWidth={true} seo={{ title, description: excerpt }} >
+    <Layout seo={{ title, description: excerpt }} >
       <Global
         styles={theme => (prismArrangement(theme))}
       />
@@ -50,11 +50,11 @@ const Writeup = ({ data: { mdx: post } }) => {
       </IconButton>
       <Container>
         <Flex>
-          <Box
+          <Flex
             sx={{
+              flexDirection: 'column',
               bg: 'altBackground',
               width: [250, null, 300],
-              height: ['100%', 'auto'],
               borderRadius: [0, null, 5],
               overflow: 'hidden',
               position: 'sticky',
@@ -84,18 +84,15 @@ const Writeup = ({ data: { mdx: post } }) => {
                 maxHeight: 'none',
                 transform: tocOpen ? 'translateX(0)' : 'translateX(100%)',
                 transition: 'transform 200ms linear',
+                boxShadow: '-6px 0px 24px rgba(0,0,0,.15)',
               },
             }}
           >
-            <Flex
+            <Box
               sx={{
                 p: 4,
-                height: [166, null, 116],
                 bg: 'lightBackground',
                 color: 'text',
-                flexDirection: 'column',
-                justifyItems: 'flex-start',
-                alignItems: 'center',
               }}
             >
               <Close
@@ -116,25 +113,22 @@ const Writeup = ({ data: { mdx: post } }) => {
               >
                 Table of Contents
               </Heading>
-            </Flex>
+            </Box>
             <Box
               sx={{
-                px: 4,
-                pt: 3,
-                pb: 4,
                 overflow: 'auto',
-                height: ['calc(100% - 166px)', 'calc(100% - 116px)']
+                p: 4,
               }}
             >
               <TableOfContents items={toc} sx={{ pl: '0 !important' }} />
             </Box>
-          </Box>
+          </Flex>
           <Box
             sx={{
               m: 'auto',
+              pl: [0, null, 5],
               '& > *': {
-                pl: [0, null, '4rem'],
-                pr: 0,
+                px: '0 !important'
               },
             }}
           >
