@@ -65,12 +65,6 @@ const prismArrangement = theme => ({
     padding: '1rem',
     borderRadius: '0.2rem'
   },
-  'pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection, code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection': {
-	  backgroundColor: theme.colors.lightBackground
-  },
-  'pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[class*="language-"]::selection, code[class*="language-"] ::selection': {
-	  backgroundColor: theme.colors.lightBackground
-  },
 })
 
 export {
