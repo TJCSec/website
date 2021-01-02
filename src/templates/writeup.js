@@ -34,7 +34,7 @@ const Writeup = ({ data: { mdx: post } }) => {
       />
       <IconButton
         onClick={useCallback(() => {setTocOpen(open => !open)}, [])}
-        aria-label="Toggle Table of Contents"
+        aria-label='Table of Contents'
         sx={{
           display: ['block', null, 'none'],
           position: 'fixed',
@@ -48,16 +48,15 @@ const Writeup = ({ data: { mdx: post } }) => {
       >
         <IoList />
       </IconButton>
-      <Box mt={4}>
+      <Container>
         <Flex>
           <Box
             sx={{
               bg: 'altBackground',
               width: [250, null, 300],
               height: ['100%', 'auto'],
-              borderRadius: '.2rem',
+              borderRadius: [0, null, 5],
               overflow: 'hidden',
-              ml: '4rem',
               position: 'sticky',
               top: theme => `calc(${theme.sizes.navbar}px + 1rem)`,
               // lmfao
@@ -88,13 +87,12 @@ const Writeup = ({ data: { mdx: post } }) => {
               },
             }}
           >
-            <Box
+            <Flex
               sx={{
                 p: 4,
                 height: [166, null, 116],
-                bg: 'primary',
-                color: 'lightBackground',
-                display: 'flex',
+                bg: 'lightBackground',
+                color: 'text',
                 flexDirection: 'column',
                 justifyItems: 'flex-start',
                 alignItems: 'center',
@@ -118,7 +116,7 @@ const Writeup = ({ data: { mdx: post } }) => {
               >
                 Table of Contents
               </Heading>
-            </Box>
+            </Flex>
             <Box
               sx={{
                 px: 4,
@@ -131,7 +129,15 @@ const Writeup = ({ data: { mdx: post } }) => {
               <TableOfContents items={toc} sx={{ pl: '0 !important' }} />
             </Box>
           </Box>
-          <Box m='auto'>
+          <Box
+            sx={{
+              m: 'auto',
+              '& > *': {
+                pl: [0, null, '4rem'],
+                pr: 0,
+              },
+            }}
+          >
             <Hero title={title} subtitle={'Published on ' + date}
               sx={{ maxWidth: 'writeup' }}
             />
@@ -147,7 +153,7 @@ const Writeup = ({ data: { mdx: post } }) => {
             </Container>
           </Box>
         </Flex>
-      </Box>
+      </Container>
     </Layout>
   )
 }
