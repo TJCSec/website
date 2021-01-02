@@ -6,7 +6,7 @@ import Footer from './footer'
 import SEO from './seo'
 import { motion } from 'framer-motion'
 
-const Layout = ({ seo, children, ...props }) => {
+const Layout = ({ seo, children, useNavbarWidth = false, ...props }) => {
   return (
     <Styled.root {...props}>
       <Global
@@ -33,8 +33,8 @@ const Layout = ({ seo, children, ...props }) => {
         <Flex
           as='main'
           sx={{
-            margin: 'auto',
-            maxWidth: '2000px',
+            margin: useNavbarWidth && 'auto',
+            maxWidth: useNavbarWidth && '2000px',
             flexDirection: 'column',
             justifyContent: 'stretch',
             minHeight: theme => `calc(100vh - ${theme.sizes.footer}px)`

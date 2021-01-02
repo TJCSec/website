@@ -28,12 +28,13 @@ const Writeup = ({ data: { mdx: post } }) => {
   const [tocOpen, setTocOpen] = useState(false)
 
   return (
-    <Layout seo={{ title, description: excerpt }} >
+    <Layout useNavbarWidth={true} seo={{ title, description: excerpt }} >
       <Global
         styles={theme => (prismArrangement(theme))}
       />
       <IconButton
         onClick={useCallback(() => {setTocOpen(open => !open)}, [])}
+        aria-label="Toggle Table of Contents"
         sx={{
           display: ['block', null, 'none'],
           position: 'fixed',
@@ -54,6 +55,8 @@ const Writeup = ({ data: { mdx: post } }) => {
               bg: 'altBackground',
               width: [250, null, 300],
               height: ['100%', 'auto'],
+              borderRadius: '.2rem',
+              overflow: 'hidden',
               ml: '4rem',
               position: 'sticky',
               top: theme => `calc(${theme.sizes.navbar}px + 1rem)`,
@@ -94,7 +97,7 @@ const Writeup = ({ data: { mdx: post } }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyItems: 'flex-start',
-                alignItems: 'center'
+                alignItems: 'center',
               }}
             >
               <Close
