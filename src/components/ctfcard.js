@@ -58,7 +58,7 @@ const CTFCard = ({ name, link, startDate, endDate, tjParticipants, ...props }) =
               color: 'primary',
             }}
           >
-            {datefmt(startDate)} — {datefmt(endDate)}
+            {`${datefmt(startDate)} — ${datefmt(endDate)}`}
           </Text>
         </Box>
         {tjParticipants && <Button
