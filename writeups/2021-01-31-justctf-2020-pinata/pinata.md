@@ -3,6 +3,7 @@ title: justCTF 2020 - Pinata (pwn)
 date: 2021-01-30
 slug: /writeups/justctf-2020-pinata
 excerpt: Blind exploitation of nginx from justCTF 2020
+author: Darin Mao
 ---
 
 Pinata was a binary exploitation challenge from justCTF 2020. The task was to exploit a remote nginx service running a custom module, _without_ a provided binary. I competed with DiceGang and completed this challenge with kmh over the course of at least 14 hours. We managed to secure first blood 🩸, and at the end of the CTF only 2 teams solved this challenge.
