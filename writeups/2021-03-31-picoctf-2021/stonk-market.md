@@ -6,7 +6,7 @@ excerpt: Tricky format string exploitation
 author: Darin Mao
 ---
 
-Stonk Market was a binary exploitation challenge from picoCTF 2021. Given the relatively low point value (180 points), it was most likely intended to be an easy challenge. However, presumably due to lack of testing, it was actually quite tricky.
+Stonk Market was a binary exploitation challenge from picoCTF 2021. Despite the relatively low point value (180 points), it was actually quite tricky.
 
 # Description
 > I've learned my lesson, no more reading my API key into memory. Now there's no useful information you can leak! `nc mercury.picoctf.net 12784`
