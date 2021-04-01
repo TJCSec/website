@@ -93,7 +93,7 @@ With some careful counting and trial and error, we can find the argument numbers
 - location that saved `rbp` points to is 20
 - `Portfolio *p` is 18
 
-Note that upon encountering the first format specifier with a `$` specifying argument position, `printf` will go through the format string and save every argument. Therefore, if we use a `$` while writing our target address to the stack, then `printf` will save the old value and it will have no effect. Therefore, we can not use `$` until this address is written.
+Note that upon encountering the first format specifier with a `$` specifying argument position, `printf` will go through the format string and save every argument. This means that if we use a `$` while writing our target address to the stack, then `printf` will save the old value and it will have no effect. Therefore, we can not use `$` until this address is written.
 
 We'll start our format string with:
 
