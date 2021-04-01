@@ -83,7 +83,7 @@ picoCTF is unique because it provides competitors with a web shell with high-spe
 
 The stack contains many pointers to the stack. We can take advantage of this to write a value of our choice to the stack, then use that address to do an arbitrary write. I chose to use the saved `rbp`, because it is at a consistent offset regardless of environment and always points to a small value on the stack, so we can overwrite it entirely with `printf`.
 
-A quick side note: on my computer (Ubuntu 20.04 with glibc 2.31), the saved `rbp` points to a `NULL`. However, by leaking the return address of `__libc_start_main` and using the [libc database](https://libc.blukat.me/), we find that the server is running glibc 2.27. Downloading this version of libc and the corresponding linker reveals that the saved `rbp` actually points to `__libc_csu_init`. In either case, the value is less than 4 bytes long so we can still overwrite the entire thing with `%n`.
+A quick side note: on my computer (Ubuntu 20.04 with glibc 2.31), the saved `rbp` points to a `NULL`. However, by leaking the return address of `__libc_start_main` and using the [libc database](https://libc.blukat.me/), we find that the server is running glibc 2.27. Downloading this version of libc and the corresponding ld reveals that the saved `rbp` actually points to `__libc_csu_init`. In either case, the value is less than 4 bytes long so we can still overwrite the entire thing with `%n`.
 
 # Exploit
 
