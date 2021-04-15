@@ -10,11 +10,13 @@ Bizz Fuzz was a binary exploitation challenge from picoCTF 2021. Despite being i
 
 # Description
 > FizzBuzz was too easy, so I made something a little bit harder... There's a buffer overflow in this problem, good luck finding it! `nc mercury.picoctf.net 4636`
-> Hint: What functions are imported? Where are they used? And what do these strings mean?
-> Hint: Woah, some of these functions seem similar, can you figure them out one group at a time?
-> Hint: If fancy new dissassemblers take too long, there's always objdump!
-> Hint: Have you heard of binary instrumentation before? It might keep you from running in circles. No promises.
-> Hint: ANGR is another great framework.
+>
+> Hints:
+> - What functions are imported? Where are they used? And what do these strings mean?
+> - Woah, some of these functions seem similar, can you figure them out one group at a time?
+> - If fancy new dissassemblers take too long, there's always objdump!
+> - Have you heard of binary instrumentation before? It might keep you from running in circles. No promises.
+> - ANGR is another great framework.
 
 Files:
 - [vuln](https://mercury.picoctf.net/static/c0b3659d7bea50b48c740f3d4c80a0e7/vuln)
