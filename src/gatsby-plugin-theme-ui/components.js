@@ -2,9 +2,6 @@
 import { Link, Image, jsx } from 'theme-ui'
 
 import { Link as AnchorLink } from 'react-scroll'
-import GatsbyLink from '../components/link'
-
-const externalLinkRegex = /^(https?:)?\/\//
 
 const MdLink = ({ href, children, external, ...props }) => {
   return (
@@ -19,7 +16,7 @@ const MdLink = ({ href, children, external, ...props }) => {
       >
         {children}
       </AnchorLink>
-    ) : externalLinkRegex.test(href) ? (
+    ) : (
       <Link
         href={href}
         target='_blank' rel='nofollow noopener noreferrer'
@@ -27,10 +24,6 @@ const MdLink = ({ href, children, external, ...props }) => {
       >
         {children}
       </Link>
-    ) : (
-      <GatsbyLink to={href} {...props}>
-        {children}
-      </GatsbyLink>
     )
   )
 }
