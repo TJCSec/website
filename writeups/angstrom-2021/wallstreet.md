@@ -96,7 +96,7 @@ if (l->l_info[DT_FINI_ARRAY] != NULL)
 
 Basically, it finds the location of the `FINI_ARRAY` by finding the location of the `DT_FINI_ARRAY` dynamic section entry, then *adds it to the value of `l_addr`*. Therefore, we can offset the location of the `FINI_ARRAY` to point to our own input, then place a function pointer there to get rip control.
 
-Conveniently, our input for the stonk viewing is in a global buffer, at a constant offset from `FINI_ARRAY`. The `FINI_ARRAY` is at `0x403e18`, and `user_buf` starts at `0x4040e0`, giving us a difference of 712. However, we'll need some space to do the format string, so we'll add 16 bytes to get 728.
+Conveniently, our input is in a global buffer, at a constant offset from `FINI_ARRAY`. The `FINI_ARRAY` is at `0x403e18`, and `user_buf` starts at `0x4040e0`, giving us a difference of 712. However, we'll need some space to do the format string, so we'll add 16 bytes to get 728.
 
 The only tricky part is figuring out where the pointer to `link_map` is. On my local computer, it was at an offset of 98, but, as previously stated, going down the stack this far is highly reliant on environment. However, we can brute force this offset by writing a function pointer to `main` and trying different offsets around 98. Whichever offset successfully returns back to `main` on the remote server is the pointer to `link_map`. Code to do this is below.
 
