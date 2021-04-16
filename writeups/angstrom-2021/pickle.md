@@ -184,7 +184,7 @@ if __name__ == '__main__':
     print(base64.urlsafe_b64encode(pickled))
 ```
 
-This gives us RCE, and we can easily get the flag with a reverse shell or similar However, this solution is lame, and with our new knowledge of pickles, we can do much better. Notice that the flag is stored as a global variable that we have access to. We can try using `GLOBAL` to grab it.
+This gives us RCE, and we can easily get the flag with a reverse shell or similar. However, this solution is lame, and with our new knowledge of pickles, we can do much better. Notice that the flag is stored as a global variable that we have access to. We can try using `GLOBAL` to grab it.
 
 ```
 >>> p = GLOBAL + b'__main__\nflag\n' + STOP
@@ -192,7 +192,7 @@ This gives us RCE, and we can easily get the flag with a reverse shell or simila
 'actf{FAKE_FLAG}'
 ```
 
-This calls `find_class('__main__', 'flag')` as expected. However, since the server runs `items.append` on our deserialized pickle, we need to make it a list.
+This calls `find_class('__main__', 'flag')` as expected. However, the server expects a list, so we adjust accordingly.
 
 ```
 >>> p = MARK + GLOBAL + b'__main__\nflag\n' + LIST + STOP
@@ -366,7 +366,7 @@ class SafeUnpickler(pickle.Unpickler):
     raise pickle.UnpicklingError(f"HACKING DETECTED")
 ```
 
-Basically, we can *only* access `db.User` and nothing else. The web server is peculiar:
+Basically, we can *only* access `db.User` and nothing else. In addition, web server is quite peculiar:
 
 ```python
 @app.route('/', methods=['GET', 'POST'])
@@ -391,7 +391,7 @@ def pokedex():
 We need to send a pickle such that `is_admin` returns `False` the first time but `True` the next time. While this may seem impossible, note that the route handler loads a fresh instance of `db` on every request, so we can potentially overwrite class attributes on `db.User` which could lead to some interesting behavior. If this were not the case, then competitors would interfere with each other, so we could rule out the possibility.
 
 ## A Closer Look at BUILD
-Look, again, at the source code for `load_build`:
+Look, again, at the beginning of the source code for `load_build`:
 
 ```python
 def load_build(self):
@@ -402,20 +402,6 @@ def load_build(self):
   if setstate is not None:
     setstate(state)
     return
-  slotstate = None
-  if isinstance(state, tuple) and len(state) == 2:
-    state, slotstate = state
-  if state:
-    inst_dict = inst.__dict__
-    intern = sys.intern
-    for k, v in state.items():
-      if type(k) is str:
-        inst_dict[intern(k)] = v
-      else:
-        inst_dict[k] = v
-  if slotstate:
-    for k, v in slotstate.items():
-      setattr(inst, k, v)
 ```
 
 Notice that if `inst` has a `__setstate__` attribute, the build opcode will call that function instead. Most importantly, in this case, the build opcode will *not* continue to write to `__dict__` or call `setattr`. This could lead to different behavior the next time it is invoked.
