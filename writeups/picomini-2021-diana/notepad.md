@@ -11,7 +11,7 @@ Notepad was a web exploitation challenge from picoMini by redpwn 2021.
 # Description
 > This note-taking site seems a bit off.
 >
-> notepad.mars.picoctf.net
+> [notepad.mars.picoctf.net](https://notepad.mars.picoctf.net)
 
 Files:
 * [notepad.tar](https://artifacts.picoctf.net/picoMini+by+redpwn/Web+Exploitation/notepad/notepad.tar)
