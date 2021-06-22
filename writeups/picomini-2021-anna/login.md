@@ -8,7 +8,7 @@ author: Anna Hsu
 # Description
 > My dog-sitter's brother made this website but I can't get in; can you help?
 >
-> login.mars.picoctf.net
+> [login.mars.picoctf.net](https://login.mars.picoctf.net)
 
 # Solution
 On first inspection, when faced with a [login screen](https://login.mars.picoctf.net), it seems like SQL injection, because isn't that what always happens with logins in CTFs? However, it's a lot simpler than that. After navigating to website source, we encounter `index.js`. Upon pretty-printing, it's just vanilla JS.
@@ -31,7 +31,11 @@ On first inspection, when faced with a [login screen](https://login.mars.picoctf
 }
 )();
 ```
-The important part of the code is in line 12, where it's checking for a username and password that has been turned into Base64 from ASCII via the `btoa()` method, which is reversible with the `atob()` method. The password itself is the flag when decoded. Opening the console and running `atob("cGljb0NURns1M3J2M3JfNTNydjNyXzUzcnYzcl81M3J2M3JfNTNydjNyfQ")` results in the flag.
+The important part of the code is in line 12, where it's checking for a username and password that has been turned into Base64 from ASCII via the `btoa()` method, which is reversible with the `atob()` method. The password itself is the flag when decoded. Opening the console and undoing the encoding, shown below, results in the flag.
+
+```js
+atob("cGljb0NURns1M3J2M3JfNTNydjNyXzUzcnYzcl81M3J2M3JfNTNydjNyfQ")
+```
 
 If you're not convinced it's the real flag, you can decode the username (`admin`) and input both into the login form, which results in an alert announcing the flag.
 

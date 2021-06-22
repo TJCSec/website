@@ -134,3 +134,26 @@
   level: 2
   guest: true
   link: https://docs.google.com/presentation/d/1ugMtn5NykxS_3wii81JLs-Zew-S-BsYwqTQbnXxj7oA/edit?usp=sharing
+- title: 'Global Offset Table (GOT)'
+  date: 2021-05-12
+  body: 'How the Global Offset Table (GOT) works, and its use in binary exploitation.'
+  level: 3
+  link: https://docs.google.com/presentation/d/18g2zZWKuXBB7xgcjAdhIMxJA6sp4l0Oc3fzxCX1xeLE/edit?usp=sharing
+- title: 'IDOR'
+  date: 2021-05-12
+  body: 'Using IDOR to access unauthorized resources in web exploitation.'
+  level: 2
+  guest: true
+  link: https://docs.google.com/presentation/d/1bNmeokEDF8sMT8VV1-5zXl-_nFB2vwh-QPwHLOgt3a0/edit?usp=sharing
+- title: 'Heap Introduction'
+  date: 2021-05-26
+  body: 'An introduction to the heap, how it works, and how to exploit it.'
+  level: 3
+  link: https://docs.google.com/presentation/d/1uqQ3wa4ymZluTVj3dXh5VeqqnGDw7RAHv6fgh4UIM_0/edit?usp=sharing
+- title: 'Side Channel Attacks'
+  date: 2021-05-26
+  body: 'An introduction to hardware exploitation via side channel attacks.'
+  level: 3
+  guest: true
+  link: https://docs.google.com/presentation/d/1a-tkWmR1du7Kz_5WowbsbOGI0MASKU-Xp8qOXCE3v-Y/edit?usp=sharing
+ 
