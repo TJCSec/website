@@ -1,21 +1,21 @@
 - name: Darin Mao
   avatar: ./avatars/darin.png
   position: President
-- name: Saigautam Bonam
+- name: Autin Mitra
   avatar: ./avatars/saigautam.jpg
   position: Vice President
-- name: Autin Mitra
-  avatar: ./avatars/autin.jpg
-  position: Statistician
-- name: Andy Chen
+- name: Andrew Lam
   avatar: ./avatars/andy.jpg
+  position: Statistician
+- name: Anna Hsu
+  avatar: ./avatars/anna.jpg
   position: Lecturer
-- name: Johnny Pesavento
-  avatar: ./avatars/johnny.jpg
+- name: Diana Lin
+  avatar: ./avatars/diana.jpg
   position: Lecturer
-- name: David Han
-  avatar: ./avatars/david.jpg
+- name: Pranav
+  avatar: ./avatars/pranav.jpg
   position: Lecturer
-- name: Luke Thistlethwaite
-  avatar: ./avatars/luke.png
+- name: Andrew Xie
+  avatar: ./avatars/andrew.png
   position: Lecturer
