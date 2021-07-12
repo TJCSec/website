@@ -1,0 +1,93 @@
+---
+title: redpwnCTF 2021 - annaBEL-lee (misc)
+date: 2021-07-12
+slug: /writeups/redpwnctf-2021-annabel
+excerpt: Morse code in BEL characters
+author: Darin Mao
+---
+
+annaBEL-lee was a misc challenge I wrote for redpwnCTF 2021. It turned out to be rather problematic and is one of the worst challenges I have ever written. The solution itself is not too difficult, but I will discuss some of the thinking that went into the challenge as well as some possible ways competitors may have approached it.
+
+# Solution
+We're given only a `nc` command. Upon connecting, we see no visual output but hear many BELs (even if your terminal doesn't play sounds, you can easily see what the server is sending with hexdump/pwntools/etc). We can observe that the server sends the same sequence every time, so we'll save it for further investigation.
+
+```python
+r = remote('mc.ax', 31845)
+data = r.recvall()
+```
+
+While receiving this data we can also observe that it comes in one byte at a time at a consistent rate. Looking at the data, we see many BEL (7) and NUL (0) bytes. If we interpret each BEL as on and each NUL as off, we'll get a signal that we can decode as morse code, which gives the flag.
+
+# Potential Approaches
+First off, I want to say that I consider challenge quality to be extremely important and this kind of challenge is totally unacceptable. I suppose others could have pointed out how terrible it was to me, but I place 99% of the blame on myself. That being said, here are a couple ways competitors may have approached the challenge.
+
+## Visual Inspection
+We can just look at the data received:
+
+```python
+ b'\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x00\x00\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x00\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x00\x00\x00\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x00\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x00\x00\x00\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x00\x00\x00\x00\x00\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x00\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x00\x00\x00\x00\x00\x00\x07\x00\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x00\x07\x00\x00\x00\x07\x00\x07\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x00\x00\x07\x00\x07\x07\x07\x00\x07\x00\x07\x00\x00\x00\x07\x07\x07\x00\x07\x00\x07\x07\x07\x00\x07\x07\x07\x00\x07\x00\x07\x07\x07\x00\x00\x00'
+```
+
+We might recognize that there are chunks of either one or three BELs followed by a single NUL, with the occasional long string of NULs. This, along with the fact that the BEL makes sound, may hint towards morse code.
+
+## Plotting the Data
+Perhaps we could plot the data on a graph to visualize it more easily.
+
+```python
+plt.scatter(range(len(data)), list(data))
+plt.show()
+```
+
+Zooming in to the beginning shows the same pattern as before—strings of either one or three BELs followed by a single NUL.
+
+![scatter plot of data](./scatter.png)
+
+We could even use a step plot to see the signal a little better.
+
+```python
+plt.step(range(len(data)), list(data), where='post')
+plt.show()
+```
+
+We get a nice-looking signal with two distinct lengths of pulses.
+
+![step plot of data](./step.png)
+
+## Listening to the Transmission
+The transmission is too fast for humans to decipher by ear. We could write a short script to replay the transmission with a longer delay between each character, which should make the different length clusters fairly obvious.
+
+# What Went Wrong?
+I said before that this kind of challenge is unacceptable. Then, you may ask, how did it ever get written or published?
+
+## Original Idea
+A few days before the CTF, I was looking through our challenge list and thinking, "we should probably add some kind of intro to network sockets challenge, so the newer players can get used to parsing output from networked services." It is common for beginner-level CTFs to include a simple "connect with `nc ...` and the server prints a flag" challenge, but I thought we could probably do something a little more interesting. Then, the idea hit me: in the Discord channel, I said, "server sends morse code but it's in bel characters." Wouldn't that be interesting...
+
+(the answer is no)
+
+Immediately, some others raised concerns. How can you distinguish between a short and long pulse? The BEL is always the same length, so it would be impossible. After thinking about it for a while, I decided to start each tone with a BEL and end it with a NUL. In hindsight, even in this state the challenge was pretty questionable, but in my mind "sounds + different timing = morse code" so I went with it. I used the standard morse timings:
+
+- 1 time unit for a dot
+- 3 time units for a dash
+- 1 time unit between symbols
+- 3 time units between letters
+- 7 time units between words
+
+## Testing
+During testing, the challenge worked wonderfully. I even tested it from across the country to make sure network latency wouldn't be a problem, and found that even with such a great distance there was little to no disturbance in timing. However, issues arose when it came time to test it on the production servers. The problem was that, due to low resource limits on the challenge servers, just a couple new connections was enough to disturb the timing for *everyone* connected. This problem persisted no matter how slow the transmission was—even with comically high delays (like 1 second for a dot), any small disturbance was enough to completely mess up the transmission. To make matters worse, such a slow transmission meant that transmitting the whole message took upwards of fifteen minutes, which further increased the chances that someone would interfere with another. To try to fix this issue, I rewrote the entire server in C rather than Python. This did help with resource consumption, but the interference problem was still there.
+
+At this point, the right thing to do would have been to just scrap the entire challenge. But, I pressed forward. I took a suggestion from earlier and removed the timing, instead sending a single byte at every "tick" and sending a BEL when the signal was "on." This is the version of the challenge that was ultimately deployed. What I should have realized was that since timing played no role in the transmission, I could have just removed the server entirely and given a file with the transmitted bytes. It still would have been pretty guessy, but at least people would not have to look at a server that sends no visual output (which is not discernible, at least from a casual glance, from a dead server).
+
+# Lessons Learned
+At the end of the day, it deeply saddens me that I did not have the foresight to remove this challenge. As an experienced CTF player and challenge author, there is no excuse for something like this. The worst part is that bad challenges are the most memorable to most competitors, so people will remember me for this rather than the hours I spent debugging devnull or pickled-onions. Negativity aside, I do think there are some important lessons to be learned here.
+
+## Do Not Rush Challenge Writing
+Every challenge, no matter how simple it may seem, MUST be thoroughly tested and reviewed by MANY people. I thought that this challenge was so easy that it didn't need to to be tested. Wrong! There are no exceptions. Plan ahead, and don't write challenges right before the CTF. **It NEVER works, and is a recipe for failure.**
+
+## Consider the Competitors
+At every point in writing a challenge, authors MUST regularly stop and think, "if I were a competitor, would I be able to make this conclusion assuming I had the necessary experience?" If the answer is not a **RESOUNDING YES**, then the author should stop and reconsider what they are doing. Often, it is difficult or impossible for authors to judge their own challenges in this regard, so peer review is exceedingly important.
+
+## Quality over Quantity
+This challenge was partially the result of me feeling like we didn't have enough challenges. **Having too few challenges is bad, but having low-quality challenges is even worse.** When given the choice, ALWAYS pick quality over quantity.
+
+# Final Thoughts
+I sincerely apologize to any competitors who wasted too much time on what was supposed to be a very easy challenge. I hope to do better in the future and never make this kind of mistake again.
