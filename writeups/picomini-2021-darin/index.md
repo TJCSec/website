@@ -461,7 +461,7 @@ The binary reads the flag into a global buffer, then reads some code from stdin 
 
 There is a header inserted at the start of the rwx page, and our input goes after it. We can follow the link in the source to disassemble this:
 
-```x86asm
+```nasm
 xor rax, rax
 mov rdi, rsp
 and rdi, 0xfffffffffffff000

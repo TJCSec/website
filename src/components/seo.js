@@ -36,6 +36,7 @@ const SEO = ({ title, description, ...props }) => {
       <meta property='og:description' content={data.description} />
       <meta property='og:image' content={withPrefix('/meta.png')} />
       <link rel='icon' type='image/x-icon' href={withPrefix('/favicon.ico')} />
+      <link rel='canonical' content={data.url} />
     </Helmet>
   )
 }
