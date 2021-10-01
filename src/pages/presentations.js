@@ -116,7 +116,7 @@ export default Presentations
 
 export const query = graphql`
   query Lectures {
-    allLecturesYaml(sort: { fields: date, order: DESC }) {
+    allLecturesYaml(sort: { fields: [date, advanced], order: DESC }) {
       nodes {
         title
         level
@@ -124,6 +124,7 @@ export const query = graphql`
         body
         link
         guest
+        advanced
       }
     }
     allLectureFoldersYaml(sort: { fields: label, order: DESC }) {

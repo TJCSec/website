@@ -6,3 +6,16 @@
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1kRqkHUwjz3p9-4G1lNWIeE8Za6g8Tsl1ExsecSqpPv0/
+- title: 'Linux Intro'
+  date: 2021-10-01
+  body:
+    Introduction to Linux and using the Linux command line
+  level: 1
+  link: https://docs.google.com/presentation/d/1uIMQZC4ej3zu8Y73CJgVRZwDcDU6AVQqbh06nEdlUSk/
+- title: SSRF
+  date: 2021-10-01
+  body:
+    Overview of SSRF, a security bug allowing attackers retrieve info from closed-off resources
+  level: 3
+  link: https://docs.google.com/presentation/d/1bBVmZJUKjlJz62a3KKMx8GOHCWe9H-AR8uqFCAdTKmE/
+  advanced: true

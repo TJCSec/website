@@ -27,6 +27,7 @@ const LectureCard = ({
   title,
   link,
   guest = false,
+  advanced = false,
   ...props
 }) => {
   const { color, display } = difficulty[level]
@@ -116,6 +117,21 @@ const LectureCard = ({
             }}
           >
             Guest
+          </Box>
+        )}
+        {advanced && (
+          <Box
+            sx={{
+              fontSize: 1,
+              mt: 3,
+              mr: 'auto',
+              bg: 'rgba(255, 255, 255, 0.2)',
+              p: 2,
+              color: 'text',
+              fontWeight: 'bold',
+            }}
+          >
+            Advanced
           </Box>
         )}
       </motion.div>
