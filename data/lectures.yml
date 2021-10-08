@@ -19,3 +19,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/1bBVmZJUKjlJz62a3KKMx8GOHCWe9H-AR8uqFCAdTKmE/
   advanced: true
+- title: 'Python Intro'
+  date: 2021-10-08
+  body:
+    Introduction to Python syntax and data structures
+  level: 1
+  link: https://docs.google.com/presentation/d/199R57sQkA-uOuq2wslggSaKdZ_0F46tX4jJqysf4nnU/
+- title: SSTI
+  date: 2021-10-08
+  body:
+    Introduction to Server-Side Template Injection (SSTI)
+  level: 3
+  link: https://docs.google.com/presentation/d/1LZPXEVC1N62ID9oVAZ1U3XI5M4rTd9vAyAyPOq_vH7g/
+  advanced: true
