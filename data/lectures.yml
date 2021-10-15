@@ -32,3 +32,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/1LZPXEVC1N62ID9oVAZ1U3XI5M4rTd9vAyAyPOq_vH7g/
   advanced: true
+- title: Web Introduction
+  date: 2021-10-15
+  body:
+    Introduction to the basics of web exploitation
+  level: 1
+  link: https://docs.google.com/presentation/d/19PRpE7GoLN39ziCd0W63KYI-9jp_vMmyNxn9U1-Vu0Y/
+- title: XXE
+  date: 2021-10-15
+  body:
+    XML External Entities (XXE) and how to exploit them
+  level: 3
+  link: https://docs.google.com/presentation/d/1Uyo45B6-iy4hf0ETj5Xfhj9zilddOIBpd6K32R3sUDA/
+  advanced: true
