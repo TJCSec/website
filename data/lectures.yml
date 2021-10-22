@@ -32,7 +32,7 @@
   level: 3
   link: https://docs.google.com/presentation/d/1LZPXEVC1N62ID9oVAZ1U3XI5M4rTd9vAyAyPOq_vH7g/
   advanced: true
-- title: Web Introduction
+- title: Web Intro
   date: 2021-10-15
   body:
     Introduction to the basics of web exploitation
@@ -44,4 +44,17 @@
     XML External Entities (XXE) and how to exploit them
   level: 3
   link: https://docs.google.com/presentation/d/1Uyo45B6-iy4hf0ETj5Xfhj9zilddOIBpd6K32R3sUDA/
+  advanced: true
+- title: SQL Injection
+  date: 2021-10-22
+  body:
+    Overview of SQL Injection, including syntax, union-based SQLi, and timing attacks
+  level: 2
+  link: https://docs.google.com/presentation/d/1ZSYVoc6Kr6-973huWizWewiQ3ROTVEpZtBOE7tjJaKs/
+- title: PNG
+  date: 2021-10-22
+  body:
+    Overview of PNGs, chunks, and property bytes
+  level: 3
+  link: https://docs.google.com/presentation/d/1NDQ8h4VcQhnuraDrrMPkgMj7-9oe0i5a8npYIcfeASs/
   advanced: true
