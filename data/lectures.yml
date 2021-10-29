@@ -58,3 +58,10 @@
   level: 3
   link: https://docs.google.com/presentation/d/1NDQ8h4VcQhnuraDrrMPkgMj7-9oe0i5a8npYIcfeASs/
   advanced: true
+- title: LFI
+  date: 2021-10-29
+  body:
+    Introduction to Local File Inclusion exploitation
+  level: 3
+  link: https://docs.google.com/presentation/d/1dR9PZ_QeFfnShk8qReIuH6X56mG9lmfvDyfQp8RV_JM/
+  advanced: true
