@@ -65,3 +65,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/1dR9PZ_QeFfnShk8qReIuH6X56mG9lmfvDyfQp8RV_JM/
   advanced: true
+- title: JSON Web Tokens
+  date: 2021-11-04
+  body:
+    JWTs and how to exploit them
+  level: 2
+  link: https://docs.google.com/presentation/d/1dx1pL4HmaaaOAbAlddpZZOI8QFyFHn6UqKSNwuR2MEE/
+- title: Padding Oracle Attack
+  date: 2021-11-04
+  body:
+    Introduction to padding oracle attacks
+  level: 3
+  link: https://docs.google.com/presentation/d/19dYJrKsYHxpB-zC1HbEc6qMVaZQ8S4cpDk3z2ltPvb0/
+  advanced: true
