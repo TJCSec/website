@@ -78,3 +78,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/19dYJrKsYHxpB-zC1HbEc6qMVaZQ8S4cpDk3z2ltPvb0/
   advanced: true
+- title: Cross Site Scripting (XSS)
+  date: 2021-11-11
+  body:
+    Exploiting websites with Cross Site Scripting (XXS) and getting around Content Security Policy (CSP)
+  level: 3
+  link: https://docs.google.com/presentation/d/1XFBoXkbsQJjgmKKUbhS845xGeiSob3tztREdNDYbKFI/
+- title: Diffie-Hellman
+  date: 2021-11-11
+  body:
+    Diffie-Hellman Key Exchange and solving the discrete log problem
+  level: 3
+  link: https://docs.google.com/presentation/d/1MX9p2okpoYo6nwQG37YTKvT-mnEyW3E6iu6pN1tCJpo/
+  advanced: true
