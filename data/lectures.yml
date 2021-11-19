@@ -91,3 +91,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/1MX9p2okpoYo6nwQG37YTKvT-mnEyW3E6iu6pN1tCJpo/
   advanced: true
+- title: File Forensics
+  date: 2021-11-18
+  body:
+    Extracting information from files
+  level: 2
+  link: https://docs.google.com/presentation/d/1g_-dOM8T5uPuP-kjw9i4Ij0YLzJD1cg_W5dLInKbiww/
+- title: Elliptic Curves
+  date: 2021-11-18
+  body:
+    Elliptic Curve Cryptography and Elliptic-Curve Diffie–Hellman
+  level: 3
+  link: https://docs.google.com/presentation/d/17fy4ke94XnECC10ojiaFjR5uV8CYsjU46WvITiLybZU/
+  advanced: true
