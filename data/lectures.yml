@@ -104,3 +104,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/17fy4ke94XnECC10ojiaFjR5uV8CYsjU46WvITiLybZU/
   advanced: true
+- title: Steganography
+  date: 2021-12-03
+  body:
+    How to hide & retrieve messages in various file types
+  level: 2
+  link: https://docs.google.com/presentation/d/1cWudAVUiGS6X5UYWXQ2AwM46wZGUBVUEyATyb0O9wZc/
+- title: WebAssembly (WASM)
+  date: 2021-12-03
+  body:
+    Introduction to WASM, code that can be run in browsers
+  level: 3
+  link: https://docs.google.com/presentation/d/1aP1H9Q5M8KVlrKU4mKf51-97R34uXcnBCzFZgpaDe6k/
+  advanced: true
