@@ -122,11 +122,17 @@
   body:
     Decoding information from audio files
   level: 2
-  link: https://docs.google.com/presentation/d/1a0W-K7v1fbSyqZicraTOam8kS1F2ZXchTS5KHeGsvfc/edit?usp=sharing
+  link: https://docs.google.com/presentation/d/1a0W-K7v1fbSyqZicraTOam8kS1F2ZXchTS5KHeGsvfc/
 - title: Android Reversing
   date: 2021-12-10
   body:
     The Android APK format, and reversing bytecode
   level: 3
-  link: https://docs.google.com/presentation/d/1geIWXVdsqdYUfp_xLznZQRfnH5sinplVfcGss8W7hMA/edit?usp=sharing
+  link: https://docs.google.com/presentation/d/1geIWXVdsqdYUfp_xLznZQRfnH5sinplVfcGss8W7hMA/
   advanced: true
+- title: Wireshark
+  date: 2022-01-07
+  body:
+    Using wireshark to analyze network traffic
+  level: 3
+  link: https://docs.google.com/presentation/d/19Acroov_ACO90CAMEnCF_J85dCrjoYBKlmpAg77vJXY/
