@@ -2,11 +2,11 @@
 title: TetCTF 2022 - magicbox
 date: 2022-01-07
 slug: /writeups/tetctf-2022-magicbox
-excerpt: Simple VM reversing
+excerpt: Reversing a NOR machine
 author: Darin Mao
 ---
 
-magicbox was a simple VM reversing challenge from TetCTF 2022
+magicbox was a simple VM reversing challenge from TetCTF 2022.
 
 # Description
 > My machine is running very simple, can you understand it?
@@ -222,7 +222,7 @@ This repeats many times. Immediately, we notice some patterns:
 3. `mov` is accomplished with `x x 7; 7 7 y`, which, when combined with #2, is `mem[y] = mem[x]`
 4. `jmp` is accomplished by `mov`ing to `mem[0]`
 
-The first character of the flag is stored at `mem[6691]`, and the last is stored at `mem[6716]`.
+The first character of the input is stored at `mem[6691]`, and the last is stored at `mem[6716]`.
 
 ## First Check
 Right after the last character is read and stored, the program starts checking the input.
@@ -435,13 +435,13 @@ Cool! So now that we've identified the success condition, we know that all our X
 
 ```
 flag[0] ^ 87 == 0
-flag[0] ^ flag[1] ^ 18 ==0
+flag[0] ^ flag[1] ^ 18 == 0
 ```
 
 From this, we can deduce the first two characters of the flag: `WE`.
 
 # Pintools Cheese
-We could continue to reverse all the checks. It is much of the same, but would probably take a long time. Instead, we'll employ another strategy that hgarrereyn called "pintools cheese." From what I can tell, most other teams used a similar strategy. We know `mem[494]` has to be 0 at the end, and it seems to check characters in order, so let's just print the number of times 0 is written to `mem[494]`. We'll also get rid of the other outputs while we're here.
+We could continue to reverse all the checks. It is much of the same, but would probably take a long time. Instead, we'll employ another strategy that, from what I can tell, most other teams also used. We know `mem[494]` has to be 0 at the end, and it seems to check characters in order, so let's just print the number of times 0 is written to `mem[494]`. We'll also get rid of the other outputs while we're here.
 
 ```c
 unsigned int run_vm() {
@@ -519,6 +519,8 @@ Traceback (most recent call last):
     raise ValueError('wtmoo')
 ValueError: wtmoo
 ```
+
+![pintools cheese](./pintools.png)
 
 Uh-oh. There's no flag. But wait, shouldn't that `:` be `a` for "virtual machine?"
 
