@@ -136,3 +136,9 @@
     Using wireshark to analyze network traffic
   level: 2
   link: https://docs.google.com/presentation/d/19Acroov_ACO90CAMEnCF_J85dCrjoYBKlmpAg77vJXY/
+- title: John the Ripper
+  date: 2022-01-14
+  body:
+    Using John the Ripper to crack password protected files, keys, and authentication tags
+  level: 2
+  link: https://docs.google.com/presentation/d/1gWSB7onQboubrosuH_Yv3guwT8OxcMXTHAPOJ1UhN6c/
