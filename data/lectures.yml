@@ -142,3 +142,16 @@
     Using John the Ripper to crack password protected files, keys, and authentication tags
   level: 2
   link: https://docs.google.com/presentation/d/1gWSB7onQboubrosuH_Yv3guwT8OxcMXTHAPOJ1UhN6c/
+- title: Crypto Intro
+  date: 2022-02-04
+  body:
+    An introduction to basic cryptography and modular arithmetic
+  level: 1
+  link: https://docs.google.com/presentation/d/1wNQLNPi3gIMITUpJ5CLNunVlO8Ykm6Ek47Atspf0hkM/
+- title: HTTP Desync
+  date: 2022-02-04
+  body:
+    Using HTTP Desync to smuggle HTTP requests
+  level: 3
+  link: https://docs.google.com/presentation/d/1U18Ol40AcRS24PWcVmNiYNnN4mlOkcjc138z53FFf-A/
+  advanced: true
