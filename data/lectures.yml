@@ -155,3 +155,16 @@
   level: 3
   link: https://docs.google.com/presentation/d/1U18Ol40AcRS24PWcVmNiYNnN4mlOkcjc138z53FFf-A/
   advanced: true
+- title: RSA 1
+  date: 2022-02-11
+  body:
+    An introduction to the RSA cryptosystem
+  level: 2
+  link: https://docs.google.com/presentation/d/1qBTTeOMcr_N20CLxWvV5XiP2MJF9myT8Fx_218caKN4/
+- title: XS-Search
+  date: 2022-02-11
+  body:
+    Using XS-Search to leak queries.
+  level: 3
+  link: https://docs.google.com/presentation/d/1wZXUEjlzHJg59U_TVHnNKQZeYJsismQdRz63kncQy4c/
+  advanced: true
