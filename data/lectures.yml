@@ -168,3 +168,9 @@
   level: 3
   link: https://docs.google.com/presentation/d/1wZXUEjlzHJg59U_TVHnNKQZeYJsismQdRz63kncQy4c/
   advanced: true
+- title: RSA 2
+  date: 2022-02-18
+  body:
+    An outline of various attacks on RSA
+  level: 2
+  link: https://docs.google.com/presentation/d/1RLq4VgNrAeyl6YIQIT0ujd3TovnYnmM1GpBeXRjqfkQ/
