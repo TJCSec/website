@@ -174,3 +174,9 @@
     An outline of various attacks on RSA
   level: 2
   link: https://docs.google.com/presentation/d/1RLq4VgNrAeyl6YIQIT0ujd3TovnYnmM1GpBeXRjqfkQ/
+- title: Block Ciphers
+  date: 2022-02-25
+  body:
+    How block ciphers work and how to exploit them
+  level: 3
+  link: https://docs.google.com/presentation/d/1I1VZb6o0GMR_C3XpYfnReLPpRD6v_OXe_cIhacip7nI/
