@@ -180,3 +180,9 @@
     How block ciphers work and how to exploit them
   level: 3
   link: https://docs.google.com/presentation/d/1I1VZb6o0GMR_C3XpYfnReLPpRD6v_OXe_cIhacip7nI/
+- title: Assembly 1
+  date: 2022-03-11
+  body:
+    Basic ASM, how it works, and how to read it
+  level: 2
+  link: https://docs.google.com/presentation/d/1dwZ6Ik32SLvZ6HZG4EPq2-AqK3KZUYSdsD9dbS0FQlw/
