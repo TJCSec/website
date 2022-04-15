@@ -186,3 +186,9 @@
     Basic ASM, how it works, and how to read it
   level: 2
   link: https://docs.google.com/presentation/d/1dwZ6Ik32SLvZ6HZG4EPq2-AqK3KZUYSdsD9dbS0FQlw/
+- title: Assembly 2
+  date: 2022-04-15
+  body:
+    Assembly Stack & Syscalls
+  level: 3
+  link: https://docs.google.com/presentation/d/1aZKqLDiwzUBDJg_uSJ8KJmAdHPGVcUdAnRvePlUVQPM/
