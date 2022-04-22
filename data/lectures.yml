@@ -192,3 +192,9 @@
     Assembly Stack & Syscalls
   level: 3
   link: https://docs.google.com/presentation/d/1aZKqLDiwzUBDJg_uSJ8KJmAdHPGVcUdAnRvePlUVQPM/
+- title: GDB
+  date: 2022-04-22
+  body:
+    Introduction to GDB, a debugger usually used to debug programs
+  level: 2
+  link: https://docs.google.com/presentation/d/1WNgE_fnL_2UxjgtQduyR7kTkvOrIuzB8ddC2SiSYpEk/
