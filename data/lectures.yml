@@ -198,3 +198,10 @@
     Introduction to GDB, a debugger usually used to debug programs
   level: 2
   link: https://docs.google.com/presentation/d/1WNgE_fnL_2UxjgtQduyR7kTkvOrIuzB8ddC2SiSYpEk/
+- title: WiFi Encryption
+  date: 2022-04-22
+  body:
+    Highlighting different WiFi authentication schemes
+  level: 2
+  link: https://docs.google.com/presentation/d/1NkDJ-IJPLJZxCR0W0vWGa6DgmTAKRt5oRHhFvYQmNAI/
+  guest: true
