@@ -205,3 +205,16 @@
   level: 2
   link: https://docs.google.com/presentation/d/1NkDJ-IJPLJZxCR0W0vWGa6DgmTAKRt5oRHhFvYQmNAI/
   guest: true
+- title: Ghidra
+  date: 2022-04-29
+  body:
+    Using Ghidra for decompiling and static analysis
+  level: 2
+  link: https://docs.google.com/presentation/d/1YTNGFffRNM2yT2iikT_lubIwrwZWKCOv7YCAfZIsuHU/
+- title: Python and JavaScript jailbreaks
+  date: 2022-04-29
+  body:
+    Exectuting code in python and javascript that shouldn't be executed
+  level: 2
+  link: https://docs.google.com/presentation/d/1t13GaAsBqsE49pQryON1XcY7vj44dWhaSCmxDNCMK_A/
+  guest: true
