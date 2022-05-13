@@ -224,3 +224,16 @@
     An introduction to buffer overflows
   level: 3
   link: https://docs.google.com/presentation/d/1uBLSjucBUlKovB522-y5uz1wWTuxmzLRWxVtWxrtSCo/
+- title: ROP Gadgets
+  date: 2022-05-13
+  body:
+    Using Return-Oriented Programming (ROP) for binary exploitation
+  level: 3
+  link: https://docs.google.com/presentation/d/1HGgHK3xl4g1wxQX1kgbo8DFrn6BRZ_ufvS9MZcWPVCc/
+- title: Quantum Cryptography
+  date: 2022-05-13
+  body:
+    Quantum computing and cryptography
+  level: 3
+  link: https://docs.google.com/presentation/d/1chyBsiCOys7Z-qxO-tSL9DyKswYwjcJHMFJP1hWXmsk/
+  guest: true
