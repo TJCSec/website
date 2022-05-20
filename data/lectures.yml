@@ -237,3 +237,9 @@
   level: 3
   link: https://docs.google.com/presentation/d/1chyBsiCOys7Z-qxO-tSL9DyKswYwjcJHMFJP1hWXmsk/
   guest: true
+- title: Return to libc
+  date: 2022-05-20
+  body:
+    Libc functions and returning to libc
+  level: 3
+  link: https://docs.google.com/presentation/d/1DtMv3992bpTDrMU17goT04o2L3L-FbkvFQ5uTO2Tp-s/
