@@ -1,21 +1,21 @@
-- name: Darin Mao
-  avatar: ./avatars/darin.jpg
-  position: President
-- name: Autin Mitra
-  avatar: ./avatars/autin.jpg
-  position: Vice President
-- name: Andrew Lam
-  avatar: ./avatars/andy.jpg
-  position: Statistician
-- name: Anna Hsu
-  avatar: ./avatars/anna.jpg
-  position: Lecturer
 - name: Diana Lin
   avatar: ./avatars/diana.jpg
+  position: President
+- name: Kiran Donnelly
+  avatar: ./avatars/kiran.jpg
+  position: Vice President
+- name: Ishara Shanmugasundaram
+  avatar: ./avatars/ishara.jpg
+  position: Statistician
+- name: Taimoor Babar
+  avatar: ./avatars/taimoor.jpg
   position: Lecturer
-- name: Pranav Ravella
-  avatar: ./avatars/pranav.jpg
+- name: Samarth Bhargav
+  avatar: ./avatars/samarth.jpg
   position: Lecturer
-- name: Andrew Xie
-  avatar: ./avatars/andrew.jpg
+- name: Daniel Qiu
+  avatar: ./avatars/daniel.jpg
+  position: Lecturer
+- name: Sebastian Toro
+  avatar: ./avatars/sebastian.jpg
   position: Lecturer
