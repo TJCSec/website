@@ -1,3 +1,11 @@
+- title: Linux Intro
+  date: 2022-13-09
+  body: Basic introduction to Linux along with how to install it
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1o9Wd-vil4-uA7SrjTm7mSFKvXCumOkRrv8gmsgZ299k/edit?usp=sharing
+  advanced: false
+
 - title: Introduction
   date: 2022-09-09
   body:
