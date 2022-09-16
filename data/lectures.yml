@@ -1,11 +1,3 @@
-- title: Linux Intro
-  date: 2022-09-14
-  body: Basic introduction to Linux along with how to install it
-  level: 1
-  guest: false
-  link: https://docs.google.com/presentation/d/1o9Wd-vil4-uA7SrjTm7mSFKvXCumOkRrv8gmsgZ299k/edit?usp=sharing
-  advanced: false
-
 - title: Introduction
   date: 2022-09-09
   body:
@@ -14,4 +6,20 @@
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1QC0a0e-U8UJvCSq9LBgYTbRYFFfZ4_mnq4IjApmPVUI/
+  advanced: false
+
+- title: Linux Intro
+  date: 2022-09-14
+  body: Basic introduction to Linux along with how to install it
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1o9Wd-vil4-uA7SrjTm7mSFKvXCumOkRrv8gmsgZ299k/edit?usp=sharing
+  advanced: false
+
+- title: Docker Intro
+  date: 2022-09-16
+  body: Basic introduction to Docker and Docker for CTFs
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1sgp0ibNl6UISvycNXAM2DBkqKBlXlONOugcCMeNyF6Y/edit?usp=sharing
   advanced: false
