@@ -42,9 +42,24 @@
   guest: false
   link: https://docs.google.com/presentation/d/1Z8jKSQNXmvZgU_XAHoHQfkD6bBOVRQlNLC00RV7cQeY/edit?usp=sharing
   advanced: false
-- title: Magic Bytes
+- title: Magic Bytes/PNG File Format
   date: 2022-10-07
+  body: Slightly more advanced forensics
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1vDWplBYc5bft0S15g5FC7-_vpQuUnxt37xC-u9o9cZ0/edit?usp=sharing
+  advanced: false
+- title: Memory Forensics
+  date: 2022-10-19
+  body: Introduction to memory forensics
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1cp4gfge9B9Y55pZ68QAaWWuWTYUG18EOQyznfVlCTNg/edit?usp=sharing
+  advanced: false
+- title: Wireshark
+  date: 2022-10-21
+  body: Introduction to Wireshark (network packet analyzer)
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1jBAWj4vP_CqZwkNE15gxPnH36WPiOY8jNxebU8q1LiM/edit?usp=sharing
   advanced: false
