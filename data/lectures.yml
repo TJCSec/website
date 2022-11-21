@@ -63,3 +63,38 @@
   guest: false
   link: https://docs.google.com/presentation/d/1jBAWj4vP_CqZwkNE15gxPnH36WPiOY8jNxebU8q1LiM/edit?usp=sharing
   advanced: false
+- title: Python Intro
+  date: 2022-10-26
+  body: Basic Python syntax overview
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/15RAcvtw1437CMPCiRaVU0QLECd6VJJQH7Ba6d5vYmf4/edit?usp=sharing
+  advanced: false
+- title: Web Intro
+  date: 2022-11-02
+  body: Overview of basic web skills
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1ta9EBBxvVD2bwu4WU6eH_qfkAmG4Gj1KyB9nyJr-zLI/edit?usp=sharing
+  advanced: false
+- title: JS Intro
+  date: 2022-11-09
+  body: Brief introduction to JavaScript
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1b1C8U99-LC51zuy8i-Pg8BQTjqhw4Muwqpr80jSTlDQ/edit?usp=sharing
+  advanced: false
+- title: Web Frameworks
+  date: 2022-11-16
+  body: Building on previous web topics to discuss web frameworks
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1wE-k5PRYknsvyE1CIvPeDUb6QsiFvGx4AdjnY2eBBYo/edit?usp=sharing
+  advanced: false
+- title: SQL Injection
+  date: 2022-11-21
+  body: Overview of SQL syntax and how to do SQL injection
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/178HbozHtksiZWw1qU_jmwp_KDvUdqUr4KjK89d7U0jU/edit?usp=sharing
+  advanced: false
