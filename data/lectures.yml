@@ -98,3 +98,67 @@
   guest: false
   link: https://docs.google.com/presentation/d/178HbozHtksiZWw1qU_jmwp_KDvUdqUr4KjK89d7U0jU/edit?usp=sharing
   advanced: false
+- title: XSS
+  date: 2022-11-30
+  body: Overview of cross-site scripting 
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/17a-ya8E-hOJXOD5v_yXADcflAZuk2pCenLFb_O_zdMc/edit?usp=share_link
+  advanced: false
+- title: LFI
+  date: 2022-12-07
+  body: Overview of local file injection
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1XG9rLe9f9MtMzTcgoMeI6u_ovL-L5sQdv-1BSbqQSCc/edit?usp=share_link
+  advanced: false
+- title: SSRF
+  date: 2022-12-09
+  body: Overview of server-side request forgery
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1MVc994HtWdUtZCFTcdGhGwFVZhxhs5AM1nuLzaNVres/edit?usp=sharing
+  advanced: false
+- title: JWT
+  date: 2023-01-04
+  body: Overview of JSON Web Tokens
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1jK0uj5J3WgY_Bl4-87V2LozfAI6a5P1K7l7OaY-B9iY/edit?usp=sharing
+  advanced: false
+- title: John The Ripper
+  date: 2023-01-06
+  body: Overview of John The Ripper
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1rS873kZCVZ9pNdi8Qo_FIIKt5hv9Iiz5gXTWtt9g-7M/edit?usp=sharing
+  advanced: false
+- title: SSTI
+  date: 2023-01-11
+  body: Overview of Server-Side Template Injection
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1dWPLRocg2ZsISSo3gr7oRSzqmD3ZUF2OsAGthRFI9kw/edit?usp=sharing
+  advanced: false
+- title: Crypto Intro
+  date: 2023-01-18
+  body: Introduction to cryptography
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1CxpMr6MVVqHnmzsELXM67TVJzs_clUEpopXL1xK1yJ4/edit?usp=sharing
+  advanced: false
+- title: RSA 1
+  date: 2023-02-01
+  body: An introduction on RSA 
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1qVmHzOxYtWm_LX34VE6PqarJ9APFOdcNYhL09lt5aq0/edit?usp=sharing
+  advanced: false
+- title: Insecure RNG
+  date: 2023-02-08
+  body: Overview of Insecure Random Number Generators
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1SM1GObmNMmwEHyq3VAaX2HgsQSvv14WBqAtRtGoreL4/edit?usp=sharing
+  advanced: false
+  
