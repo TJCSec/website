@@ -7,11 +7,17 @@
 - name: Ishara Shanmugasundaram
   avatar: ./avatars/ishara.jpg
   position: Statistician
-- name: Taimoor Babar
-  avatar: ./avatars/taimoor.jpg
+- name: Vrishak Vemuri
+  avatar: ./avatars/vrishak.jpg
+  position: Jr. Infra Lead
+- name: Dheethya Balaji
+  avatar: ./avatars/dheethya.jpg
   position: Lecturer
 - name: Samarth Bhargav
   avatar: ./avatars/samarth.jpg
+  position: Lecturer
+- name: Brian Ho
+  avatar: ./avatars/brian.jpg
   position: Lecturer
 - name: Daniel Qiu
   avatar: ./avatars/daniel.jpg

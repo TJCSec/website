@@ -19,6 +19,10 @@ const OfficerCard = ({ data, ...props }) => {
         borderRadius: 12,
         bg: 'lightBackground',
         overflow: 'hidden',
+        display: 'inline-block',
+        width: '0px',
+        minWidth: '225px',
+        flex: '1 1 0',
       }}
     >
       <Img fluid={avatar} alt={name} />
@@ -31,7 +35,7 @@ const OfficerCard = ({ data, ...props }) => {
         <Heading as='h3'>{name}</Heading>
         <Text>{position}</Text>
       </Box>
-    </Box>
+    </Box >
   )
 }
 

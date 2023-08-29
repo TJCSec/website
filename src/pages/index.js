@@ -164,20 +164,31 @@ const Index = ({ data }) => {
           </Grid>
         </Container>
       </Box>
-      <Container my={4}>
-        <Heading as='h1' mb={4}>
+      <div mt={4} sx={{ paddingTop: 32 }}>
+        <Heading as='h1' mb={4} px={'4rem'}>
           Officers
         </Heading>
-        <Grid
-          sx={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          }}
-        >
-          {officers.map(({ node }, i) => (
-            <OfficerCard key={i} data={node} />
-          ))}
-        </Grid>
-      </Container>
+        <Container sx={{
+          width: '100%',
+          overflow: 'auto',
+          paddingTop: 0,
+          paddingBottom: 32
+        }}>
+          <div
+            sx={{
+              height: 'min-content',
+              width: 'max-content',
+              display: 'flex',
+              flex: '1 1 0',
+              gap: '1em'
+            }}
+          >
+            {officers.map(({ node }, i) => (
+              <OfficerCard key={i} data={node} />
+            ))}
+          </div>
+        </Container>
+      </div>
     </Layout>
   )
 }
