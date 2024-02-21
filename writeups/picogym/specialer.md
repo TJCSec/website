@@ -135,7 +135,7 @@ Ok. Some txt files. Now to open the contents without the availability of `cat`, 
 Specialer$ echo "$(<cadabra.txt)"
 Nothing up my sleeve!
 ```
-#Solution
+# Solution
 
 After going through all of the directories and files, I found the flag in the `ala` directory.
 ```
