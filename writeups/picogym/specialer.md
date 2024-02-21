@@ -110,8 +110,8 @@ unset
 wait
 bash
 ```
-There are quite a few commands available, but what is significant are the `echo` and `cd`. 
-Running `echo *` is a way to list files without the cat command.
+There are quite a few commands available, but what is significant are the `echo` and `cd` comamnds. 
+Let's run `echo *` to list the files, since we can't use `cat`.
 ```
 Specialer$ echo *
 abra ala sim
