@@ -12,11 +12,11 @@ Specialer is a challenge from picoCTF 2023. It is in the 'General Skills' catego
 > Reception of Special has been cool to say the least. That's why we made an exclusive version of Special, called Secure Comprehensive Interface for Affecting Linux Empirically Rad, or just 'Specialer'. With Specialer, we really tried to remove the distractions from using a shell. Yes, we took out spell checker because of everybody's complaining. But we think you will be excited about our new, reduced feature set for keeping you focused on what needs it the most. Please start an instance to test your very own copy of Specialer.
 Additional details will be available after launching your challenge instance.
 
-Provided:
+Provided in my challenge instance:
 - ssh -p 49322 ctf-player@saturn.picoctf.net
 - password: 483e80d4
 
-Solution: 
+# Exploration 
 After connecting to the challenge, I first ran some basic commands to see what was going on. 
 ```
 Specialer$ ls
@@ -111,7 +111,7 @@ wait
 bash
 ```
 There are quite a few commands available, but what is significant are the `echo` and `cd` comamnds. 
-Let's run `echo *` to list the files, since we can't use `cat`.
+Let's run `echo *` to list the files, since we can't use `ls`.
 ```
 Specialer$ echo *
 abra ala sim
@@ -135,8 +135,9 @@ Ok. Some txt files. Now to open the contents without the availability of `cat`, 
 Specialer$ echo "$(<cadabra.txt)"
 Nothing up my sleeve!
 ```
-After going through all of the directories and files, I found the flag in the `ala` directory.
+# Solution
 
+After going through all of the directories and files, I found the flag in the `ala` directory.
 ```
 Specialer$ cd ala
 Specialer$ pwd
