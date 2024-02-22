@@ -111,7 +111,7 @@ wait
 bash
 ```
 There are quite a few commands available, but what is significant are the `echo` and `cd` comamnds. 
-Let's run `echo *` to list the files, since we can't use `cat`.
+Let's run `echo *` to list the files, since we can't use `ls`.
 ```
 Specialer$ echo *
 abra ala sim
