@@ -1,6 +1,6 @@
 ---
 title: picoGym - SideChannel 
-date: 2024-03-1
+date: 2024-03-01
 slug: /writeups/picogym-sidechannel
 excerpt: Timing-based side channel attack on an pin-checker program
 author: Brian Ho
