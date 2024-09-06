@@ -61,9 +61,9 @@ export const query = graphql`
     allCtfsYaml(sort: { fields: startDate, order: DESC }) {
       nodes {
         name
-        startDate(formatString: "YYYY-MM-DD")
+        startDate
         link
-        endDate(formatString: "YYYY-MM-DD")
+        endDate
         tjParticipants {
           team
           rank
