@@ -1,5 +1,5 @@
 - name: Brian Ho
-  avatar: ./avatars/brian_csec.jpg
+  avatar: ./avatars/brian_csec.JPG
   position: President
 - name: Nathaniel Kerr
   avatar: ./avatars/nathaniel_csec.jpg
@@ -8,10 +8,10 @@
   avatar: ./avatars/emma_csec.jpg
   position: Statistician
 - name: Ashwath Muppa
-  avatar: ./avatars/ashwath_csec.jpg
+  avatar: ./avatars/ashwath_csec.JPG
   position: Jr. Infra Lead
 - name: Addison Gutherie
-  avatar: ./avatars/addison_csec.jpg
+  avatar: ./avatars/addison_csec.JPG
   position: Lecturer
 - name: Elliott Rosenberg
   avatar: ./avatars/elliot_csec.jpg
