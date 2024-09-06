@@ -120,7 +120,7 @@ export const query = graphql`
       nodes {
         title
         level
-        date(formatString: "YYYY-MM-DD")
+        date
         body
         link
         guest
