@@ -161,7 +161,7 @@ export const query = graphql`
   query Writeup($path: String!) {
     mdx(frontmatter: { slug: { eq: $path } }) {
       frontmatter {
-        date(formatString: "YYYY-MM-DD")
+        date
         title
         author
       }
