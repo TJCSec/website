@@ -1,27 +1,24 @@
-- name: Diana Lin
-  avatar: ./avatars/diana.jpg
-  position: President
-- name: Kiran Donnelly
-  avatar: ./avatars/kiran.jpg
-  position: Vice President
-- name: Ishara Shanmugasundaram
-  avatar: ./avatars/ishara.jpg
-  position: Statistician
-- name: Vrishak Vemuri
-  avatar: ./avatars/vrishak.jpg
-  position: Jr. Infra Lead
-- name: Dheethya Balaji
-  avatar: ./avatars/dheethya.jpg
-  position: Lecturer
-- name: Samarth Bhargav
-  avatar: ./avatars/samarth.jpg
-  position: Lecturer
 - name: Brian Ho
-  avatar: ./avatars/brian.jpg
+  avatar: ./avatars/brian_csec.JPG
+  position: President
+- name: Nathaniel Kerr
+  avatar: ./avatars/nathaniel_csec.jpg
+  position: Vice President
+- name: Emma Wu
+  avatar: ./avatars/emma_csec.jpg
+  position: Statistician
+- name: Ashwath Muppa
+  avatar: ./avatars/ashwath_csec.JPG
+  position: Jr. Infra Lead
+- name: Addison Gutherie
+  avatar: ./avatars/addison_csec.JPG
   position: Lecturer
-- name: Daniel Qiu
-  avatar: ./avatars/daniel.jpg
+- name: Elliott Rosenberg
+  avatar: ./avatars/elliot_csec.jpg
   position: Lecturer
-- name: Sebastian Toro
-  avatar: ./avatars/sebastian.jpg
+- name: Grace Bai
+  avatar: ./avatars/grace_csec.jpg
+  position: Lecturer
+- name: Max Weinstein
+  avatar: ./avatars/max_csec.jpg
   position: Lecturer
