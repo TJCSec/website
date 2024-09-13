@@ -7,3 +7,11 @@
   guest: false
   link: https://docs.google.com/presentation/d/1nJyffUES6C5RGZFg_gV29-Zt3w1wWid-fU2-3bqRFR0/edit?usp=sharing
   advanced: false
+- title: Linux Intro
+  date: 2024-09-13
+  body:
+    Introduction to Linux, how to set it up, and general information about command line / commands
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1uuS5ft8a0Q0XjGNxbaIZlXEuz1r0Z4tbqG5YukM9Cjo/edit?usp=sharing
+  advanced: false
