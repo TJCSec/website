@@ -15,3 +15,12 @@
   guest: false
   link: https://docs.google.com/presentation/d/1uuS5ft8a0Q0XjGNxbaIZlXEuz1r0Z4tbqG5YukM9Cjo/edit?usp=sharing
   advanced: false
+- title: More Linux
+  date: 2024-09-20
+  body:
+    A more advanced Linux lecture, covering wildcards, IO redirection, permissions, and scripting.
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/17IwN0r4mSsI3H7zuMdd6c4zRFFifv7WuSIN-QzBowkw/edit?usp=sharing
+  advanced: false
+
