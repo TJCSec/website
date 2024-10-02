@@ -23,4 +23,20 @@
   guest: false
   link: https://docs.google.com/presentation/d/17IwN0r4mSsI3H7zuMdd6c4zRFFifv7WuSIN-QzBowkw/edit?usp=sharing
   advanced: false
+- title: Web Intro
+  date: 2024-09-25
+  body:
+    An introduction to Web Exploitation concepts.
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1RWewBtTy6uD5JJW5Po_YQoxDbugszm_3dkPt1wAnhrI/edit?usp=sharing
+  advanced: false
+- title: Android Rev
+  date: 2024-10-02
+  body:
+    An introduction to Android Reverse Engineering and static/dynamic analysis
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1o_mB0DVrVpxrzkIVAJ09TK68lQu15kkXjS7QGF7gvuA/edit?usp=sharing
+  advanced: false
 
