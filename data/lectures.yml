@@ -39,4 +39,12 @@
   guest: false
   link: https://docs.google.com/presentation/d/1o_mB0DVrVpxrzkIVAJ09TK68lQu15kkXjS7QGF7gvuA/edit?usp=sharing
   advanced: false
+- title: Rev Intro
+  date: 2024-10-07
+  body:
+    An introduction to Reverse Engineering.
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1j54uPE8S4xRxRnABZP5NqfobdWSJ7j74M-burSBM_k8/edit?usp=sharing
+  advanced: false
 
