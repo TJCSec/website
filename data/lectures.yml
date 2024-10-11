@@ -47,4 +47,12 @@
   guest: false
   link: https://docs.google.com/presentation/d/1j54uPE8S4xRxRnABZP5NqfobdWSJ7j74M-burSBM_k8/edit?usp=sharing
   advanced: false
+- title: Image Forensics
+  date: 2024-10-11
+  body:
+    An introduction to Image Forensics
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/15qdo9dPe6AvN6PASfu7XJdAJYi5OdjGDe0KStHkKvfI/edit?usp=sharing
+  advanced: false
 
