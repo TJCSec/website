@@ -18,7 +18,7 @@
 - title: More Linux
   date: 2024-09-20
   body:
-    A more advanced Linux lecture, covering wildcards, IO redirection, permissions, and scripting.
+    A more advanced Linux lecture (wildcards, IO redirection, permissions, scripting)
   level: 2
   guest: false
   link: https://docs.google.com/presentation/d/17IwN0r4mSsI3H7zuMdd6c4zRFFifv7WuSIN-QzBowkw/edit?usp=sharing
@@ -26,7 +26,7 @@
 - title: Web Intro
   date: 2024-09-25
   body:
-    An introduction to Web Exploitation concepts.
+    An introduction to Web Exploitation concepts (http overview, sql injection)
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1RWewBtTy6uD5JJW5Po_YQoxDbugszm_3dkPt1wAnhrI/edit?usp=sharing
@@ -42,7 +42,7 @@
 - title: Rev Intro
   date: 2024-10-07
   body:
-    An introduction to Reverse Engineering.
+    An introduction to Reverse Engineering (disassembly, debugging, patching)
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1j54uPE8S4xRxRnABZP5NqfobdWSJ7j74M-burSBM_k8/edit?usp=sharing
@@ -50,9 +50,25 @@
 - title: Image Forensics
   date: 2024-10-11
   body:
-    An introduction to Image Forensics
+    An introduction to Image Forensics (exif, steg, pngcheck)
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/15qdo9dPe6AvN6PASfu7XJdAJYi5OdjGDe0KStHkKvfI/edit?usp=sharing
+  advanced: false
+- title: Crypto Intro
+  date: 2024-10-18
+  body:
+    An introduction to cryptography (number systems, bitwise operators, modular arithmetic)
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1g681Rsu4XJl8EGoim0sMJwcg9G9ajJnbArYx247R3Qw/edit?usp=sharing
+  advanced: false
+- title: Pwn Intro
+  date: 2024-10-31
+  body:
+    An introduction to low level binary exploitation (stack, heap, buffer overflow)
+  level: 2
+  guest: false
+  link: https://hackmd.io/EtCXRgxrSQK9ZWqZnA7dLg
   advanced: false
 
