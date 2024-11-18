@@ -71,4 +71,11 @@
   guest: false
   link: https://hackmd.io/EtCXRgxrSQK9ZWqZnA7dLg
   advanced: false
-
+- title: Blockchain, Smart Contracts, Reentrancy
+  date: 2024-11-13
+  body:
+    An in depth introduction to blockchain and smart contracts. Explain and demonstrate the Reentrancy attack.
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1N0x133t-LHE86rnAIMmwPp7QvIi_53V5lZwDRmrT4Dg/edit?usp=sharing
+  advanced: false
