@@ -79,3 +79,11 @@
   guest: false
   link: https://docs.google.com/presentation/d/1N0x133t-LHE86rnAIMmwPp7QvIi_53V5lZwDRmrT4Dg/edit?usp=sharing
   advanced: false
+- title: Cross-Site Scripting (XSS)
+  date: 2024-11-20
+  body:
+    An introduction to Cross-Site Scripting (admin bot, DOM exploitation, CSP)
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1j7R8MkzdiyasRCtuPkFw02kgxqc8iCMpwd04VIaO4bE/edit?usp=sharing
+  advanced: false
