@@ -1,0 +1,21 @@
+name: Update website
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ "master" ]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        pip3 install websocket-client
+
+    - name: Update site
+      run: |
+        python3 update.py {{ secrets.ION_CSRF_TOKEN }} {{ secrets.ION_SESSION_ID }}
