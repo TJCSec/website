@@ -1,8 +1,8 @@
 from websocket import WebSocket
-import sys
+import os
 
 conn = WebSocket()
-conn.connect("wss://director.tjhsst.edu/sites/399/terminal/?", cookie=f"csrftoken={sys.argv[1]};sessionid={sys.argv[2]}")
+conn.connect("wss://director.tjhsst.edu/sites/399/terminal/?", cookie=f"csrftoken={os.environ["CSRF_TOKEN"]};sessionid={os.environ["SESSION_ID"]}")
 if 'true' not in conn.recv():
     print("Could not connect")
     exit(1)
