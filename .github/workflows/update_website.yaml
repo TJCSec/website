@@ -14,8 +14,6 @@ jobs:
 
     - name: Update site
       shell: bash
-      env:
-        CSRF_TOKEN: {{ secrets.ION_CSRF_TOKEN }}
-        SESSION_ID: {{ secrets.ION_SESSION_ID }}
       run: |
-        python3 update.py
+        pip3 install websocket-client && \
+        python3 update.py ${{ secrets.ION_CSRF_TOKEN }} ${{ secrets.ION_SESSION_ID }}
