@@ -95,3 +95,11 @@
   level: 2
   link: https://hackmd.io/@tjcsc/H1x56P-Xkx
   advanced: false
+- title: Diffie Hellman Key Exchange
+  date: 2024-12-12
+  body:
+    An introduction to the concepts and mathematics behind Diffie Hellman Key Exchange, as well as the Discrete Log Problem
+  guest: false
+  level: 2
+  link: https://docs.google.com/presentation/d/1nmTqbUKO_0kqe4dxdPqEcvbyo9pAkiEWFChcD6R1Yrc/edit?usp=sharing
+  advanced: false
