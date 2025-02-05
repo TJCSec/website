@@ -103,6 +103,14 @@
   level: 2
   link: https://docs.google.com/presentation/d/1nmTqbUKO_0kqe4dxdPqEcvbyo9pAkiEWFChcD6R1Yrc/edit?usp=sharing
   advanced: false
+- title: ROP
+  date: 2024-01-24
+  body:
+    An introduction to Return-oriented programming, ret2libc, etc.
+  guest: false
+  level: 2
+  link: https://docs.google.com/presentation/d/1O2PfHdWXtPH2MtQkWbL1KxRqa_iib15kVCTHpQ7mMwQ/edit#slide=id.p
+  advanced: false
 - title: OSINT
   date: 2024-02-05
   body:
