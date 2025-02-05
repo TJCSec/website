@@ -103,3 +103,11 @@
   level: 2
   link: https://docs.google.com/presentation/d/1nmTqbUKO_0kqe4dxdPqEcvbyo9pAkiEWFChcD6R1Yrc/edit?usp=sharing
   advanced: false
+- title: OSINT
+  date: 2024-2-5
+  body:
+    An introduction to Open Source Intelligence (OSINT)
+  guest: false
+  level: 1
+  link: https://www.google.com/search?q=osint&rlz=1CAEGQA_enUS1078&oq=osint&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDINCAEQABiDARixAxiABDIQCAIQABiDARixAxiABBiKBTINCAMQABiDARixAxiABDINCAQQABiDARixAxiABDIKCAUQABixAxiABDINCAYQABiDARixAxiABDIKCAcQABixAxiABDIHCAgQABiABDIHCAkQABiABNIBBzUxNGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8&surl=1&safe=active&ssui=on
+  advanced: false
