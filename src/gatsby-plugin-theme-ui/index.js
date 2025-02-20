@@ -3,7 +3,7 @@ import '@fontsource/inter/700.css'
 
 import { prismColors } from './prism'
 
-export default {
+const styles = {
   breakpoints: ['40em', '56em', '64em'],
   buttons: {
     primary: {
@@ -79,3 +79,5 @@ export default {
     },
   },
 }
+
+export default styles

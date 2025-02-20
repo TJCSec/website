@@ -1,7 +1,7 @@
 ---
 title: ångstromCTF 2021 - Jar/Snake/Ekans
 date: 2021-04-15
-slug: /writeups/angstromctf-2021-pickle
+slug: /writeups/angstromctf-2021-pickle/
 excerpt: Exploiting heavily restricted pickle deserialization
 author: Darin Mao
 ---

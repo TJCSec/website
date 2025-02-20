@@ -42,9 +42,11 @@ const Blockquote = ({ children, ...props }) => (
   </blockquote>
 )
 
-export default {
+const components = {
   pre: (props) => props.children,
   a: MdLink,
   blockquote: Blockquote,
   img: Image,
 }
+
+export default components

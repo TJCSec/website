@@ -1,7 +1,7 @@
 ---
 title: ASIS CTF Finals 2021 - cuuurl
 date: 2022-01-07
-slug: /writeups/asisfinals-2021-cuuurl
+slug: /writeups/asisfinals-2021-cuuurl/
 excerpt: Arbitrary curl to RCE
 author: Darin Mao
 ---

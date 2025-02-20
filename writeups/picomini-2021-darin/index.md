@@ -1,7 +1,7 @@
 ---
 title: picoMini by redpwn 2021 - Darin's Challenges
 date: 2021-06-21
-slug: /writeups/picomini-redpwn-darin
+slug: /writeups/picomini-redpwn-darin/
 excerpt: Author writeups for picoMini by redpwn
 author: Darin Mao
 ---

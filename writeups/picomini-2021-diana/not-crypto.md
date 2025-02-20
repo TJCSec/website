@@ -1,7 +1,7 @@
 ---
 title: picoMini by redpwn 2021 - not-crypto (rev)
 date: 2021-05-12
-slug: /writeups/picomini-redpwn-not-crypto
+slug: /writeups/picomini-redpwn-not-crypto/
 excerpt: Writeup for not-crypto (rev)
 author: Diana Lin
 ---

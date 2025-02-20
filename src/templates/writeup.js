@@ -3,8 +3,7 @@ import { Box, Close, Flex, Heading, IconButton, jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
 import { useCallback, useState } from 'react'
 import { IoList } from 'react-icons/io5'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -12,12 +11,11 @@ import Container from '../components/container'
 import TableOfContents from '../components/toc'
 import { prismArrangement } from '../gatsby-plugin-theme-ui/prism'
 import datefmt from '../utils/datefmt'
+import React  from 'react' // bug workaround - will revisit
 
-const Writeup = ({ data: { mdx: post } }) => {
+const Writeup = ({ data: { mdx: post }, children }) => {
   const {
-    frontmatter: { title, date, author },
-    excerpt,
-    body,
+    frontmatter: { title, date, author, excerpt },
     tableOfContents: { items: toc },
   } = post
 
@@ -146,7 +144,7 @@ const Writeup = ({ data: { mdx: post } }) => {
                 },
               }}
             >
-              <MDXRenderer>{body}</MDXRenderer>
+              {children}
             </Container>
           </Box>
         </Flex>
@@ -164,9 +162,8 @@ export const query = graphql`
         date
         title
         author
+        excerpt
       }
-      excerpt
-      body
       tableOfContents(maxDepth: 6)
     }
   }

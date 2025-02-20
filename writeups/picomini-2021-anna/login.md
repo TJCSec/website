@@ -1,7 +1,7 @@
 ---
 title: picoMini by redpwn 2021 - login (web)
 date: 2021-05-11
-slug: /writeups/picomini-redpwn-login
+slug: /writeups/picomini-redpwn-login/
 excerpt: Client side login seems like a bad idea
 author: Anna Hsu
 ---

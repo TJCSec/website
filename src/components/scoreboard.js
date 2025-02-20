@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Box, Heading, Text, Button, jsx } from 'theme-ui'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import Modal from 'react-modal'
 
 const columns = [

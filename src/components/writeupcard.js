@@ -8,8 +8,7 @@ import datefmt from '../utils/datefmt'
 
 const WriteupCard = ({
   frontmatter,
-  excerpt,
-  timeToRead,
+  fields,
   author,
   ...props
 }) => {
@@ -63,7 +62,7 @@ const WriteupCard = ({
             color: 'primary',
           }}
         >
-          {datefmt(frontmatter.date)} — {timeToRead} minute read
+          {datefmt(frontmatter.date)} — {fields.timeToRead.text}
         </Text>
         <Text
           sx={{
@@ -72,7 +71,7 @@ const WriteupCard = ({
             flex: '1 0 auto',
           }}
         >
-          {excerpt}
+          {frontmatter.excerpt}
         </Text>
       </motion.div>
     </Link>

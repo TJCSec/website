@@ -1,7 +1,7 @@
 ---
 title: CSAW RED 2020 Qualifier (crypto)
 date: 2020-09-29
-slug: /writeups/csaw-red-2020-qual-crypto
+slug: /writeups/csaw-red-2020-qual-crypto/
 excerpt: Solutions for crypto challenges from the CSAW RED 2020 Qualification Round.
 author: Darin Mao
 ---

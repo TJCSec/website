@@ -1,7 +1,7 @@
 ---
 title: picoMini by redpwn 2021 - notepad (web)
 date: 2021-05-12
-slug: /writeups/picomini-redpwn-notepad
+slug: /writeups/picomini-redpwn-notepad/
 excerpt: Writeup for notepad (web)
 author: Diana Lin
 ---

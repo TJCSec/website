@@ -1,7 +1,7 @@
 ---
 title: redpwnCTF 2021 - devnull-as-a-service (pwn)
 date: 2021-07-12
-slug: /writeups/redpwnctf-2021-devnull
+slug: /writeups/redpwnctf-2021-devnull/
 excerpt: ret2dlresolve on 64-bit binaries with huge pages
 author: Darin Mao
 ---

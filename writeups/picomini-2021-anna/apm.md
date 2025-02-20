@@ -1,7 +1,7 @@
 ---
 title: picoMini by redpwn 2021 - advanced-potion-making (forensics)
 date: 2021-05-11
-slug: /writeups/picomini-redpwn-apm
+slug: /writeups/picomini-redpwn-apm/
 excerpt: Fixing a corrupt PNG file
 author: Anna Hsu
 ---

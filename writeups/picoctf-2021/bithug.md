@@ -1,7 +1,7 @@
 ---
 title: picoCTF 2021 - BitHug (web)
 date: 2021-04-05
-slug: /writeups/picoctf-2021-bithug
+slug: /writeups/picoctf-2021-bithug/
 excerpt: Exploiting SSRF in a complex web application
 author: Darin Mao and Daniel Wang
 ---
