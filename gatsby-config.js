@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: '/csc',
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-theme-ui',
