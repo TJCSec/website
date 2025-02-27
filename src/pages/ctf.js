@@ -58,7 +58,7 @@ export default CTFs
 
 export const query = graphql`
   query CTFs {
-    allCtfsYaml(sort: { fields: startDate, order: DESC }) {
+    allCtfsYaml(sort: {startDate: DESC}) {
       nodes {
         name
         startDate

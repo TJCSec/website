@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { Flex, Styled, jsx } from 'theme-ui'
-import { Global } from '@emotion/core'
+import { Flex, jsx } from 'theme-ui'
+import { Themed } from '@theme-ui/mdx'
+import { Global } from '@emotion/react'
 import Navbar from './navbar'
 import Footer from './footer'
 import SEO from './seo'
@@ -8,7 +9,7 @@ import { motion } from 'framer-motion'
 
 const Layout = ({ seo, children, ...props }) => {
   return (
-    <Styled.root {...props}>
+    <Themed.root {...props}>
       <Global
         styles={(theme) => ({
           body: {
@@ -46,7 +47,7 @@ const Layout = ({ seo, children, ...props }) => {
         </Flex>
         <Footer />
       </motion.div>
-    </Styled.root>
+    </Themed.root>
   )
 }
 

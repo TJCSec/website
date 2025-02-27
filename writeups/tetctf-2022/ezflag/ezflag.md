@@ -1,7 +1,7 @@
 ---
 title: TetCTF 2022 - ezflag 2
 date: 2022-01-07
-slug: /writeups/tetctf-2022-ezflag2
+slug: /writeups/tetctf-2022-ezflag2/
 excerpt: Simple ROP through a socket
 author: Darin Mao
 ---
@@ -60,7 +60,7 @@ I also added a `upload_file(b'pepega')` at the end because other people can just
 We can download the file by using our "shell" to copy it to the uploads folder, then downloading like normal. It's a static-linked and stripped binary, so it's pretty large and takes a long time to analyze. But static-linked binaries also have lots of handy gadgets :oyes:
 
 ## Function Signatures
-Function signatures can help recognize library functions in static-linked and stripped binaries. There is a good [LiveOverflow video](https://www.youtube.com/watch?v=CgGha_zLqlo) on the subject. I grabbed the [libc6_2.31-0ubuntu9_amd64.sig](https://github.com/push0ebp/sig-database/raw/master/ubuntu/libc6/20.04%20(focal)/libc6_2.31-0ubuntu9_amd64.sig) signatures (love u stong <3) and applied them as shown in the video.
+Function signatures can help recognize library functions in static-linked and stripped binaries. There is a good [LiveOverflow video](https://www.youtube.com/watch?v=CgGha_zLqlo) on the subject. I grabbed the [libc6_2.31-0ubuntu9_amd64.sig](https://github.com/push0ebp/sig-database/raw/master/ubuntu/libc6/20.04%20(focal)/libc6_2.31-0ubuntu9_amd64.sig) signatures (love u stong \<3) and applied them as shown in the video.
 
 Function signatures aren't perfect, but it's a good starting point. Following `entry` into `main` at `0x401780`, we can start reversing.
 

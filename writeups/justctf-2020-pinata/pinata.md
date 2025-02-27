@@ -1,7 +1,7 @@
 ---
 title: justCTF 2020 - Pinata (pwn)
 date: 2021-01-30
-slug: /writeups/justctf-2020-pinata
+slug: /writeups/justctf-2020-pinata/
 excerpt: Blind exploitation of nginx from justCTF 2020
 author: Darin Mao
 ---

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Box, Button, Flex, Grid, Heading, Text, jsx } from 'theme-ui'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 import { useCallback } from 'react'
 import { scroller } from 'react-scroll'
 
@@ -17,10 +17,10 @@ const Index = ({ data }) => {
       siteMetadata: { description },
     },
     hero: {
-      childImageSharp: { fluid: hero },
+      childImageSharp: { gatsbyImageData: hero },
     },
     club: {
-      childImageSharp: { fluid: club },
+      childImageSharp: { gatsbyImageData: club },
     },
     allAboutYaml: { edges: about },
     allOfficersYaml: { edges: officers },
@@ -99,14 +99,13 @@ const Index = ({ data }) => {
           }}
         >
           <Box>
-            <Img
-              fluid={hero}
+            <GatsbyImage
+              image={hero}
               alt='TJCSC at Lockheed Martin CYBERQUEST 2019'
               sx={{
                 borderRadius: 4,
                 mb: 1,
-              }}
-            />
+              }} />
             TJCSC at Lockheed Martin CYBERQUEST 2019
           </Box>
         </Flex>
@@ -137,13 +136,12 @@ const Index = ({ data }) => {
             The Club
           </Heading>
         </Flex>
-        <Img
-          fluid={{ ...club, aspectRatio: 1.778 }}
+        <GatsbyImage
+          image={{ ...club, aspectRatio: 1.778 }}
           alt='TJ Computer Security Club Meeting, October 2016'
           sx={{
             display: ['none', null, 'block'],
-          }}
-        />
+          }} />
       </Flex>
       <Box
         sx={{
@@ -190,46 +188,40 @@ const Index = ({ data }) => {
         </Container>
       </div>
     </Layout>
-  )
+  );
 }
 
 export default Index
 
-export const query = graphql`
-  query Home {
-    site {
-      siteMetadata {
-        description
-      }
+export const query = graphql`query Home {
+  site {
+    siteMetadata {
+      description
     }
-    hero: file(relativePath: { eq: "cyberquest.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
+  }
+  hero: file(relativePath: {eq: "cyberquest.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
     }
-    club: file(relativePath: { eq: "evan.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
+  }
+  club: file(relativePath: {eq: "evan.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
     }
-    allAboutYaml {
-      edges {
-        node {
-          title
-          text
-        }
-      }
-    }
-    allOfficersYaml {
-      edges {
-        node {
-          ...OfficerInfo
-        }
+  }
+  allAboutYaml {
+    edges {
+      node {
+        title
+        text
       }
     }
   }
-`
+  allOfficersYaml {
+    edges {
+      node {
+        ...OfficerInfo
+      }
+    }
+  }
+}`

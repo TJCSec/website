@@ -1,7 +1,7 @@
 ---
 title: ångstromCTF 2021 - wallstreet (pwn)
 date: 2021-04-15
-slug: /writeups/angstromctf-2021-wallstreet
+slug: /writeups/angstromctf-2021-wallstreet/
 excerpt: An unusual trick for format string exploitation
 author: Darin Mao
 ---

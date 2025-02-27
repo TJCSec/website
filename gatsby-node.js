@@ -1,3 +1,4 @@
+const readingTime = require('reading-time')
 const path = require('path')
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
@@ -6,12 +7,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const writeups = await graphql(`
     query Writeups {
-      allMdx(
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ) {
+      allMdx(sort: {frontmatter: {date: DESC}}) {
         nodes {
           frontmatter {
             slug
+          }
+          internal {
+            contentFilePath
           }
         }
       }
@@ -23,10 +25,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  writeups.data.allMdx.nodes.forEach(({ frontmatter }) => {
+  writeups.data.allMdx.nodes.forEach(({ frontmatter, internal }) => {
     createPage({
       path: frontmatter.slug,
-      component: writeupTemplate,
+      component: `${writeupTemplate}?__contentFilePath=${internal.contentFilePath}`,
     })
   })
+}
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `Mdx`) {
+    createNodeField({
+      node,
+      name: `timeToRead`,
+      value: readingTime(node.body)
+    })
+  }
 }

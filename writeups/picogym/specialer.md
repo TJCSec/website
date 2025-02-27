@@ -1,7 +1,7 @@
 ---
 title: picoGym - Specialer 
 date: 2024-02-20
-slug: /writeups/picogym-specialer
+slug: /writeups/picogym-specialer/
 excerpt: Reading files in a sandboxed environment
 author: Brian Ho
 ---

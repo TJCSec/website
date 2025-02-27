@@ -1,7 +1,7 @@
 ---
 title: TetCTF 2022 - magicbox
 date: 2022-01-07
-slug: /writeups/tetctf-2022-magicbox
+slug: /writeups/tetctf-2022-magicbox/
 excerpt: Reversing a NOR machine
 author: Darin Mao
 ---

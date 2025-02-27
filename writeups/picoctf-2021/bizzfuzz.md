@@ -1,7 +1,7 @@
 ---
 title: picoCTF 2021 - Bizz Fuzz (pwn)
 date: 2021-03-30
-slug: /writeups/picoctf-2021-bizz-fuzz
+slug: /writeups/picoctf-2021-bizz-fuzz/
 excerpt: Automated analysis of a large binary
 author: Darin Mao
 ---

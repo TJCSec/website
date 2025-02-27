@@ -1,7 +1,7 @@
 ---
 title: picoCTF 2021 - Stonk Market (pwn)
 date: 2021-03-31
-slug: /writeups/picoctf-2021-stonk-market
+slug: /writeups/picoctf-2021-stonk-market/
 excerpt: Tricky format string exploitation
 author: Darin Mao
 ---

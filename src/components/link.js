@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { Link } from 'gatsby'
 
-export default (props) => (
+const NewLink = (props) => (
   <Link
     {...props}
     sx={{
@@ -13,3 +13,5 @@ export default (props) => (
     }}
   />
 )
+
+export default NewLink

@@ -1,7 +1,7 @@
 ---
 title: redpwnCTF 2021 - gelcode-2 (pwn)
 date: 2021-07-12
-slug: /writeups/redpwnctf-2021-gelcode
+slug: /writeups/redpwnctf-2021-gelcode/
 excerpt: Shellcode golfing
 author: Darin Mao
 ---

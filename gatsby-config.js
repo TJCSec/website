@@ -1,17 +1,13 @@
 module.exports = {
-  pathPrefix: '/csc',
   plugins: [
+    'gatsby-plugin-image',
     'gatsby-plugin-theme-ui',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        defaultLayouts: {
-          default: require.resolve('./src/templates/writeup.js'),
-        },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           'gatsby-remark-smartypants',
@@ -44,9 +40,6 @@ module.exports = {
             },
           },
         ],
-        plugins: [
-          'gatsby-remark-autolink-headers', // stupid hack https://github.com/gatsbyjs/gatsby/issues/15486
-        ],
       },
     },
     {
@@ -60,14 +53,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: './data/',
+        path: `${__dirname}/data/`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'writeups',
-        path: './writeups/',
+        path: `${__dirname}/writeups/`,
       },
     },
   ],

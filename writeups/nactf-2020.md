@@ -1,12 +1,12 @@
 ---
 title: NACTF 2020
 date: 2020-11-04
-slug: /writeups/nactf-2020
+slug: /writeups/nactf-2020/
 excerpt: Required writeups for winning teams.
 author: Darin Mao and Stephen Huan
 ---
 
-Required writeups for winning teams. <!-- end -->
+Required writeups for winning teams.
 > Writeups are required for prize winning teams for gfc3, packed, gcalc, error 2, veggie factory 5. Format for writeups: gcalc, error 2, and veggie factory 5 can be just code. gfc3: dissassembler or written description of solve method. Packed: written explanation of how you reversed engineered and what the program does.
 
 # Generic Flag Checker® 3

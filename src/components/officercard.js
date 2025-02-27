@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Box, Heading, Text, jsx } from 'theme-ui'
 
@@ -9,7 +9,7 @@ const OfficerCard = ({ data, ...props }) => {
     name,
     position,
     avatar: {
-      childImageSharp: { fluid: avatar },
+      childImageSharp: { gatsbyImageData: avatar },
     },
   } = data
   return (
@@ -25,7 +25,7 @@ const OfficerCard = ({ data, ...props }) => {
         flex: '1 1 0',
       }}
     >
-      <Img fluid={avatar} alt={name} />
+      <GatsbyImage image={avatar} alt={name} />
       <Box
         p={3}
         sx={{
@@ -36,21 +36,23 @@ const OfficerCard = ({ data, ...props }) => {
         <Text>{position}</Text>
       </Box>
     </Box >
-  )
+  );
 }
 
 export default OfficerCard
 
-export const query = graphql`
-  fragment OfficerInfo on OfficersYaml {
-    name
-    position
-    avatar {
-      childImageSharp {
-        fluid(maxHeight: 400, maxWidth: 400, traceSVG: { color: "#00060c" }) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
+export const query = graphql`fragment OfficerInfo on OfficersYaml {
+  name
+  position
+  avatar {
+    childImageSharp {
+      gatsbyImageData(
+        height: 400
+        width: 400
+        tracedSVGOptions: {color: "#00060c"}
+        placeholder: DOMINANT_COLOR
+        layout: CONSTRAINED
+      )
     }
   }
-`
+}`

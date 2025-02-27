@@ -14,8 +14,8 @@ const fuseOptions = {
       name: 'frontmatter.title',
       weight: 2,
     },
-    'excerpt',
-    'rawBody',
+    'frontmatter.excerpt',
+    'body',
   ],
   minMatchCharLength: 3,
   ignoreLocation: true,
@@ -56,17 +56,21 @@ export default Writeups
 
 export const query = graphql`
   query Writeups {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(sort: {frontmatter: {date: DESC}}) {
       nodes {
         frontmatter {
           date
           slug
           title
           author
+          excerpt
         }
-        excerpt(pruneLength: 250)
-        rawBody
-        timeToRead
+        body
+        fields {
+          timeToRead {
+            text
+          }
+        }
       }
     }
   }
