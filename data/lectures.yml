@@ -83,7 +83,7 @@
   date: 2024-11-20
   body:
     An introduction to Cross-Site Scripting (admin bot, DOM exploitation, CSP)
-  level: 1
+  level: 2
   guest: false
   link: https://docs.google.com/presentation/d/1j7R8MkzdiyasRCtuPkFw02kgxqc8iCMpwd04VIaO4bE/edit?usp=sharing
   advanced: false
@@ -118,4 +118,12 @@
   guest: false
   level: 1
   link: https://www.google.com/search?q=osint&rlz=1CAEGQA_enUS1078&oq=osint&gs_lcrp=EgZjaHJvbWUyDwgAEEUYORiDARixAxiABDINCAEQABiDARixAxiABDIQCAIQABiDARixAxiABBiKBTINCAMQABiDARixAxiABDINCAQQABiDARixAxiABDIKCAUQABixAxiABDINCAYQABiDARixAxiABDIKCAcQABixAxiABDIHCAgQABiABDIHCAkQABiABNIBBzUxNGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8&surl=1&safe=active&ssui=on
+  advanced: false
+- title: Server-Side Request Forgery (SSRF)
+  date: 2025-03-26
+  body:
+    An introduction to Server-Side Request Forgery (SSRF)
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1rt6Gdzwf0-gDky7NlZn3g8zwKE1xBoD84DYz3Mw5CuI/edit?usp=sharing
   advanced: false
