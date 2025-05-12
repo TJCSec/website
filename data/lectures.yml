@@ -135,3 +135,27 @@
   guest: false
   link: https://docs.google.com/presentation/d/151S4LhkQ5nm4C0oc7usuTO2u2flUtSSLn3kx3UncmpM/edit?usp=sharing
   advanced: false
+- title: Eliptic Curve Cryptography
+  date: 2025-04-23
+  body:
+    Eliptic Curve Cyrptography, Guest Lecture by Agastya
+  level: 3
+  guest: false
+  link: https://docs.google.com/presentation/d/1N1HiLVzlVHHTWTnzZgxFiV04CoQm3QcQBT4BP5jxuUw/edit?usp=sharing
+  advanced: false
+- title: Pwntools
+  date: 2025-04-30
+  body:
+    Pwntools, Guest Lecture by Samuel
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/17jfQHTAI829R20oY769sAvCAAszh0Qx6Ku3GStkpSFY/edit?usp=sharing
+  advanced: false
+- title: Intro to Z3
+  date: 2025-05-12
+  body:
+    Z3, Guest Lecture by Sai
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1Ei1G5hENDPA17ldddadq1pQdWWkZ53I88iu_Qijoqmg/edit?usp=sharing
+  advanced: false
