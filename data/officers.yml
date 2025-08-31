@@ -1,24 +1,31 @@
-- name: Brian Ho
-  avatar: ./avatars/brian_csec.JPG
-  position: President
 - name: Nathaniel Kerr
   avatar: ./avatars/nathaniel_csec.jpg
+  position: President, Infra Lead
+- name: Grace Bai
+  avatar: ./avatars/grace_csec.jpg
   position: Vice President
 - name: Emma Wu
   avatar: ./avatars/emma_csec.jpg
   position: Statistician
+- name: Samuel Chow
+  avatar: ./avatars/samuel_csec.jpg
+  position: Webmaster
 - name: Ashwath Muppa
-  avatar: ./avatars/ashwath_csec.JPG
-  position: Jr. Infra Lead
-- name: Addison Gutherie
-  avatar: ./avatars/addison_csec.JPG
+  avatar: ./avatars/ashwath_csec.jpg
   position: Lecturer
 - name: Elliott Rosenberg
   avatar: ./avatars/elliott_csec.jpg
   position: Lecturer
-- name: Grace Bai
-  avatar: ./avatars/grace_csec.jpg
+- name: Agastya Sondhi
+  avatar: ./avatars/agastya_csec.jpg
   position: Lecturer
-- name: Max Weinstein
-  avatar: ./avatars/max_csec.jpg
+- name: Ansh Agrawal
+  avatar: ./avatars/ansh_csec.png
   position: Lecturer
+- name: Andrew Liu
+  avatar: ./avatars/andrew_csec.png
+  position: Lecturer
+- name: William Chapin
+  avatar: ./avatars/william_csec.jpg
+  position: Lecturer
+
