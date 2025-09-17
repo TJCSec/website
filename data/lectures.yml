@@ -7,3 +7,12 @@
   guest: false
   link: https://docs.google.com/presentation/d/1EyVoIOKKBj_LcAFbrq98Tc8Z499k3BA-lupO70OF2zA/edit
   advanced: false
+
+- title: Intro to Linux
+  date: 2025-09-17
+  body:
+    Introduction to Linux, a fundamental concept in the realm of cybersecurity
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1NEZ4M7GpHNIR9TWplI3Z3ZwGk3hx4APrz1V7ahnYH-w/edit
+  advanced: false
