@@ -16,3 +16,11 @@
   guest: false
   link: https://docs.google.com/presentation/d/1NEZ4M7GpHNIR9TWplI3Z3ZwGk3hx4APrz1V7ahnYH-w/edit
   advanced: false
+- title: Python Intro
+  date: 2025-09-24
+  body:
+    Introduction to the python programming language
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1Xsu0WQbg-RVUQo0x1kE1dPZNc5ZulBGuaNvOr7dXT78/edit
+  advanced: false
