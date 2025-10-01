@@ -24,3 +24,11 @@
   guest: false
   link: https://docs.google.com/presentation/d/1Xsu0WQbg-RVUQo0x1kE1dPZNc5ZulBGuaNvOr7dXT78/edit
   advanced: false
+- title: Introduction to Cryptography
+  date: 2025-10-01
+  body:
+    Basic Introduction to Cryptography and Modular Arithmetic
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1GJtP4GPeIgswDSUtulWSOEe4jGNfMnMIjS0A2pC2dn8/edit
+  advanced: false
