@@ -32,3 +32,19 @@
   guest: false
   link: https://docs.google.com/presentation/d/1GJtP4GPeIgswDSUtulWSOEe4jGNfMnMIjS0A2pC2dn8/edit
   advanced: false
+- title: Introduction to Web
+  date: 2025-10-03
+  body:
+    Web Intro orz
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1_zTRkJjyin_7rdP29dp-gmHyND6aVfFdlDGObpjm-Qw/edit
+  advanced: false
+- title: Reverse Engineering Intro
+  date: 2025-10-10
+  body:
+    Introduction to rev, debugging, and low level computing
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1CNwQJHj8m_h24i7v5Mcvn2AzkXwKCFPHzqcAoaPidj8/edit
+  advanced: false
