@@ -57,3 +57,12 @@
   guest: false
   link: https://docs.google.com/presentation/d/1M7wPtx6QeYp9E_7Kv9IFIgwZr1rCEcgi92_rGp0xeRw/edit
   advanced: false
+
+- title: Pwn Intro
+  date: 2025-10-17
+  body:
+    Introduction to binary exploitation
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1oYW_fQ6ZFNweKuPAe5OzHkR6_vJx3T0Y3q7wcyH8-Ss/edit?usp=sharing
+  advanced: false
