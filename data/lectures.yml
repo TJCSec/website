@@ -84,4 +84,21 @@
   link: https://docs.google.com/presentation/d/1op1kzFVWfnOREpD_mGSJE-wjnIpcd5N1ERBt0y3w7Q0/edit?usp=sharing
   advanced: false
 
+- title: Networking Intro
+  date: 2025-10-28
+  body:
+    Intro to Wireshark and Networking
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1jlL15qFqSs2CMGhEwMjO6RBMnfJr1tc38h74ZeAMe3U/edit?usp=sharing
+  advanced: false
+
+- title: XSS Intro
+  date: 2025-11-07
+  body:
+    Intro to Cross Site Scripting
+  level: 3
+  guest: false
+  link: https://docs.google.com/presentation/d/1ejGj0qvEjiw_8L45G2cUyET7IvuH5nMJnWai8nrbPpY/edit?usp=sharing
+  advanced: false
 
