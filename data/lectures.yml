@@ -102,3 +102,20 @@
   link: https://docs.google.com/presentation/d/1ejGj0qvEjiw_8L45G2cUyET7IvuH5nMJnWai8nrbPpY/edit?usp=sharing
   advanced: false
 
+- title: Advanced XSS
+  date: 2025-11-12
+  body:
+    A more in-depth overview of XSS
+  level: 4
+  guest: false
+  link: https://docs.google.com/presentation/d/1ejGj0qvEjiw_8L45G2cUyET7IvuH5nMJnWai8nrbPpY/edit?usp=sharing
+  advanced: true
+
+  - title: XXE (XML External Entities)
+  date: 2025-11-14
+  body:
+    Using XXE to retrieve remote files and resources
+  level: 3
+  guest: false
+  link: https://docs.google.com/presentation/d/1vpBVsfGUVDAa68MVB3VWGILOzXdITTsy5jLAU_4M324/edit?usp=sharing
+  advanced: false
