@@ -111,7 +111,7 @@
   link: https://docs.google.com/presentation/d/1ejGj0qvEjiw_8L45G2cUyET7IvuH5nMJnWai8nrbPpY/edit?usp=sharing
   advanced: false
 
-  - title: XXE (XML External Entities)
+- title: XXE (XML External Entities)
   date: 2025-11-14
   body:
     Using XXE to retrieve remote files and resources
