@@ -119,3 +119,21 @@
   guest: false
   link: https://docs.google.com/presentation/d/1vpBVsfGUVDAa68MVB3VWGILOzXdITTsy5jLAU_4M324/edit?usp=sharing
   advanced: false
+
+- title: Buffer Overflows
+  date: 2025-11-19
+  body: 
+    Exploiting buffer overflow attacks and memory corruption
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1nq3rlQetDqZnx9uD57pvZgCDorJCKpDQOJDblKqu6dE/edit?usp=sharing
+  advanced: false
+
+- title: Image Forensics
+  date: 2025-11-21
+  body:
+    Extracting data from images
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1Z-vwyUk8lW7_-tAeIghHiRk7_Tuu-x1kc3zkeLWhYh0/edit?usp=sharing
+  advanced: false
