@@ -14,7 +14,7 @@ I participated with my club team tjcsc in PatriotCTF 2025, and we got 54th overa
 
 **Category:** OSINT
 
-**Flag:** ``pctf{sterling_reston_tysons}``
+**Flag:** `pctf{sterling_reston_tysons}`
 
 This challenge had three parts, where we had to find which city/town each place was in. Let's solve it step by step!
 
@@ -40,7 +40,7 @@ They all refer to a town called "Sterling". This must be the town for the first 
 
 ![](./loc-1/2.png)
 
-That confirms it! The first city/town must be Sterling. Currently, our flag is ``pctf{sterling_}``. Let's keep going.
+That confirms it! The first city/town must be Sterling. Currently, our flag is `pctf{sterling_}`. Let's keep going.
 
 ## Part 2
 
@@ -62,7 +62,7 @@ There are only two locations in the Washington D.C. area, but only one of them i
 
 ![](./loc-2/2.png)
 
-This image looks exactly like the building from the given pictures! Now, our flag is ``pctf{sterling_reston_}``. Last part, here we go!
+This image looks exactly like the building from the given pictures! Now, our flag is `pctf{sterling_reston_}`. Last part, here we go!
 
 ## Part 3
 
@@ -92,4 +92,4 @@ Maybe the images can confirm my thought. Let's look at this one:
  
 This looks exactly like the first image given! I'm confident that the images are from this building.
 
-Let's try the flag... It worked! ``pctf{sterling_reston_tysons}`` Nice! That was pretty easy as well.
+Let's try the flag... It worked! `pctf{sterling_reston_tysons}` Nice! That was pretty easy as well.

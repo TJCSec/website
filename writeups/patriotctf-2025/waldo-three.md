@@ -14,7 +14,7 @@ I participated with my club team tjcsc in PatriotCTF 2025, and we got 54th overa
 
 **Category:** OSINT
 
-**Flag:** ``pctf{center_for_the_arts_concert_hall}``
+**Flag:** `pctf{center_for_the_arts_concert_hall}`
 
 So, here is the provided image:
 
@@ -34,10 +34,10 @@ Now, we can find the building from this angle.
 
 ![Street view verification](./waldo3-004.png)
 
-Center for the Arts eh? Let’s try that… Oops! Somehow pctf{center_for_the_arts} didn’t work… Interesting. Let’s gather some more information in street view.
+Center for the Arts eh? Let’s try that… Oops! Somehow `pctf{center_for_the_arts}` didn’t work… Interesting. Let’s gather some more information in street view.
 
 ![Additional street view context](./waldo3-005.png)
 
 Concert Hall? Let’s try that.
 
-Easy dub! ``pctf{center_for_the_arts_concert_hall}`` worked! Unfortunate that I wasted an attempt…
+Easy dub! `pctf{center_for_the_arts_concert_hall}` worked! Unfortunate that I wasted an attempt…

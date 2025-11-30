@@ -12,7 +12,7 @@ I participated with my club team tjcsc in Haix-la-Chapelle 2025, and we got firs
 
 **Challenge:** PDFBill  
 **Category:** Misc  
-**Flag:** ``haix{pdf_Is_w31Rd_AeFE42EdFab6C}``
+**Flag:** `haix{pdf_Is_w31Rd_AeFE42EdFab6C}`
 
 ---
 
@@ -42,9 +42,9 @@ In order to gain more information about the specific enforcement of the 100€ c
 
 - `GET /balance` gives me `{"balance":10}` on a fresh instance.
 - `POST /upload` with `Content-Type: application/pdf` and the provided form returns `{"uuid": "<...>"}`.
-- `POST /secretary` with `{ "uuid": "<...>" }` returns `{"money": <number>}` or an error.
-- `POST /credit` with `{ "uuid": "<...>" }` finalizes the claim, and errors if the secretary hasn't checked. 
-- `POST /buy` with `{ "voucher":"small"|"large"|"flag" }` buys if balance allows. 
+- `POST /secretary` with `{"uuid": "<...>"}` returns `{"money": <number>}` or an error.
+- `POST /credit` with `{"uuid": "<...>"}` finalizes the claim, and errors if the secretary hasn't checked. 
+- `POST /buy` with `{"voucher":"small"|"large"|"flag"}` buys if balance allows. 
 
 I tested how it worked manually with the stock form:
 1. Upload to get the UUID.
@@ -75,7 +75,7 @@ I tested how it worked manually with the stock form:
 ```
 
 Then I intentionally trip the limit by pushing balance over 100 €:
-- secretary starts replying: `{"message":"Limit reached!","workflowMessage":"Please update to ... more than 100€. "}`
+- secretary starts replying: `{"message":"Limit reached!","workflowMessage":"Please update to ... more than 100€."}`
 
 ```
     curl -k -X POST -H 'Content-Type: application/json' \
@@ -426,4 +426,4 @@ So, after reaching 1010€, I was ready to buy the expensive "premium" voucher. 
 
 ![](./1.png)
 
-Nice! That was a fun and rewarding challenge! The flag as shown is ``haix{pdf_Is_w31Rd_AeFE42EdFab6C}``.
+Nice! That was a fun and rewarding challenge! The flag as shown is `haix{pdf_Is_w31Rd_AeFE42EdFab6C}`.
