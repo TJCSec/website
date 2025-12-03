@@ -2,7 +2,7 @@
 title: "LakeCTF 2025 - Attack of the Clones (Crypto)"
 date: 2025-11-28
 slug: /writeups/lakectf-2025-attack-of-the-clones/
-excerpt: Crypto walkthrough for the Attack of the Clones
+excerpt: Crypto walkthrough for Attack of the Clones
 author: Ansh Agrawal
 ---
 
