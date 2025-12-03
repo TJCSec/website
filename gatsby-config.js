@@ -30,6 +30,7 @@ module.exports = {
               ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
             },
           },
+          'gatsby-remark-katex',
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
