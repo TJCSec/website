@@ -1,3 +1,6 @@
+const remarkMath = require('remark-math').default
+const rehypeKatex = require('rehype-katex').default
+
 module.exports = {
   plugins: [
     'gatsby-plugin-image',
@@ -9,6 +12,10 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
+        mdxOptions: {
+          remarkPlugins: [[remarkMath, { singleDollarTextMath: true }]],
+          rehypePlugins: [rehypeKatex],
+        },
         gatsbyRemarkPlugins: [
           'gatsby-remark-smartypants',
           {
@@ -30,7 +37,6 @@ module.exports = {
               ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
             },
           },
-          'gatsby-remark-katex',
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
