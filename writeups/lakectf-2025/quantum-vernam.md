@@ -35,7 +35,7 @@ The vulnerability relies on a fundamental concept of Linear Algebra called **Eig
 
 In this challenge, the encryption process applies the matrix **X** conditionally.
 *   If Key = 0: State stays the same.
-*   If Key = 1: State becomes $X \times \text{State}$.
+*   If Key = 1: State becomes X × State.
 
 Normally, applying a random matrix $X$ would rotate the qubit to a new state, scrambling the information if you don't know if $X$ was applied or not.
 
