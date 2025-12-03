@@ -1,172 +1,135 @@
 ---
-title: "LakeCTF 2025 - Revenge of the Sith (Crypto)"
+title: "LakeCTF 2025 - The Phantom Menace (Crypto)"
 date: 2025-11-28
-slug: /writeups/lakectf-2025-revenge-of-the-sith/
-excerpt: Crypto walkthrough for Revenge of the Sith
+slug: /writeups/lakectf-2025-the-phantom-menace/
+excerpt: Crypto walkthrough for The Phantom Menace
 author: Ansh Agrawal
 ---
 
-**Challenge:** Revenge of the Sith  
+**Challenge:** The Phantom Menace  
 **Category:** Crypto  
-**Flag:** `EPFL{N07_0N1Y_7H3_m3n_BU7_7h3_w0M3N_4ND_CHILDR3N_7o0_T50nanWvW1}`
+**Flag:** `EPFL{y0u_w3r3_r1ght_m4a5t3r_th3_n3g0t14t410n5_w3r3_5h0rt_ot3zhe}`
 
 ---
 
 ## My initial read / first impressions
 
-We are provided with `chall.py` and `keys.json`. The Python script implements a cryptographic system that looks exactly like modern post-quantum algorithms (specifically Module-LWE, the basis for Kyber). It generates keys, encrypts a secret flag, and saves the results to a file.
+We are provided with `chall.py` and a JSON file containing keys. At first glance, this looks like a serious "Learning With Errors" (LWE) challenge. The code implements a cryptosystem very similar to **Kyber**, which is the current standard for post-quantum cryptography.
 
-However, the first thing that caught my eye was the configuration at the top of the script:
+I checked the parameters immediately, hoping for a "Weak Parameter" attack (like a small `n` or modulus `q`):
 
 ```python
 # Parameters
-q = 251
-n = 16
-k = 2
+q = 3329
+n = 512
+k = 4
 ```
 
-In real-world cryptography, the number `n` (the number of coefficients in our equations) is usually 256 or larger, and `q` (the modulus) is usually in the thousands.
+These are essentially the parameters for **Kyber-512**. In lattice cryptography, $n=512$ with a module rank of 4 creates a lattice dimension over 2000. This is massive. You cannot solve this using lattice reduction algorithms like LLL or BKZ; the search space is astronomically too large.
 
-Here, `n` is only 16. This is incredibly small.
-
-The encryption works by hiding a secret key inside a mathematical equation and adding some random "noise" so you can't solve it with standard algebra. Usually, the sheer size of the numbers makes it impossible to find the secret despite the noise. But with `n=16`, the "search space" is tiny. This suggests we can simply force the math to reveal the secret using lattice attacks.
+I thought I might have to look for a flaw in the random number generator or the polynomial multiplication logic, but the math looked standard.
 
 ## The Vulnerability
 
-The vulnerability here is **Weak Parameters**.
+The vulnerability wasn't in the math—it was in the file handling.
 
-The encryption relies on the "Learning With Errors" (LWE) problem. The idea is that if I give you a matrix `A` and a result `t`, where `t = A * secret + noise`, you can't find the `secret` because the `noise` messes up the calculation.
+The challenge is named **"The Phantom Menace"**. In the movie, the menace (the trade federation/Sith threat) is largely a manipulation. Here, the "menace" of solving a post-quantum lattice problem is also fake.
 
-However, this problem is geometric. You can imagine the `secret` as a specific point in a multi-dimensional grid (a lattice). The `noise` moves the point slightly off the grid intersection. If the dimensions are high enough (like 256 dimensions), finding the original grid point is impossible.
+I looked at the bottom of `chall.py` where the keys are saved:
 
-But since we only have 16 dimensions (technically 32 total variables), the grid is small enough that we can use a special algorithm called **LLL** (Lenstra–Lenstra–Lovász). LLL is designed to find the "shortest vector" in a lattice. Since our secret key and the noise are made of very small numbers (mostly -1, 0, and 1), the vector containing our secret key is geometrically the "shortest" thing in the entire grid.
+```python
+keys = {
+    "s":s.tolist(),
+    "u":u.tolist(),
+    "v":v.tolist()
+}
+```
+
+The script explicitly saves `s` to the public JSON file. In LWE cryptography, `s` is the **Private Key**.
+
+The security of this entire system relies on `s` being secret. If you have `s`, you don't need to break any encryption; you just perform the standard decryption process. The "menace" of the complex math was a phantom; we were given the key to the front door.
 
 ## The Logic
 
-### 1. The Setup
-We need to translate the challenge's polynomial math into a linear grid that the LLL algorithm can understand.
+Since we have the private key, we just need to implement the decryption function.
 
-The challenge uses polynomials (lists of numbers), but LLL works on matrices (grids of numbers). We can convert the polynomials into matrices by following a simple rule: when you multiply by a polynomial, it's like shifting the numbers in a list. If a number falls off the end, it wraps around to the beginning with a flipped sign.
+### 1. The Decryption Equation
+The ciphertext consists of two parts: a vector `u` and a vector `v`.
+*   **u** is a random value masked by the public key.
+*   **v** is the message masked by the public key.
 
-### 2. Building the Lattice
-We construct a large matrix (the lattice basis) that represents the equation `A * secret - t = -noise`.
+To get the message back, we calculate:
+**Result = v - (s • u)**
 
-The matrix includes:
-1.  The public key matrix `A`.
-2.  The modulus `q` (so the math wraps around 251 correctly).
-3.  The public result vector `t`.
+In simple terms: The vector `u` contains a specific random shift. Because we know the private key `s`, we can calculate exactly how much `u` was shifted and subtract that shift from `v`.
 
-We are essentially asking the computer: "Find me a set of small numbers that, when multiplied by `A`, gets extremely close to `t`."
+### 2. Removing Noise
+LWE is "noisy" encryption. The result of the calculation above won't be the exact message; it will be the message plus some small errors.
+*   If the result is close to 0, the message bit is **0**.
+*   If the result is close to half the modulus (around 1665), the message bit is **1**.
 
-### 3. Running LLL
-We feed this matrix into the LLL algorithm. It will return a new, "reduced" matrix containing the shortest vectors it could find.
-
-One of these short vectors will essentially look like this: `[secret_key, error, 1]`.
-
-Because the challenge uses such small parameters, LLL will find this almost instantly. We can just read the secret key directly out of the first row of the result.
-
-### 4. Decrypting
-Once we have the secret key, the cryptography is broken. We take the encrypted messages provided in `keys.json` and reverse the process:
-1.  Calculate `shared_secret = public_ciphertext * secret_key`.
-2.  Subtract this from the second part of the ciphertext.
-3.  The result will be the message plus a tiny bit of noise. We round the numbers to the nearest valid value (0 or 1) to get the flag.
+We just round the numbers to the nearest valid bit to recover the plaintext.
 
 ## Solution Script
 
-I used **SageMath** to solve this. Sage is perfect for CTFs like this because it handles the lattice reduction (LLL) and the polynomial math automatically.
+I wrote a Python script to load the keys and perform the decryption math. I re-implemented the polynomial multiplication logic from the challenge file to ensure compatibility.
 
 ```python
 import json
+import numpy as np
 
-with open("keys.json", "r") as f:
-    data = json.load(f)
+q = 3329
+n = 512
 
-q = 251
-n = 16
-A_raw = data["A"]
-t_raw = data["t"]
-u_raw = data["u"]
-v_raw = data["v"]
+def solve():
+    try:
+        with open('keys.json', 'r') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        try:
+            with open('key.json', 'r') as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            return
 
-def make_cyclic_matrix(poly_list):
-    mat = []
-    current = poly_list[:]
-    for _ in range(n):
-        mat.append(current[:])
-        last = current.pop()
-        current.insert(0, (-last) % q)
-    return matrix(ZZ, mat).transpose()
+    s = np.array(data['s'])
+    u = np.array(data['u'])
+    v = np.array(data['v'])
 
-M00 = make_cyclic_matrix(A_raw[0][0])
-M01 = make_cyclic_matrix(A_raw[0][1])
-M10 = make_cyclic_matrix(A_raw[1][0])
-M11 = make_cyclic_matrix(A_raw[1][1])
-A_mat = block_matrix([[M00, M01], [M10, M11]])
+    def _poly_mul(a, b):
+        res = np.convolve(a, b)
+        for i in range(n, len(res)):
+            res[i - n] = (res[i - n] - res[i]) % q
+        return res[:n] % q
 
-t_vec = vector(ZZ, t_raw[0] + t_raw[1])
+    def _vec_poly_mul(v0, v1):
+        return sum((_poly_mul(a, b) for a, b in zip(v0, v1))) % q
 
-dim = 32
-identity = identity_matrix(ZZ, dim)
-zero_mat = matrix(ZZ, dim, dim, 0)
+    s_dot_u = _vec_poly_mul(s, u)
+    diff = (v - s_dot_u) % q
 
-lattice = block_matrix([
-    [identity,                A_mat.transpose(),       matrix(ZZ, dim, 1, 0)],
-    [zero_mat,                identity * q,            matrix(ZZ, dim, 1, 0)],
-    [matrix(ZZ, 1, dim, 0),   matrix(ZZ, -t_vec),      matrix(ZZ, 1, 1, 1)]
-])
-
-reduced_lattice = lattice.LLL()
-
-secret_key = None
-
-for row in reduced_lattice:
-    if row[-1] == 1:
-        candidate = row[:dim]
-        if all(abs(x) <= 1 for x in candidate):
-            secret_key = candidate
-            break
-    elif row[-1] == -1:
-        candidate = -row[:dim]
-        if all(abs(x) <= 1 for x in candidate):
-            secret_key = candidate
-            break
-
-s_poly = [list(secret_key[:16]), list(secret_key[16:])]
-
-def poly_mul_mod(p1, p2):
-    res = [0] * (2 * n)
-    for i in range(n):
-        for j in range(n):
-            res[i+j] += p1[i] * p2[j]
-    final = [0] * n
-    for i in range(len(res)):
-        if i < n:
-            final[i] = (final[i] + res[i])
-        else:
-            final[i-n] = (final[i-n] - res[i])
-    return [x % q for x in final]
-
-decrypted_bits = []
-
-for u, v in zip(u_raw, v_raw):
-    dot_product = [0]*n
-    for i in range(2):
-        term = poly_mul_mod(s_poly[i], u[i])
-        dot_product = [(x + y) % q for x, y in zip(dot_product, term)]
-    diff = [(x - y) % q for x, y in zip(v, dot_product)]
+    scale = (q + 1) // 2
+    bits = []
     for val in diff:
-        dist_to_1 = abs(val - 125)
-        dist_to_0 = min(val, 251 - val)
-        decrypted_bits.append(1 if dist_to_1 < dist_to_0 else 0)
+        dist_0 = min(val, q - val)
+        dist_1 = min(abs(val - scale), q - abs(val - scale))
+        bits.append(0 if dist_0 < dist_1 else 1)
 
-chars = []
-for i in range(0, len(decrypted_bits), 8):
-    byte_bits = decrypted_bits[i:i+8]
-    if len(byte_bits) < 8:
-        break
-    chars.append(chr(int("".join(map(str, byte_bits)), 2)))
+    chars = []
+    for i in range(0, len(bits), 8):
+        byte_bits = bits[i:i+8]
+        if len(byte_bits) < 8:
+            break
+        byte_val = int("".join(map(str, byte_bits)), 2)
+        chars.append(chr(byte_val))
 
-print("Flag:", "".join(chars))
+    flag = "".join(chars)
+    print(flag)
+
+if __name__ == "__main__":
+    solve()
+
 ```
 
-Running this script breaks the small lattice instantly and prints out the flag.
+
+Running the script instantly decrypts the data, proving that sometimes the best way to break a crypto challenge is to check if the author accidentally gave you the key!
