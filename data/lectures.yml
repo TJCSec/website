@@ -165,7 +165,7 @@
   link: https://docs.google.com/presentation/d/1AbaumexmP3kIvfrSNaWQCsgE4S7DhHQs7cky4L20FZk/edit?usp=sharing
   advanced: false
 
-- title: SSRF pt. 2
+- title: SSRF 2
   date: 2025-12-19
   body:
     Server-Side Request Forgery with more advanced challenges
