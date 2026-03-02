@@ -1,7 +1,12 @@
-const remarkMath = require('remark-math').default
-const rehypeKatex = require('rehype-katex').default
+import path from 'path'
+import { fileURLToPath } from 'url'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)  
+
+export default {
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-theme-ui',
@@ -53,21 +58,21 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, 'src/images'),
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/data/`,
+        path: path.join(__dirname, 'data'),
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'writeups',
-        path: `${__dirname}/writeups/`,
+        path: path.join(__dirname, 'writeups'),
       },
     },
   ],

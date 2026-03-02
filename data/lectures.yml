@@ -169,9 +169,71 @@
   date: 2025-12-19
   body:
     Server-Side Request Forgery with more advanced challenges
-  level: 2
+  level: 3
   guest: false
   link: https://docs.google.com/presentation/d/1AbaumexmP3kIvfrSNaWQCsgE4S7DhHQs7cky4L20FZk/edit?usp=sharing
   advanced: false
 
+- title: Social Engineering
+  date: 2026-01-07
+  body:
+    Guest Lecture by Brian Ho (TJCSC President 2024-2025)
+  level: 1
+  guest: true
+  link: https://docs.google.com/presentation/d/1LBiJbBYKdokma8lWFr4zTtr4y9jvcpyzUTqjfni2AbA/edit?usp=sharing
+  advanced: false
+
+- title: Jailbreak
+  date: 2026-01-14
+  body:
+    Work day with two new jailbreak challenges
+  level: 3
+  guest: false
+  link: 
+  advanced: false
+
+- title: Polyglot Files
+  date: 2026-01-21
+  body:
+    Files that can be interpreted as two different types
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1ukGT8GX0kK-wixQj9JbKjRo-_IAaDq7O_znEiCIRb84/edit?usp=sharing
+  advanced: false
+
+- title: Password Cracking
+  date: 2026-02-13
+  body:
+    Techniques and tools you can use to crack passwords
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1TAz_j_z8SaWzfPJ47OkmDOb-63OyZhroxZ8gscpJZBQ/edit?usp=drivesdk
+  advanced: false
+
+- title: SQL Injection
+  date: 2026-02-20
+  body:
+    Injecting SQL into websites to cause malicious behavior
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1j_csE1aVVhYpvk5iDrwr9PuAUfJih2Sa0FezJOExyRY/edit?usp=sharing
+  advanced: false
+
+- title: Non-geo OSINT
+  date: 2026-02-25
+  body:
+    The better OSINT
+  level: 2
+  guest: true
+  link: https://docs.google.com/presentation/d/15gVFL5p-KJOm5mlUiBuoN6fuijRAZz2DwtsGH4jdT44/edit?slide=id.p#slide=id.p
+  advanced: false
+
+- title: LWE
+  date: 2026-02-27
+  body:
+    Post Quantum Cryptography
+  level: 3
+  guest: false
+  link: https://docs.google.com/presentation/d/1SogdJRTjAo7RReOQtQDa4KdOHoz95jl5QIq6m7Pjxq0/edit?usp=drivesdk
+  advanced: false
 
