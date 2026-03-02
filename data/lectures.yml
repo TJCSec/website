@@ -207,7 +207,7 @@
     Techniques and tools you can use to crack passwords
   level: 2
   guest: false
-  link: https://docs.google.com/presentation/d/1TAz_j_z8SaWzfPJ47OkmDOb-63OyZhroxZ8gscpJZBQ/edit?usp=drivesdk
+  link: https://docs.google.com/presentation/d/1TAz_j_z8SaWzfPJ47OkmDOb-63OyZhroxZ8gscpJZBQ/edit?usp=sharing
   advanced: false
 
 - title: SQL Injection
@@ -225,7 +225,7 @@
     The better OSINT
   level: 2
   guest: true
-  link: https://docs.google.com/presentation/d/15gVFL5p-KJOm5mlUiBuoN6fuijRAZz2DwtsGH4jdT44/edit?slide=id.p#slide=id.p
+  link: https://docs.google.com/presentation/d/15gVFL5p-KJOm5mlUiBuoN6fuijRAZz2DwtsGH4jdT44/edit?usp=sharing
   advanced: false
 
 - title: LWE
@@ -234,6 +234,6 @@
     Post Quantum Cryptography
   level: 3
   guest: false
-  link: https://docs.google.com/presentation/d/1SogdJRTjAo7RReOQtQDa4KdOHoz95jl5QIq6m7Pjxq0/edit?usp=drivesdk
+  link: https://docs.google.com/presentation/d/1SogdJRTjAo7RReOQtQDa4KdOHoz95jl5QIq6m7Pjxq0/edit?usp=sharing
   advanced: false
 
