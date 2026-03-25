@@ -42,11 +42,6 @@ const Footer = (props) => (
         Icon={IoFlagSharp}
         title='TJCSC CTF'
       />
-      <FooterIcon
-        href='https://tjcsec.club/discord'
-        Icon={IoLogoDiscord}
-        title='TJCSC Discord'
-      />
     </Grid>
   </Box>
 )
