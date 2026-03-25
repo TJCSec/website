@@ -237,3 +237,39 @@
   link: https://docs.google.com/presentation/d/1SogdJRTjAo7RReOQtQDa4KdOHoz95jl5QIq6m7Pjxq0/edit?usp=sharing
   advanced: false
 
+- title: LFI
+  date: 2026-03-04
+  body:
+    Local File Inclusion
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/15qzMd5ThgPI2FqAF_OiKqejfs2Oq985uTTLx5N5SJBU/edit?usp=sharing
+  advanced: false
+
+- title: Stream Ciphers
+  date: 2026-03-06
+  body:
+    Encryption using pseudorandom keystreams
+  level: 3
+  guest: false
+  link: https://docs.google.com/presentation/d/1E86We4JB6gdTcqThYgR7_fb50XW5EvVprJAkvTSyu1A/edit?usp=sharing
+  advanced: false
+
+- title: Deserialization
+  date: 2026-03-18
+  body:
+    Guest Lecture by Zain Marshall
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1VDvq7a0LXLmLX-WmkMlUOP_FQlxIXi_H9xd7gK4eUvc/edit?usp=sharing
+  advanced: false
+
+
+- title: Z3
+  date: 2026-03-18
+  body:
+    Solving complex equations for reverse engineering
+  level: 2
+  guest: false
+  link: https://www.google.com/
+  advanced: false
