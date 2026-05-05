@@ -271,5 +271,32 @@
     Solving complex equations for reverse engineering
   level: 2
   guest: false
+  link: https://docs.google.com/presentation/d/1Yr00ebll5cUNUNzVTtB4Y2OC-0Q24hc-xLEPucwhWNA/edit?usp=sharing
+  advanced: false
+
+- title: Audio Forensics
+  date: 2026-04-08
+  body:
+    Analyzing digital audio to find hidden information
+  level: 3
+  guest: false
+  link: https://docs.google.com/presentation/d/1Sut1gmOG0V1B6RrDF9MAFpkYFXdqi3JMQ4rblXOet80/edit?usp=sharing
+  advanced: false
+
+- title: AI Security
+  date: 2026-04-29
+  body:
+    Solving complex equations for reverse engineering
+  level: 2
+  guest: false
   link: https://www.google.com/
+  advanced: false
+
+- title: Return oriented programming
+  date: 2026-05-05
+  body:
+    Using ROP chains to forge complex attacks
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1zyNCuXuotPI8sjYkOdb8JMfictCo9Qr43WdKQ2txb2I/edit?usp=sharing
   advanced: false
