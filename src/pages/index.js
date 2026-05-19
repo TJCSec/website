@@ -101,12 +101,12 @@ const Index = ({ data }) => {
           <Box>
             <GatsbyImage
               image={hero}
-              alt='TJCSC at Lockheed Martin CYBERQUEST 2019'
+              alt='TJCSC at Lockheed Martin CYBERQUEST 2026'
               sx={{
                 borderRadius: 4,
                 mb: 1,
               }} />
-            TJCSC at Lockheed Martin CYBERQUEST 2019
+            TJCSC at Lockheed Martin CYBERQUEST 2026
           </Box>
         </Flex>
       </Flex>
@@ -199,7 +199,7 @@ export const query = graphql`query Home {
       description
     }
   }
-  hero: file(relativePath: {eq: "cyberquest.png"}) {
+  hero: file(relativePath: {eq: "cyberquest.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
     }
