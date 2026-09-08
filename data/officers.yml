@@ -1,8 +1,8 @@
-- name: Nathaniel Kerr
-  avatar: ./avatars/nathaniel_csec.jpg
-  position: President, Infra Lead
-- name: Grace Bai
-  avatar: ./avatars/grace_csec.jpg
+- name: Andrew Liu
+  avatar: ./avatars/andrew_csec.png
+  position: President
+- name: Ansh Agrawal
+  avatar: ./avatars/ansh_csec.jpg
   position: Vice President
 - name: Emma Wu
   avatar: ./avatars/emma_csec.jpg
@@ -19,13 +19,12 @@
 - name: Agastya Sondhi
   avatar: ./avatars/agastya_csec.jpg
   position: Lecturer
-- name: Ansh Agrawal
-  avatar: ./avatars/ansh_csec.png
-  position: Lecturer
-- name: Andrew Liu
-  avatar: ./avatars/andrew_csec.png
-  position: Lecturer
 - name: William Chapin
   avatar: ./avatars/william_csec.jpg
   position: Lecturer
-
+- name: Ethan You
+  avatar: ./avatars/ethan_csec.jpg
+  position: Lecturer
+- name: Omar Aziza
+  avatar: ./avatars/omar_csec.jpg
+  position: Lecturer
