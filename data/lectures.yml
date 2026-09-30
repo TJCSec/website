@@ -16,3 +16,11 @@
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1mnLCVG2VM5TNPdvqWxLl3joOKZ6H5B76Or10IQEp-d8/edit
+
+- title: Intro to Python
+  date: 2025-09-30
+  body:
+    Introduction to Python, a very common language in csec
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1dGDB_GozphVliYbZw8KQJ5AwI4WfHcq-EBnCudqVSnw/edit
