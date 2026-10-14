@@ -24,3 +24,21 @@
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1dGDB_GozphVliYbZw8KQJ5AwI4WfHcq-EBnCudqVSnw/edit
+
+- title: Intro to Web Exploitation
+  date: 2026-10-07
+  body:
+    Introduction to web exploitation, covering how websites work and common
+    vulnerabilities seen in CTFs
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1X7DfEMI6M-89E8QcsvfXepqdgpYgYZYFRJ3guOKTJlU/edit
+
+- title: Intro to Binary Exploitation
+  date: 2026-10-14
+  body:
+    Introduction to binary exploitation (pwn), exploiting memory bugs in
+    compiled programs
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1xr5ei3h3IFZ6KGLdtdDCnEReRiXQeC7SR5tgjys76EQ/edit
