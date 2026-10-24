@@ -42,3 +42,14 @@
   level: 1
   guest: false
   link: https://docs.google.com/presentation/d/1xr5ei3h3IFZ6KGLdtdDCnEReRiXQeC7SR5tgjys76EQ/edit
+
+  
+- title: Intro to Cryptography
+  date: 2026-10-21
+  body:
+    Introduction to cryptography, including number systems and modular arithmetic
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1aGQZ47Eist_9fYSl0AOYpTDlS2_5_RrZ1km2ljUkk64/edit
+
+
