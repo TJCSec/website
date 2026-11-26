@@ -53,3 +53,38 @@
   link: https://docs.google.com/presentation/d/1aGQZ47Eist_9fYSl0AOYpTDlS2_5_RrZ1km2ljUkk64/edit
 
 
+- title: Intro to Forensics
+  date: 2026-10-28
+  body:
+    Introduction to forensics, including steganography, PCAP analysis, and disk imaging
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/1fWv3PNz71IdwPe2g1mq3loTxiRCHun2-ZrR7E7WSFj4/edit
+
+- title: Intro to Reverse Engineering
+  date: 2026-11-10
+  body:
+    Introduction to decompilation, debugging, and low level programming
+  level: 1
+  guest: false
+  link: https://docs.google.com/presentation/d/11w-5xwh4tJTIcHTkvQmiUxjnHe9yKZsXBk5HO4I184Y/edit
+
+
+- title: RSA
+  date: 2026-11-18
+  body:
+    Covers RSA, also known as Rivest–Shamir–Adleman, one of the most widely used cryptographic systems
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/125H25RWG9i-Y5ejfxomfxSw167E3A-9QjzlsQtzMBHo/edit
+
+
+- title: Image Forensics
+  date: 2026-11-23
+  body:
+    Overview of applying forensics to images, such as analyzing magic bytes, metadata analysis, and steganography
+  level: 2
+  guest: false
+  link: https://docs.google.com/presentation/d/1RduVqSFPbeDa5ocDxmGnq0sC2N_TwTKBn2PAnGopePQ/edit
+
+
